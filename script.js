@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const transitionImage = document.getElementById('transition-image');
     const transitionTitle = document.getElementById('transition-title');
 
-    // Mapeo de nombres de pestañas para el título y la imagen SVG de la transición
     const tabTransitionData = {
         'inicio': {
             title: 'Inicio',
@@ -62,13 +61,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Clases para los elementos animados en el fondo
+    // Iniciar el canvas y las partículas solo si existe el elemento
     const canvas = document.getElementById('data-visualization-canvas');
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
     let width, height;
     const elements = [];
+
+    // Objeto para almacenar la posición del mouse
+    let mouse = { x: null, y: null };
+
+    // Escuchador de evento para la posición del mouse
+    window.addEventListener('mousemove', (event) => {
+        mouse.x = event.x;
+        mouse.y = event.y;
+    });
 
     // Clase base para todos los elementos animados
     class VisualElement {
@@ -98,6 +106,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         update() {
+            // Lógica de repulsión del mouse
+            const dx = this.x - mouse.x;
+            const dy = this.y - mouse.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const repelRadius = 150;
+
+            if (distance < repelRadius) {
+                const force = 1 - (distance / repelRadius);
+                this.x += dx / distance * force;
+                this.y += dy / distance * force;
+            }
+
             this.x += this.speedX;
             this.y += this.speedY;
             if (this.alpha < this.maxAlpha) {
@@ -130,6 +150,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         update() {
+            // Lógica de repulsión del mouse
+            const dx = this.x - mouse.x;
+            const dy = this.y - mouse.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const repelRadius = 150;
+
+            if (distance < repelRadius) {
+                const force = 1 - (distance / repelRadius);
+                this.x += dx / distance * force;
+                this.y += dy / distance * force;
+            }
+
             this.x += Math.cos(this.angle) * this.speed;
             this.y += Math.sin(this.angle) * this.speed;
             if (this.alpha < this.maxAlpha) {
@@ -163,6 +195,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         update() {
+            // Lógica de repulsión del mouse
+            const dx = this.x - mouse.x;
+            const dy = this.y - mouse.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const repelRadius = 150;
+
+            if (distance < repelRadius) {
+                const force = 1 - (distance / repelRadius);
+                this.x += dx / distance * force;
+                this.y += dy / distance * force;
+            }
+
             this.y += this.speedY;
             if (this.alpha < this.maxAlpha) {
                 this.alpha += this.alphaSpeed;
@@ -192,6 +236,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         update() {
+            // Lógica de repulsión del mouse
+            const dx = this.x - mouse.x;
+            const dy = this.y - mouse.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const repelRadius = 150;
+
+            if (distance < repelRadius) {
+                const force = 1 - (distance / repelRadius);
+                this.x += dx / distance * force;
+                this.y += dy / distance * force;
+            }
+
             this.x += Math.cos(this.angle) * this.speed;
             this.y += Math.sin(this.angle) * this.speed;
             this.angle += this.rotationSpeed;
@@ -223,7 +279,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Función de inicialización
     function init() {
         width = window.innerWidth;
         height = window.innerHeight;
@@ -235,7 +290,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Función para crear un elemento aleatorio
     function createRandomElement() {
         const type = Math.random();
         if (type < 0.25) {
@@ -249,11 +303,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Función principal de animación
     function animate() {
         ctx.clearRect(0, 0, width, height);
 
-        // Fondo con un gradiente muy sutil
         const gradient = ctx.createRadialGradient(width / 2, height / 2, 0, width / 2, height / 2, Math.max(width, height));
         gradient.addColorStop(0, 'rgba(17, 24, 39, 0.1)');
         gradient.addColorStop(1, 'rgba(17, 24, 39, 0.9)');
