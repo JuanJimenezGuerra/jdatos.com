@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ctx = canvas.getContext('2d');
     let width, height;
     const elements = [];
+    const numElements = 50;
 
     let mouse = { x: null, y: null };
 
@@ -87,33 +88,40 @@ document.addEventListener('DOMContentLoaded', () => {
         draw() {}
     }
 
-    class DataNode extends VisualElement {
+    class DataFlow extends VisualElement {
         constructor() {
             super(Math.random() * width, Math.random() * height);
-            this.size = Math.random() * 2 + 1;
-            this.speedX = (Math.random() - 0.5) * 0.5;
-            this.speedY = (Math.random() - 0.5) * 0.5;
-            this.maxAlpha = Math.random() * 0.5 + 0.1;
-            this.alphaSpeed = 0.01;
+            this.vx = (Math.random() - 0.5) * 0.2;
+            this.vy = (Math.random() - 0.5) * 0.2;
+            this.size = Math.random() * 3 + 1;
+            this.maxAlpha = Math.random() * 0.4 + 0.1;
+            this.alphaSpeed = 0.005;
+            this.connectedTo = null;
         }
 
         update() {
             const dx = this.x - mouse.x;
             const dy = this.y - mouse.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
-            const repelRadius = 150;
+            const repelRadius = 120;
+
             if (distance < repelRadius) {
                 const force = 1 - (distance / repelRadius);
-                this.x += dx / distance * force;
-                this.y += dy / distance * force;
+                this.x += dx / distance * force * 0.3;
+                this.y += dy / distance * force * 0.3;
             }
-            this.x += this.speedX;
-            this.y += this.speedY;
+
+            this.x += this.vx;
+            this.y += this.vy;
+
             if (this.alpha < this.maxAlpha) {
                 this.alpha += this.alphaSpeed;
             }
-            if (this.x < -10 || this.x > width + 10 || this.y < -10 || this.y > height + 10) {
-                return true;
+
+            if (this.x < -50 || this.x > width + 50 || this.y < -50 || this.y > height + 50) {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.alpha = 0;
             }
             return false;
         }
@@ -126,109 +134,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    class Matrix extends VisualElement {
-        constructor() {
-            super(Math.random() * width, Math.random() * height);
-            this.size = Math.random() * 20 + 10;
-            this.rotation = Math.random() * Math.PI * 2;
-            this.speed = Math.random() * 0.3 + 0.1;
-            this.maxAlpha = Math.random() * 0.6 + 0.2;
-            this.alphaSpeed = 0.01;
-        }
-
-        update() {
-            const dx = this.x - mouse.x;
-            const dy = this.y - mouse.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            const repelRadius = 150;
-            if (distance < repelRadius) {
-                const force = 1 - (distance / repelRadius);
-                this.x += dx / distance * force;
-                this.y += dy / distance * force;
-            }
-            this.x += Math.cos(this.rotation) * this.speed;
-            this.y += Math.sin(this.rotation) * this.speed;
-            this.rotation += 0.005;
-            if (this.alpha < this.maxAlpha) {
-                this.alpha += this.alphaSpeed;
-            }
-            if (this.x < -this.size || this.x > width + this.size || this.y < -this.size || this.y > height + this.size) {
-                return true;
-            }
-            return false;
-        }
-
-        draw() {
-            ctx.save();
-            ctx.translate(this.x, this.y);
-            ctx.rotate(this.rotation);
-            ctx.fillStyle = `rgba(52, 211, 153, ${this.alpha})`;
-            ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
-            ctx.restore();
-        }
-    }
-
-    class NeuralNode extends VisualElement {
-        constructor() {
-            super(Math.random() * width, Math.random() * height);
-            this.radius = Math.random() * 4 + 2;
-            this.speed = Math.random() * 0.8 + 0.2;
-            this.angle = Math.random() * Math.PI * 2;
-            this.maxAlpha = Math.random() * 0.7 + 0.3;
-            this.alphaSpeed = 0.01;
-        }
-
-        update() {
-            const dx = this.x - mouse.x;
-            const dy = this.y - mouse.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            const repelRadius = 150;
-            if (distance < repelRadius) {
-                const force = 1 - (distance / repelRadius);
-                this.x += dx / distance * force;
-                this.y += dy / distance * force;
-            }
-            this.x += Math.cos(this.angle) * this.speed;
-            this.y += Math.sin(this.angle) * this.speed;
-            if (this.alpha < this.maxAlpha) {
-                this.alpha += this.alphaSpeed;
-            }
-            if (this.x < -this.radius || this.x > width + this.radius || this.y < -this.radius || this.y > height + this.radius) {
-                return true;
-            }
-            return false;
-        }
-
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(52, 211, 153, ${this.alpha})`;
-            ctx.fill();
-        }
-    }
-    
     function init() {
         width = window.innerWidth;
         height = window.innerHeight;
         canvas.width = width;
         canvas.height = height;
         elements.length = 0;
-        for (let i = 0; i < 70; i++) {
-            elements.push(createRandomElement());
+        for (let i = 0; i < numElements; i++) {
+            elements.push(new DataFlow());
         }
     }
 
-    function createRandomElement() {
-        const type = Math.random();
-        if (type < 0.4) {
-            return new NeuralNode();
-        } else if (type < 0.7) {
-            return new Matrix();
-        } else {
-            return new DataNode();
-        }
-    }
-    
     function animate() {
         ctx.clearRect(0, 0, width, height);
 
@@ -239,11 +155,25 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.fillRect(0, 0, width, height);
 
         for (let i = 0; i < elements.length; i++) {
-            const element = elements[i];
-            if (element.update()) {
-                elements[i] = createRandomElement();
+            const el1 = elements[i];
+            el1.update();
+            el1.draw();
+            for (let j = i + 1; j < elements.length; j++) {
+                const el2 = elements[j];
+                const dx = el1.x - el2.x;
+                const dy = el1.y - el2.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                const connectionDistance = 120;
+
+                if (distance < connectionDistance) {
+                    ctx.beginPath();
+                    ctx.moveTo(el1.x, el1.y);
+                    ctx.lineTo(el2.x, el2.y);
+                    ctx.strokeStyle = `rgba(52, 211, 153, ${Math.min(el1.alpha, el2.alpha) * 0.3})`;
+                    ctx.lineWidth = 0.3;
+                    ctx.stroke();
+                }
             }
-            element.draw();
         }
 
         requestAnimationFrame(animate);
