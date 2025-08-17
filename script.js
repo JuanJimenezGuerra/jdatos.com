@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'sobre-mi-propuesta': {
             title: 'Sobre mí',
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cG9seWxpbmUgc3Ryb2tlPSIjMzREMzk5IiBzdHJva2Utd2lkdGg9IjgiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgcG9pbnRzPSI2Mi41LDIyNSA5My44LDE3NSA5My44LDM1MCAxNTYuMywyMjUgMTg3LjUsMzA1IDI1MCwxMTIuNSAzMTIuNSwyNTAgMzc1LDE3NSA0NjguOCwyNTAgNDY4LjgsMTc1IDUwMCwzMjUiLz48Y2lyY2xlIGN4PSI2Mi41IiBjeT0iMjI1IiByPSIxMiIgZmlsbD0iIzM0RDM5OSIvPjxjaXJjbGUgY3g9IjkzLjgiIGN5PSIxNzUiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iOTMuOCIgY3k9IjM1MCIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIxNTYuMyIgY3k9IjIyNSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIxODcuNSIgY3k9IjMwNSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIyNTUiIGN5PSIxMTIuNSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIzMTIuNSIgY3k9IjI1MCIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIzNzUiIGN5PSIxNzUiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iNDY4LjgiIGN5PSIyNTAiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iNDY4LjgiIGN5PSIxNzUiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iNTAwIiBjeT0iMzI1IiByPSIxMiIgZmlsbD0iIzM0RDM5OSIvPjwvc3ZnPg==`
+            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cG9seWxpbmUgc3Ryb2tlPSIjMzREMzk5IiBzdHJva2Utd2lkdGg9IjgiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgcG9pbnRzPSI2Mi41LDIyNSA5My44LDE3NSA5My44LDM1MCAxNTYuMywyMjUgMTg3LjUsMzA1IDI1MCwxMTIuNSAzMTIuNSwyNTAgMzc1LDE3NSA0NjguOCwyNTAgNDY4LjgsMTc1IDUwMCwzMjUiLz48Y2lyY2xlIGN4PSI2Mi41IiBjeT0iMjI1IiByPSIxMiIgZmlsbD0iIzM0RDM5OSIvPjxjaXJjbGUgY3g9IjkzLjgiIGN5PSIxNzUiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iOTMuOCIgY3k9IjM1MCIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIxNTYuMyIgY3k9IjIyNSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIxODcuNSIgY3k9IjMwNSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIyNTUuMCIgY3k9IjExMi41IiByPSIxMiIgZmlsbD0iIzM0RDM5OSIvPjxjaXJjbGUgY3g9IjMxMi41IiBjeT0iMjUwIiByPSIxMiIgZmlsbD0iIzM0RDM5OSIvPjxjaXJjbGUgY3g9IjM3NSIgY3k9IjE3NSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSI0NjguOCIgY3k9IjI1MCIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSI0NjguOCIgY3k9IjE3NSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSI1MDAiIGN5PSIzMjUiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PC9zdmc+`
         },
         'servicios-habilidades': {
             title: 'Servicios y habilidades',
@@ -61,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Iniciar el canvas y las partículas solo si existe el elemento
     const canvas = document.getElementById('data-visualization-canvas');
     if (!canvas) return;
 
@@ -69,16 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let width, height;
     const elements = [];
 
-    // Objeto para almacenar la posición del mouse
     let mouse = { x: null, y: null };
 
-    // Escuchador de evento para la posición del mouse
     window.addEventListener('mousemove', (event) => {
         mouse.x = event.x;
         mouse.y = event.y;
     });
 
-    // Clase base para todos los elementos animados
     class VisualElement {
         constructor(x, y) {
             this.x = x;
@@ -86,15 +82,11 @@ document.addEventListener('DOMContentLoaded', () => {
             this.alpha = 0;
         }
         update() {
-            // Lógica de actualización a ser sobrescrita
             return false;
         }
-        draw() {
-            // Lógica de dibujo a ser sobrescrita
-        }
+        draw() {}
     }
 
-    // Clase para los nodos de datos (círculos)
     class DataNode extends VisualElement {
         constructor() {
             super(Math.random() * width, Math.random() * height);
@@ -106,24 +98,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         update() {
-            // Lógica de repulsión del mouse
             const dx = this.x - mouse.x;
             const dy = this.y - mouse.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
             const repelRadius = 150;
-
             if (distance < repelRadius) {
                 const force = 1 - (distance / repelRadius);
                 this.x += dx / distance * force;
                 this.y += dy / distance * force;
             }
-
             this.x += this.speedX;
             this.y += this.speedY;
             if (this.alpha < this.maxAlpha) {
                 this.alpha += this.alphaSpeed;
             }
-
             if (this.x < -10 || this.x > width + 10 || this.y < -10 || this.y > height + 10) {
                 return true;
             }
@@ -138,119 +126,70 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Clase para los gráficos de línea
-    class LineGraph extends VisualElement {
+    class Matrix extends VisualElement {
         constructor() {
             super(Math.random() * width, Math.random() * height);
-            this.length = Math.random() * 100 + 50;
-            this.angle = Math.random() * Math.PI * 2;
-            this.speed = 0.5;
+            this.size = Math.random() * 20 + 10;
+            this.rotation = Math.random() * Math.PI * 2;
+            this.speed = Math.random() * 0.3 + 0.1;
             this.maxAlpha = Math.random() * 0.6 + 0.2;
             this.alphaSpeed = 0.01;
         }
 
         update() {
-            // Lógica de repulsión del mouse
             const dx = this.x - mouse.x;
             const dy = this.y - mouse.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
             const repelRadius = 150;
-
             if (distance < repelRadius) {
                 const force = 1 - (distance / repelRadius);
                 this.x += dx / distance * force;
                 this.y += dy / distance * force;
             }
-
-            this.x += Math.cos(this.angle) * this.speed;
-            this.y += Math.sin(this.angle) * this.speed;
+            this.x += Math.cos(this.rotation) * this.speed;
+            this.y += Math.sin(this.rotation) * this.speed;
+            this.rotation += 0.005;
             if (this.alpha < this.maxAlpha) {
                 this.alpha += this.alphaSpeed;
             }
-            if (this.x < -this.length || this.x > width + this.length || this.y < -this.length || this.y > height + this.length) {
+            if (this.x < -this.size || this.x > width + this.size || this.y < -this.size || this.y > height + this.size) {
                 return true;
             }
             return false;
         }
 
         draw() {
-            ctx.beginPath();
-            ctx.moveTo(this.x, this.y);
-            ctx.lineTo(this.x + Math.cos(this.angle) * this.length, this.y + Math.sin(this.angle) * this.length);
-            ctx.strokeStyle = `rgba(52, 211, 153, ${this.alpha})`;
-            ctx.lineWidth = 2;
-            ctx.stroke();
+            ctx.save();
+            ctx.translate(this.x, this.y);
+            ctx.rotate(this.rotation);
+            ctx.fillStyle = `rgba(52, 211, 153, ${this.alpha})`;
+            ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+            ctx.restore();
         }
     }
 
-    // Clase para los gráficos de barras
-    class BarChart extends VisualElement {
+    class NeuralNode extends VisualElement {
         constructor() {
-            super(Math.random() * width, height + 10);
-            this.barWidth = Math.random() * 10 + 5;
-            this.barHeight = Math.random() * 100 + 50;
-            this.speedY = -1;
+            super(Math.random() * width, Math.random() * height);
+            this.radius = Math.random() * 4 + 2;
+            this.speed = Math.random() * 0.8 + 0.2;
+            this.angle = Math.random() * Math.PI * 2;
             this.maxAlpha = Math.random() * 0.7 + 0.3;
             this.alphaSpeed = 0.01;
         }
 
         update() {
-            // Lógica de repulsión del mouse
             const dx = this.x - mouse.x;
             const dy = this.y - mouse.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
             const repelRadius = 150;
-
             if (distance < repelRadius) {
                 const force = 1 - (distance / repelRadius);
                 this.x += dx / distance * force;
                 this.y += dy / distance * force;
             }
-
-            this.y += this.speedY;
-            if (this.alpha < this.maxAlpha) {
-                this.alpha += this.alphaSpeed;
-            }
-            if (this.y < -this.barHeight) {
-                return true;
-            }
-            return false;
-        }
-
-        draw() {
-            ctx.fillStyle = `rgba(52, 211, 153, ${this.alpha})`;
-            ctx.fillRect(this.x, this.y, this.barWidth, this.barHeight);
-        }
-    }
-
-    // Clase para los gráficos de radar
-    class RadarChart extends VisualElement {
-        constructor() {
-            super(Math.random() * width, Math.random() * height);
-            this.radius = Math.random() * 40 + 20;
-            this.rotationSpeed = Math.random() * 0.01 + 0.005;
-            this.angle = Math.random() * Math.PI * 2;
-            this.speed = 0.2;
-            this.maxAlpha = Math.random() * 0.4 + 0.1;
-            this.alphaSpeed = 0.01;
-        }
-
-        update() {
-            // Lógica de repulsión del mouse
-            const dx = this.x - mouse.x;
-            const dy = this.y - mouse.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            const repelRadius = 150;
-
-            if (distance < repelRadius) {
-                const force = 1 - (distance / repelRadius);
-                this.x += dx / distance * force;
-                this.y += dy / distance * force;
-            }
-
             this.x += Math.cos(this.angle) * this.speed;
             this.y += Math.sin(this.angle) * this.speed;
-            this.angle += this.rotationSpeed;
             if (this.alpha < this.maxAlpha) {
                 this.alpha += this.alphaSpeed;
             }
@@ -262,47 +201,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
         draw() {
             ctx.beginPath();
-            for (let i = 0; i < 6; i++) {
-                const angle = this.angle + (Math.PI / 3) * i;
-                const x = this.x + Math.cos(angle) * this.radius;
-                const y = this.y + Math.sin(angle) * this.radius;
-                if (i === 0) {
-                    ctx.moveTo(x, y);
-                } else {
-                    ctx.lineTo(x, y);
-                }
-            }
-            ctx.closePath();
-            ctx.strokeStyle = `rgba(52, 211, 153, ${this.alpha})`;
-            ctx.lineWidth = 1;
-            ctx.stroke();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(52, 211, 153, ${this.alpha})`;
+            ctx.fill();
         }
     }
-
+    
     function init() {
         width = window.innerWidth;
         height = window.innerHeight;
         canvas.width = width;
         canvas.height = height;
         elements.length = 0;
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 70; i++) {
             elements.push(createRandomElement());
         }
     }
 
     function createRandomElement() {
         const type = Math.random();
-        if (type < 0.25) {
-            return new DataNode();
-        } else if (type < 0.5) {
-            return new LineGraph();
-        } else if (type < 0.75) {
-            return new BarChart();
+        if (type < 0.4) {
+            return new NeuralNode();
+        } else if (type < 0.7) {
+            return new Matrix();
         } else {
-            return new RadarChart();
+            return new DataNode();
         }
     }
-
+    
     function animate() {
         ctx.clearRect(0, 0, width, height);
 
