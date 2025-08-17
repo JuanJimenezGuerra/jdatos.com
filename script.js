@@ -9,134 +9,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabTransitionData = {
         'inicio': {
             title: 'Inicio',
-            // Gráfico de líneas simple (NUEVO)
             svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNTAwIj48cGF0aCBkPSJNNTAgNDUwIEwgMjAwLDEwMCBMIDQwMCw0MDAgTCA1NTAsMTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiMzREMzOTkiIHN0cm9rZS13aWR0aD0iMTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==`
         },
         'sobre-mi-propuesta': {
             title: 'Sobre mí',
-            // Gráfico de Puntos Conectados (Scatter plot con líneas) - MEJORADO
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cG9seWxpbmUgc3Ryb2tlPSIjMzREMzk5IiBzdHJva2Utd2lkdGg9IjgiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgcG9pbnRzPSI2Mi41LDIyNSA5My44LDE3NSA5My44LDM1MCAxNTYuMywyMjUgMTg3LjUsMzA1IDI1MCwxMTIuNSAzMTIuNSwyNTAgMzc1LDE3NSA0NjguOCwyNTAgNDY4LjgsMTc1IDUwMCwzMjUiLz48Y2lyY2xlIGN4PSI2Mi41IiBjeT0iMjI1IiByPSIxMiIgZmlsbD0iIzM0RDM5OSIvPjxjaXJjbGUgY3g9IjkzLjgiIGN5PSIxNzUiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iOTMuOCIgY3k9IjM1MCIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIxNTYuMyIgY3k9IjIyNSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIxODcuNSIgY3k9IjMwNSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIyNTAiIGN5PSIxMTIuNSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIzMTIuNSIgY3k9IjI1MCIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIzNzUiIGN5PSIxNzUiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iNDY4LjgiIGN5PSIyNTAiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iNDY4LjgiIGN5PSIxNzUiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iNTAwIiBjeT0iMzI1IiByPSIxMiIgZmlsbD0iIzM0RDM5OSIvPjwvc3ZnPg==`
+            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cG9seWxpbmUgc3Ryb2tlPSIjMzREMzk5IiBzdHJva2Utd2lkdGg9IjgiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgcG9pbnRzPSI2Mi41LDIyNSA5My44LDE3NSA5My44LDM1MCAxNTYuMywyMjUgMTg3LjUsMzA1IDI1MCwxMTIuNSAzMTIuNSwyNTAgMzc1LDE3NSA0NjguOCwyNTAgNDY4LjgsMTc1IDUwMCwzMjUiLz48Y2lyY2xlIGN4PSI2Mi41IiBjeT0iMjI1IiByPSIxMiIgZmlsbD0iIzM0RDM5OSIvPjxjaXJjbGUgY3g9IjkzLjgiIGN5PSIxNzUiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iOTMuOCIgY3k9IjM1MCIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIxNTYuMyIgY3k9IjIyNSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIxODcuNSIgY3k9IjMwNSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIyNTUiIGN5PSIxMTIuNSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIzMTIuNSIgY3k9IjI1MCIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIzNzUiIGN5PSIxNzUiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iNDY4LjgiIGN5PSIyNTAiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iNDY4LjgiIGN5PSIxNzUiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iNTAwIiBjeT0iMzI1IiByPSIxMiIgZmlsbD0iIzM0RDM5OSIvPjwvc3ZnPg==`
         },
         'servicios-habilidades': {
             title: 'Servicios y habilidades',
-            // Gráfico de Barras Verticales
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cmVjdCB4PSIxMDAiIHk9IjMwMCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzM0RDM5OSIvPjxyZWN0IHg9IjIwMCIgeT0iMjAwIiB3aWR0aD0iNjAiIGhlaWdodD0iMzAwIiBmaWxsPSIjMzREMzk5Ii8+PHJlY3QgeD0iMzAwIiB5PSIxMDAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiMzREMzOTkiLz48cmVjdCB4PSI0MDAiIHk9IjI1MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjI1MCIgZmlsbD0iIzM0RDM5OSIvPjwvc3ZnPg==`
+            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cGF0aCBkPSJNMzYwLDUwTDE2MCwyNTBMNDYwLDU1MEw1NzYsMjUwWiIgc3Ryb2tlPSJub25lIiBmaWxsPSIjMzREMzk5IiBmaWxsLW9wYWNpdHk9IjAuNSIvPjxwYXRoIGQ9Ik0zNjAsNTAgTCAxNjAsMjUwIEwgNDYwLDU1MCBMIDU3NiwyNTBaIiBzdHJva2U9IiMzREMzOTkiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+`
         },
         'portafolio': {
             title: 'Portafolio',
-            // Gráfico circular verde (NUEVO)
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cGF0aCBkPSJNMjkwLDI5MCBMNDEwLDEyMCA0OTAsMTcwIEM0NzgsMjIxLjUgNDIzLDI4OSAyODgsMjg4IEwyOTAsMjkwIiBmaWxsPSIjMzREMzk5Ii8+PHBhdGggZD0iTTI5MCwyOTAgTDQ5MCwxNzAgNDcwLDQzMCBDNDY1LDQ2MCAzNzAsNDkwIDI5MCwyOTAgWiIgZmlsbD0iIzI2OTk3NCIvPjxwYXRoIGQ9Ik0yOTAsMjkwIEwyMDAsMTAwIEwxOTAsMjEwIEwyOTAsMjkwIiBmaWxsPSIjMjY5OTc0Ii8+PHBhdGggZD0iTTI5MCwyOTAgTDE5MCwyMTAgOTAsMjk3IEwyOTAsMjkwIiBmaWxsPSIjMzk`
+            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNTAwIj48cGF0aCBkPSJNNTAgNDUwIEwgMjAwLDExMCBMIDQwMCwzODAgTCA1NTAsMTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiMzREMzOTkiIHN0cm9rZS13aWR0aD0iMTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvcmFkYXJEb2N1bWVudD48L3N2Zz4=`
         },
         'contacto': {
             title: 'Contacto',
-            // Gráfico de red (NUEVO)
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48Y2lyY2xlIGN4PSIyMjUiIGN5PSIyMjUiIHI9IjIwIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iMzc1IiBjeT0iMzc1IiByPSIxOCIgZmlsbD0iIzM0RDM5OSIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjQwMCIgcj0iMjIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSI1MDAiIGN5PSIxMDAiIHI9IjI1IiBmaWxsPSIjMzREMzk5Ii8+PHBvbHlsaW5lIHN0cm9rZT0iIzM0RDM5OSIgc3Ryb2tlLXdpZHRoPSI4IiBvcGFjaXR5PSIwLjciIGZpbGw9Im5vbmUiIHBvaW50cz0iMjI1LDIyNSAzNzUsMzc1Ii8+PHBvbHlsaW5lIHN0cm9rZT0iIzM0RDM5OSIgc3Ryb2tlLXdpZHRoPSI1IiBvcGFjaXR5PSIwLjciIGZpbGw9Im5vbmUiIHBvaW50cz0iMzc1LDM3NSAxMDAsNDAwIi8+PHBvbHlsaW5lIHN0cm9rZT0iIzM0RDM5OSIgc3Ryb2tlLXdpZHRoPSI0IiBvcGFjaXR5PSIwLjciIGZpbGw9Im5vbmUiIHBvaW50cz0iMTAwLDQwMCA1MDAsMTAwIi8+PHBvbHlsaW5lIHN0cm9rZT0iIzM0RDM5OSIgc3Ryb2tlLXdpZHRoPSI2IiBvcGFjaXR5PSIwLjciIGZpbGw9Im5vbmUiIHBvaW50cz0iMjI1LDIyNSAxMDAsNDAwIi8+PHBvbHlsaW5lIHN0cm9rZT0iIzM0RDM5OSIgc3Ryb2tlLXdpZHRoPSI3IiBvcGFjaXR5PSIwLjciIGZpbGw9Im5vbmUiIHBvaW50cz0iMzc1LDM3NSAyMjUsMjI1Ii8+PC9zdmc+`
+            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNTAwIj48Y2lyY2xlIGN4PSIyMDAiIGN5PSIyMDAiIHI9IjEwMCIgc3Ryb2tlPSIjMzREMzk5IiBzdHJva2Utd2lkdGg9IjE1IiBmaWxsPSJub25lIi8+PGNpcmNsZSBjeD0iNDAwIiBjeT0iMTAwIiByPSI1MCIgc3Ryb2tlPSIjMzREMzk5IiBzdHJva2Utd2lkdGg9IjEwIiBmaWxsPSJub25lIi8+PC9zdmc+`
         }
     };
 
-    // Variables globales para el canvas y la animación
-    let canvas, ctx, particles, mouse;
-
-    // Inicializar el canvas y las partículas
-    function initCanvas() {
-        canvas = document.getElementById('data-visualization-canvas');
-        if (!canvas) {
-            console.error("Canvas element not found!");
-            return;
-        }
-        ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        particles = [];
-        mouse = { x: null, y: null };
-        window.addEventListener('resize', handleResize);
-        window.addEventListener('mousemove', handleMouseMove);
-        createParticles(150);
-        animateParticles();
-    }
-
-    function handleResize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        particles = [];
-        createParticles(150);
-    }
-
-    function handleMouseMove(e) {
-        mouse.x = e.x;
-        mouse.y = e.y;
-    }
-
-    class Particle {
-        constructor(x, y, directionX, directionY, size, color) {
-            this.x = x;
-            this.y = y;
-            this.directionX = directionX;
-            this.directionY = directionY;
-            this.size = size;
-            this.color = color;
-        }
-
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-            ctx.fillStyle = this.color;
-            ctx.fill();
-        }
-
-        update() {
-            if (this.x > canvas.width || this.x < 0) {
-                this.directionX = -this.directionX;
-            }
-            if (this.y > canvas.height || this.y < 0) {
-                this.directionY = -this.directionY;
-            }
-            let dx = mouse.x - this.x;
-            let dy = mouse.y - this.y;
-            let distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance < 150) {
-                let forceDirectionX = dx / distance;
-                let forceDirectionY = dy / distance;
-                let maxSpeed = 10;
-                let speedFactor = 1.2;
-                this.x -= forceDirectionX * speedFactor;
-                this.y -= forceDirectionY * speedFactor;
-            }
-            this.x += this.directionX;
-            this.y += this.directionY;
-            this.draw();
-        }
-    }
-
-    function createParticles(count) {
-        for (let i = 0; i < count; i++) {
-            let size = Math.random() * 5 + 1;
-            let x = Math.random() * ((canvas.width - size * 2) - (size * 2)) + size * 2;
-            let y = Math.random() * ((canvas.height - size * 2) - (size * 2)) + size * 2;
-            let directionX = (Math.random() * 0.4) - 0.2;
-            let directionY = (Math.random() * 0.4) - 0.2;
-            let color = 'rgba(52, 211, 153, 0.8)';
-            particles.push(new Particle(x, y, directionX, directionY, size, color));
-        }
-    }
-
-    function animateParticles() {
-        requestAnimationFrame(animateParticles);
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (let i = 0; i < particles.length; i++) {
-            particles[i].update();
-        }
-    }
-
-    // Lógica para el cambio de pestañas con transición
     function activateTab(targetId) {
-        // Muestra el overlay de transición
         const { title, svg } = tabTransitionData[targetId];
         transitionImage.src = svg;
         transitionTitle.textContent = title;
         transitionOverlay.classList.add('active');
 
-        // Retrasa el cambio de contenido hasta que la transición se vea
         setTimeout(() => {
             tabContents.forEach(content => {
                 content.classList.remove('active');
@@ -146,11 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 targetContent.classList.add('active');
             }
 
-            // Oculta el overlay después de un breve período
             setTimeout(() => {
                 transitionOverlay.classList.remove('active');
-            }, 600); // Duración de la animación de salida
-        }, 400); // Coincide con la duración de la animación de entrada
+            }, 600);
+        }, 400);
     }
 
     tabLinks.forEach(link => {
@@ -158,17 +55,223 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             const targetId = link.dataset.target;
 
-            // Actualiza la clase 'active' para los enlaces de navegación
             tabLinks.forEach(l => l.classList.remove('active'));
             link.classList.add('active');
 
-            // Activa la pestaña con la nueva lógica de transición
             activateTab(targetId);
         });
     });
 
-    // Iniciar el canvas y las partículas solo si existe el elemento
-    if (document.getElementById('data-visualization-canvas')) {
-        initCanvas();
+    // Clases para los elementos animados en el fondo
+    const canvas = document.getElementById('data-visualization-canvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    const elements = [];
+
+    // Clase base para todos los elementos animados
+    class VisualElement {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.alpha = 0;
+        }
+        update() {
+            // Lógica de actualización a ser sobrescrita
+            return false;
+        }
+        draw() {
+            // Lógica de dibujo a ser sobrescrita
+        }
     }
+
+    // Clase para los nodos de datos (círculos)
+    class DataNode extends VisualElement {
+        constructor() {
+            super(Math.random() * width, Math.random() * height);
+            this.size = Math.random() * 2 + 1;
+            this.speedX = (Math.random() - 0.5) * 0.5;
+            this.speedY = (Math.random() - 0.5) * 0.5;
+            this.maxAlpha = Math.random() * 0.5 + 0.1;
+            this.alphaSpeed = 0.01;
+        }
+
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.alpha < this.maxAlpha) {
+                this.alpha += this.alphaSpeed;
+            }
+
+            if (this.x < -10 || this.x > width + 10 || this.y < -10 || this.y > height + 10) {
+                return true;
+            }
+            return false;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(52, 211, 153, ${this.alpha})`;
+            ctx.fill();
+        }
+    }
+
+    // Clase para los gráficos de línea
+    class LineGraph extends VisualElement {
+        constructor() {
+            super(Math.random() * width, Math.random() * height);
+            this.length = Math.random() * 100 + 50;
+            this.angle = Math.random() * Math.PI * 2;
+            this.speed = 0.5;
+            this.maxAlpha = Math.random() * 0.6 + 0.2;
+            this.alphaSpeed = 0.01;
+        }
+
+        update() {
+            this.x += Math.cos(this.angle) * this.speed;
+            this.y += Math.sin(this.angle) * this.speed;
+            if (this.alpha < this.maxAlpha) {
+                this.alpha += this.alphaSpeed;
+            }
+            if (this.x < -this.length || this.x > width + this.length || this.y < -this.length || this.y > height + this.length) {
+                return true;
+            }
+            return false;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.moveTo(this.x, this.y);
+            ctx.lineTo(this.x + Math.cos(this.angle) * this.length, this.y + Math.sin(this.angle) * this.length);
+            ctx.strokeStyle = `rgba(52, 211, 153, ${this.alpha})`;
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
+    }
+
+    // Clase para los gráficos de barras
+    class BarChart extends VisualElement {
+        constructor() {
+            super(Math.random() * width, height + 10);
+            this.barWidth = Math.random() * 10 + 5;
+            this.barHeight = Math.random() * 100 + 50;
+            this.speedY = -1;
+            this.maxAlpha = Math.random() * 0.7 + 0.3;
+            this.alphaSpeed = 0.01;
+        }
+
+        update() {
+            this.y += this.speedY;
+            if (this.alpha < this.maxAlpha) {
+                this.alpha += this.alphaSpeed;
+            }
+            if (this.y < -this.barHeight) {
+                return true;
+            }
+            return false;
+        }
+
+        draw() {
+            ctx.fillStyle = `rgba(52, 211, 153, ${this.alpha})`;
+            ctx.fillRect(this.x, this.y, this.barWidth, this.barHeight);
+        }
+    }
+
+    // Clase para los gráficos de radar
+    class RadarChart extends VisualElement {
+        constructor() {
+            super(Math.random() * width, Math.random() * height);
+            this.radius = Math.random() * 40 + 20;
+            this.rotationSpeed = Math.random() * 0.01 + 0.005;
+            this.angle = Math.random() * Math.PI * 2;
+            this.speed = 0.2;
+            this.maxAlpha = Math.random() * 0.4 + 0.1;
+            this.alphaSpeed = 0.01;
+        }
+
+        update() {
+            this.x += Math.cos(this.angle) * this.speed;
+            this.y += Math.sin(this.angle) * this.speed;
+            this.angle += this.rotationSpeed;
+            if (this.alpha < this.maxAlpha) {
+                this.alpha += this.alphaSpeed;
+            }
+            if (this.x < -this.radius || this.x > width + this.radius || this.y < -this.radius || this.y > height + this.radius) {
+                return true;
+            }
+            return false;
+        }
+
+        draw() {
+            ctx.beginPath();
+            for (let i = 0; i < 6; i++) {
+                const angle = this.angle + (Math.PI / 3) * i;
+                const x = this.x + Math.cos(angle) * this.radius;
+                const y = this.y + Math.sin(angle) * this.radius;
+                if (i === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            ctx.closePath();
+            ctx.strokeStyle = `rgba(52, 211, 153, ${this.alpha})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+        }
+    }
+
+    // Función de inicialización
+    function init() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+        elements.length = 0;
+        for (let i = 0; i < 50; i++) {
+            elements.push(createRandomElement());
+        }
+    }
+
+    // Función para crear un elemento aleatorio
+    function createRandomElement() {
+        const type = Math.random();
+        if (type < 0.25) {
+            return new DataNode();
+        } else if (type < 0.5) {
+            return new LineGraph();
+        } else if (type < 0.75) {
+            return new BarChart();
+        } else {
+            return new RadarChart();
+        }
+    }
+
+    // Función principal de animación
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        // Fondo con un gradiente muy sutil
+        const gradient = ctx.createRadialGradient(width / 2, height / 2, 0, width / 2, height / 2, Math.max(width, height));
+        gradient.addColorStop(0, 'rgba(17, 24, 39, 0.1)');
+        gradient.addColorStop(1, 'rgba(17, 24, 39, 0.9)');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, width, height);
+
+        for (let i = 0; i < elements.length; i++) {
+            const element = elements[i];
+            if (element.update()) {
+                elements[i] = createRandomElement();
+            }
+            element.draw();
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', init);
+    init();
+    animate();
 });
