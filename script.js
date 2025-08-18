@@ -15,6 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // Gráfico de líneas simple
             svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNTAwIj48cGF0aCBkPSJNNTAgNDUwIEwgMjAwLDEwMCBMIDQwMCw0MDAgTCA1NTAsMTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiMzREMzOTkiIHN0cm9rZS13aWR0aD0iMTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==`
         },
+        'portafolio': {
+            title: 'Portafolio',
+            // Gráfico de líneas con picos
+            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNTAwIj48cGF0aCBkPSJNNTAgNDUwIEwgMjAwLDExMCBMIDQwMCwzODAgTCA1NTAsMTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiMzREMzOTkiIHN0cm9rZS13aWR0aD0iMTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvcmFkYXJEb2N1bWVudD48L3N2Zz4=`
+        },
         'sobre-mi-propuesta': {
             title: 'Sobre mí',
             // Gráfico de Puntos Conectados (Scatter plot con líneas)
@@ -24,11 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Servicios y habilidades',
             // Gráfico de Área (similar a un gráfico de radar)
             svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cGF0aCBkPSJNMzYwLDUwTDE2MCwyNTBMNDYwLDU1MEw1NzYsMjUwWiIgc3Ryb2tlPSJub25lIiBmaWxsPSIjMzREMzk5IiBmaWxsLW9wYWNpdHk9IjAuNSIvPjxwYXRoIGQ9Ik0zNjAsNTAgTCAxNjAsMjUwIEwgNDYwLDU1MCBMIDU3NiwyNTBaIiBzdHJva2U9IiMzREMzOTkiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+`
-        },
-        'portafolio': {
-            title: 'Portafolio',
-            // Gráfico de líneas con picos
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNTAwIj48cGF0aCBkPSJNNTAgNDUwIEwgMjAwLDExMCBMIDQwMCwzODAgTCA1NTAsMTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiMzREMzOTkiIHN0cm9rZS13aWR0aD0iMTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvcmFkYXJEb2N1bWVudD48L3N2Zz4=`
         },
         'contacto': {
             title: 'Contacto',
@@ -75,6 +75,24 @@ document.addEventListener('DOMContentLoaded', () => {
             activateTab(targetId);
         });
     });
+
+    // --- Funcionalidad del botón "Agenda una Consulta Gratuita" ---
+    const consultaBtn = document.getElementById('consulta-btn');
+    if (consultaBtn) {
+        consultaBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            
+            // Actualiza la clase 'active' para los enlaces de navegación
+            tabLinks.forEach(l => l.classList.remove('active'));
+            const contactoLink = document.querySelector('[data-target="contacto"]');
+            if (contactoLink) {
+                contactoLink.classList.add('active');
+            }
+
+            // Activa la pestaña de contacto
+            activateTab('contacto');
+        });
+    }
 
     // --- Lógica del Canvas de Visualización de Datos ---
     const canvas = document.getElementById('data-visualization-canvas');
