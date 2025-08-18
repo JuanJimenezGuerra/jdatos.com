@@ -6,10 +6,10 @@
 */
 
 :root {
-    --color-primary: #1F2937; /* Gris oscuro para el fondo */
-    --color-accent: #34D399; /* Verde vibrante para elementos destacados */
-    --color-text: #E5E7EB; /* Gris claro para el texto principal */
-    --color-background: #111827; /* Fondo principal muy oscuro */
+    --color-primary: #0F172A; /* Nuevo gris azulado oscuro */
+    --color-accent: #60A5FA; /* Nuevo azul vibrante */
+    --color-text: #F1F5F9; /* Nuevo gris muy claro */
+    --color-background: #020617; /* Nuevo fondo muy oscuro, casi negro */
     --transition-duration: 0.3s; /* Duración base para transiciones */
 }
 
@@ -92,7 +92,7 @@ h1, h2, h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(17, 24, 39, 0.9); /* Fondo semitransparente para un efecto oscuro */
+    background-color: rgba(2, 6, 23, 0.9); /* Fondo semitransparente para un efecto oscuro */
     backdrop-filter: blur(8px); /* Aplica un desenfoque al contenido detrás */
     opacity: 0;
     visibility: hidden;
