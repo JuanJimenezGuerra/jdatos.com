@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juan David Jimenez - Analista y Científico de Datos</title>
+    <!-- Carga de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Enlace a fuentes de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Enlace a la hoja de estilos personalizada -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-[var(--color-background)] text-[var(--color-text)]">
 
-    <canvas id="data-visualization-canvas"></canvas>
-
+    <!-- Encabezado y Barra de Navegación -->
     <header class="bg-gray-900 shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto p-4 flex flex-col md:flex-row justify-between items-center">
             <div class="text-2xl font-bold text-white mb-4 md:mb-0">
@@ -29,17 +31,22 @@
         </nav>
     </header>
 
+    <!-- Contenido Principal -->
     <main class="container mx-auto p-6 md:p-12 min-h-screen relative z-10">
+        <!-- Overlay para la transición de secciones -->
         <div id="tab-transition-overlay">
-            <img id="transition-image" src="" alt="Gráfica de datos"/>
+            <img id="transition-image" src="" alt="Elemento visual de transición"/>
             <h2 id="transition-title"></h2>
         </div>
 
+        <!-- Sección de Inicio -->
         <section id="inicio" class="tab-content active">
+            <!-- El canvas ahora está dentro de la sección de inicio -->
+            <canvas id="data-visualization-canvas"></canvas>
             <div class="text-center rounded-2xl p-8 md:p-16 shadow-lg border border-gray-700 backdrop-blur-sm bg-gray-900/70">
                 <img src="Perfil.jpg" 
-    alt="Foto de perfil de Juan David Jimenez"
-    class="w-32 h-32 object-cover rounded-full mx-auto mb-6 border-4 border-[var(--color-accent)] shadow-lg animate-fade-in-up animate-pulse-slow">
+                     alt="Foto de perfil de Juan David Jimenez"
+                     class="w-32 h-32 object-cover rounded-full mx-auto mb-6 border-4 border-[var(--color-accent)] shadow-lg animate-fade-in-up animate-pulse-slow">
                 <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-4 animate-fade-in-up delay-100">
                     Juan David Jimenez: Convirtiendo Datos en Estrategias de Negocio y Soluciones Inteligentes
                 </h1>
@@ -52,6 +59,7 @@
             </div>
         </section>
 
+        <!-- Sección de Portafolio -->
         <section id="portafolio" class="tab-content">
             <div class="bg-gray-900 p-8 md:p-12 rounded-2xl shadow-xl">
                 <h2 class="text-2xl md:text-4xl font-bold text-[var(--color-accent)] mb-6 border-b-2 border-gray-700 pb-2 text-center">
@@ -63,10 +71,11 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-100">
                         <div class="aspect-w-16 aspect-h-9 w-full mb-4">
-                            <iframe src="https://www.youtube.com/embed/fD3q01-yE6Y" 
-                                    frameborder="0" 
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                    allowfullscreen 
+                            <!-- Video embebido de YouTube para el dashboard de Zoho Analytics -->
+                            <iframe src="https://www.youtube.com/embed/fD3q01-yE6Y"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen
                                     class="rounded-lg w-full h-full"></iframe>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-2">Dashboard en Zoho Analytics</h3>
@@ -116,13 +125,15 @@
                     </div>
                 </div>
                 <div class="mt-12 text-center">
-                    <a href="#" class="inline-block bg-[var(--color-accent)] text-gray-900 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 transform hover:scale-105">
+                    <!-- Enlace de GitHub actualizado (reemplazar con el enlace real) -->
+                    <a href="https://github.com/tu-usuario" target="_blank" class="inline-block bg-[var(--color-accent)] text-gray-900 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 transform hover:scale-105">
                         Visita mi perfil de GitHub
                     </a>
                 </div>
             </div>
         </section>
 
+        <!-- Sección Sobre Mí y Propuesta de Valor -->
         <section id="sobre-mi-propuesta" class="tab-content">
             <div class="bg-gray-900 p-8 md:p-12 rounded-2xl shadow-xl">
                 <h2 class="text-2xl md:text-4xl font-bold text-[var(--color-accent)] mb-6 border-b-2 border-gray-700 pb-2">
@@ -164,6 +175,7 @@
             </div>
         </section>
 
+        <!-- Sección de Servicios y Habilidades -->
         <section id="servicios-habilidades" class="tab-content">
             <div class="bg-gray-900 p-8 md:p-12 rounded-2xl shadow-xl border border-gray-700">
                 <h2 class="text-2xl md:text-4xl font-bold text-[var(--color-accent)] mb-6 border-b-2 border-[var(--color-accent)] pb-2 text-center">
@@ -230,6 +242,7 @@
             </div>
         </section>
         
+        <!-- Sección de Contacto -->
         <section id="contacto" class="tab-content">
             <div class="bg-gray-900 p-8 md:p-12 rounded-2xl shadow-xl border border-gray-700">
                 <h2 class="text-2xl md:text-4xl font-bold text-[var(--color-accent)] mb-6 border-b-2 border-[var(--color-accent)] pb-2 text-center">
@@ -280,11 +293,13 @@
         </section>
         
     </main>
+    <!-- Pie de página -->
     <footer class="bg-gray-950 text-gray-400 py-6 mt-12">
         <div class="container mx-auto text-center">
             <p>&copy; 2025 Juan David Jimenez. Todos los derechos reservados.</p>
         </div>
     </footer>
+    <!-- Enlace al archivo JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
