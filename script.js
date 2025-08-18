@@ -12,27 +12,27 @@ document.addEventListener('DOMContentLoaded', () => {
         'inicio': {
             title: 'Inicio',
             // Gráfico de líneas simple
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNTAwIj48cGF0aCBkPSJNNTAgNDUwIEwgMjAwLDEwMCBMIDQwMCw0MDAgTCA1NTAsMTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiM2MGE1ZmEiIHN0cm9rZS13aWR0aD0iMTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==`
-        },
-        'portafolio': {
-            title: 'Portafolio',
-            // Gráfico de Puntos Conectados (Scatter plot con líneas)
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cG9seWxpbmUgc3Ryb2tlPSIjNjBhNWZhIiBzdHJva2Utd2lkdGg9IjgiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgcG9pbnRzPSI2Mi41LDIyNSA5My44LDE3NSA5My44LDM1MCAxNTYuMywyMjUgMTg3LjUsMzA1IDI1MCwxMTIuNSAzMTIuNSwyNTAgMzc1LDE3NSA0NjguOCwyNTAgNDY4LjgsMTc1IDUwMCwzMjUiLz48Y2lyY2xlIGN4PSI2Mi41IiBjeT0iMjI1IiByPSIxMiIgZmlsbD0iIzYwYTVmYSIvPjxjaXJjbGUgY3g9IjkzLjgiIGN5PSIxNzUiIHI9IjEyIiBmaWxsPSIjNjBhNWZhIi8+PGNpcmNsZSBjeD0iOTMuOCIgY3k9IjM1MCIgcj0iMTIiIGZpbGw9IiM2MGE1ZmEiLz48Y2lyY2xlIGN4PSIxNTYuMyIgY3k9IjIyNSIgcj0iMTIiIGZpbGw9IiM2MGE1ZmEiLz48Y2lyY2xlIGN4PSIxODcuNSIgY3k9IjMwNSIgcj0iMTIiIGZpbGw9IiM2MGE1ZmEiLz48Y2lyY2xlIGN4PSIyNTAuMCIgY3k9IjExMi41IiByPSIxMiIgZmlsbD0iIzYwYTVmYSIvPjxjaXJjbGUgY3g9IjMxMi41IiBjeT0iMjUwIiByPSIxMiIgZmlsbD0iIzYwYTVmYSIvPjxjaXJjbGUgY3g9IjM3NSIgY3k9IjE3NSIgcj0iMTIiIGZpbGw9IiM2MGE1ZmEiLz48Y2lyY2xlIGN4PSI0NjguOCIgY3k9IjI1MCIgcj0iMTIiIGZpbGw9IiM2MGE1ZmEiLz48Y2lyY2xlIGN4PSI0NjguOCIgY3k9IjE3NSIgcj0iMTIiIGZpbGw9IiM2MGE1ZmEiLz48Y2lyY2xlIGN4PSI1MDAiIGN5PSIzMjUiIHI9IjEyIiBmaWxsPSIjNjBhNWZhIi8+PC9zdmc+`
+            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNTAwIj48cGF0aCBkPSJNNTAgNDUwIEwgMjAwLDEwMCBMIDQwMCw0MDAgTCA1NTAsMTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiMzREMzOTkiIHN0cm9rZS13aWR0aD0iMTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==`
         },
         'sobre-mi-propuesta': {
             title: 'Sobre mí',
-            // Gráfico de Barras Verticales
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cmVjdCB4PSIxMDAiIHk9IjMwMCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzYwYTVmYSIvPjxyZWN0IHg9IjIwMCIgeT0iMjAwIiB3aWR0aD0iNjAiIGhlaWdodD0iMzAwIiBmaWxsPSIjNjBhNWZhIi8+PHJlY3QgeD0iMzAwIiB5PSIxMDAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiM2MGE1ZmEiLz48cmVjdCB4PSI0MDAiIHk9IjI1MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjI1MCIgZmlsbD0iIzYwYTVmYSIvPjwvc3ZnPg==`
+            // Gráfico de Puntos Conectados (Scatter plot con líneas)
+            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cG9seWxpbmUgc3Ryb2tlPSIjMzREMzk5IiBzdHJva2Utd2lkdGg9IjgiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgcG9pbnRzPSI2Mi41LDIyNSA5My44LDE3NSA5My44LDM1MCAxNTYuMywyMjUgMTg3LjUsMzA1IDI1MCwxMTIuNSAzMTIuNSwyNTAgMzc1LDE3NSA0NjguOCwyNTAgNDY4LjgsMTc1IDUwMCwzMjUiLz48Y2lyY2xlIGN4PSI2Mi41IiBjeT0iMjI1IiByPSIxMiIgZmlsbD0iIzM0RDM5OSIvPjxjaXJjbGUgY3g9IjkzLjgiIGN5PSIxNzUiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iOTMuOCIgY3k9IjM1MCIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIxNTYuMyIgY3k9IjIyNSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIxODcuNSIgY3k9IjMwNSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIyNTAuMCIgY3k9IjExMi41IiByPSIxMiIgZmlsbD0iIzM0RDM5OSIvPjxjaXJjbGUgY3g9IjMxMi41IiBjeT0iMjUwIiByPSIxMiIgZmlsbD0iIzM0RDM5OSIvPjxjaXJjbGUgY3g9IjM3NSIgY3k9IjE3NSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSI0NjguOCIgY3k9IjI1MCIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSI0NjguOCIgY3k9IjE3NSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSI1MDAiIGN5PSIzMjUiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PC9zdmc+`
         },
         'servicios-habilidades': {
             title: 'Servicios y habilidades',
-            // Gráfico circular
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cGF0aCBkPSJNMjkwLDI5MCBMNDEwLDEyMCA0OTAsMTcwIEM0NzgsMjIxLjUgNDIzLDI4OSAyODgsMjg4IEwyOTAsMjkwIiBmaWxsPSIjNjBhNWZhIi8+PHBhdGggZD0iTTI5MCwyOTAgTDQ5MCwxNzAgNDcwLDQzMCBDNDY1LDQ2MCAzNzAsNDkwIDI5MCwyOTAgWiIgZmlsbD0iIzQ2OGVmYSIvPjxwYXRoIGQ9Ik0yOTAsMjkwIEwyMDAsMTAwIEwxOTAsMjEwIEwyOTAsMjkwIiBmaWxsPSIjNmRhY2VhIi8+PHBhdGggZD0iTTI5MCwyOTAgTDE5MCwyMTAgOTAsMjk3IEwyOTAsMjkwIiBmaWxsPSIjMzlhMmZhIi8+PC9zdmc+`
+            // Gráfico de Barras Verticales
+            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cmVjdCB4PSIxMDAiIHk9IjMwMCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzM0RDM5OSIvPjxyZWN0IHg9IjIwMCIgeT0iMjAwIiB3aWR0aD0iNjAiIGhlaWdodD0iMzAwIiBmaWxsPSIjMzREMzk5Ii8+PHJlY3QgeD0iMzAwIiB5PSIxMDAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiMzREMzOTkiLz48cmVjdCB4PSI0MDAiIHk9IjI1MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjI1MCIgZmlsbD0iIzM0RDM5OSIvPjwvc3ZnPg==`
+        },
+        'portafolio': {
+            title: 'Portafolio',
+            // Gráfico circular verde
+            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cGF0aCBkPSJNMjkwLDI5MCBMNDEwLDEyMCA0OTAsMTcwIEM0NzgsMjIxLjUgNDIzLDI4OSAyODgsMjg4IEwyOTAsMjkwIiBmaWxsPSIjMzREMzk5Ii8+PHBhdGggZD0iTTI5MCwyOTAgTDQ5MCwxNzAgNDcwLDQzMCBDNDY1LDQ2MCAzNzAsNDkwIDI5MCwyOTAgWiIgZmlsbD0iIzI2OTk3NCIvPjxwYXRoIGQ9Ik0yOTAsMjkwIEwyMDAsMTAwIEwxOTAsMjEwIEwyOTAsMjkwIiBmaWxsPSIjMjY5OTc0Ii8+PHBhdGggZD0iTTI5MCwyOTAgTDE5MCwyMTAgOTAsMjk3IEwyOTAsMjkwIiBmaWxsPSIjMzkzNDk5Ii8+PC9zdmc+`
         },
         'contacto': {
             title: 'Contacto',
             // Gráfico de red
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48Y2lyY2xlIGN4PSIyMjUiIGN5PSIyMjUiIHI9IjIwIiBmaWxsPSIjNjBhNWZhIi8+PGNpcmNsZSBjeD0iMzc1IiBjeT0iMzc1IiByPSIxOCIgZmlsbD0iIzYwYTVmYSIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjQwMCIgcj0iMjIiIGZpbGw9IiM2MGE1ZmEiLz48Y2lyY2xlIGN4PSI1MDAiIGN5PSIxMDAiIHI9IjI1IiBmaWxsPSIjNjBhNWZhIi8+PHBvbHlsaW5lIHN0cm9rZT0iIzYwYTVmYSIgc3Ryb2tlLXdpZHRoPSI4IiBvcGFjaXR5PSIwLjciIGZpbGw9Im5vbmUiIHBvaW50cz0iMjI1LDIyNSAzNzUsMzc1Ii8+PHBvbHlsaW5lIHN0cm9rZT0iIzYwYTVmYSIgc3Ryb2tlLXdpZHRoPSI1IiBvcGFjaXR5PSIwLjciIGZpbGw9Im5vbmUiIHBvaW50cz0iMzc1LDM3NSAxMDAsNDAwIi8+PHBvbHlsaW5lIHN0cm9rZT0iIzYwYTVmYSIgc3Ryb2tlLXdpZHRoPSI0IiBvcGFjaXR5PSIwLjciIGZpbGw9Im5vbmUiIHBvaW50cz0iMTAwLDQwMCA1MDAsMTAwIi8+PHBvbHlsaW5lIHN0cm9rZT0iIzYwYTVmYSIgc3Ryb2tlLXdpZHRoPSI2IiBvcGFjaXR5PSIwLjciIGZpbGw9Im5vbmUiIHBvaW50cz0iMjI1LDIyNSAxMDAsNDAwIi8+PHBvbHlsaW5lIHN0cm9rZT0iIzYwYTVmYSIgc3Ryb2tlLXdpZHRoPSI3IiBvcGFjaXR5PSIwLjciIGZpbGw9Im5vbmUiIHBvaW50cz0iMzc1LDM3NSAyMjUsMjI1Ii8+PC9zdmc+`
+            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48Y2lyY2xlIGN4PSIyMjUiIGN5PSIyMjUiIHI9IjIwIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iMzc1IiBjeT0iMzc1IiByPSIxOCIgZmlsbD0iIzM0RDM5OSIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjQwMCIgcj0iMjIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSI1MDAiIGN5PSIxMDAiIHI9IjI1IiBmaWxsPSIjMzREMzk5Ii8+PHBvbHlsaW5lIHN0cm9rZT0iIzM0RDM5OSIgc3Ryb2tlLXdpZHRoPSI4IiBvcGFjaXR5PSIwLjciIGZpbGw9Im5vbmUiIHBvaW50cz0iMjI1LDIyNSAzNzUsMzc1Ii8+PHBvbHlsaW5lIHN0cm9rZT0iIzM0RDM5OSIgc3Ryb2tlLXdpZHRoPSI1IiBvcGFjaXR5PSIwLjciIGZpbGw9Im5vbmUiIHBvaW50cz0iMzc1LDM3NSAxMDAsNDAwIi8+PHBvbHlsaW5lIHN0cm9rZT0iIzM0RDM5OSIgc3Ryb2tlLXdpZHRoPSI0IiBvcGFjaXR5PSIwLjciIGZpbGw9Im5vbmUiIHBvaW50cz0iMTAwLDQwMCA1MDAsMTAwIi8+PHBvbHlsaW5lIHN0cm9rZT0iIzM0RDM5OSIgc3Ryb2tlLXdpZHRoPSI2IiBvcGFjaXR5PSIwLjciIGZpbGw9Im5vbmUiIHBvaW50cz0iMjI1LDIyNSAxMDAsNDAwIi8+PHBvbHlsaW5lIHN0cm9rZT0iIzM0RDM5OSIgc3Ryb2tlLXdpZHRoPSI3IiBvcGFjaXR5PSIwLjciIGZpbGw9Im5vbmUiIHBvaW50cz0iMzc1LDM3NSAyMjUsMjI1Ii8+PC9zdmc+`
         }
     };
 
@@ -78,12 +78,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Lógica del Canvas de Visualización de Datos ---
     const canvas = document.getElementById('data-visualization-canvas');
     if (!canvas) {
+        // Si el canvas no existe, no se ejecuta el resto del script para evitar errores
         return;
     }
 
     const ctx = canvas.getContext('2d');
     let width, height;
-    const elements = [];
+    const elements = []; // Array que contendrá todos los elementos visuales animados
     
     // Cantidades para cada tipo de elemento visual
     const numParticles = 200;
@@ -98,12 +99,14 @@ document.addEventListener('DOMContentLoaded', () => {
         constructor(x, y) {
             this.x = x;
             this.y = y;
-            this.alpha = 0;
+            this.alpha = 0; // Utilizado para la animación de entrada
         }
         update() {
+            // Método para actualizar la posición o estado del elemento.
+            // Retorna 'true' si el elemento debe ser reiniciado.
             return false;
         }
-        draw() {}
+        draw() {} // Método para dibujar el elemento en el canvas
     }
 
     // Clase para partículas ascendentes
@@ -124,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         draw() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(96, 165, 250, ${Math.max(0, this.opacity)})`; // Azul claro
+            ctx.fillStyle = `rgba(52, 211, 153, ${Math.max(0, this.opacity)})`;
             ctx.fill();
         }
     }
@@ -150,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         draw() {
-            ctx.strokeStyle = '#60a5fa'; // Azul claro
+            ctx.strokeStyle = '#34D399';
             ctx.lineWidth = this.lineWidth;
             ctx.globalAlpha = 0.7;
             ctx.beginPath();
@@ -178,14 +181,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         update() {
+            // Cambia la intensidad del color con el tiempo
             this.intensity = 0.5 + Math.sin(Date.now() * 0.002 + this.x * 0.01 + this.y * 0.01) * 0.5;
             return false;
         }
 
         draw() {
+            // Crea un gradiente radial para el efecto de brillo
             const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
-            gradient.addColorStop(0, `rgba(96, 165, 250, ${this.intensity * 0.6})`); // Azul claro
-            gradient.addColorStop(1, 'rgba(96, 165, 250, 0)');
+            gradient.addColorStop(0, `rgba(52, 211, 153, ${this.intensity * 0.6})`);
+            gradient.addColorStop(1, 'rgba(52, 211, 153, 0)');
             ctx.fillStyle = gradient;
             ctx.fillRect(this.x - this.radius, this.y - this.radius, this.radius * 2, this.radius * 2);
         }
@@ -213,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.fillText(this.value, this.x, this.y);
         }
     }
-
+    
     // Clase para gráficos de barras animados
     class BarChart extends VisualElement {
         constructor() {
@@ -236,8 +241,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         draw() {
             ctx.globalAlpha = 0.6;
-            ctx.fillStyle = '#60a5fa'; // Azul claro
+            ctx.fillStyle = '#34D399';
             for (let i = 0; i < this.numBars; i++) {
+                // Anima la altura de la barra usando una función sinusoidal
                 const animatedHeight = this.barHeights[i] * (0.5 + Math.sin(this.animationPhase + i * 0.5) * 0.5);
                 ctx.fillRect(this.x + i * (this.barWidth + 2), this.y, this.barWidth, -animatedHeight);
             }
@@ -250,8 +256,9 @@ document.addEventListener('DOMContentLoaded', () => {
         constructor() {
             super(Math.random() * width, Math.random() * height);
             this.radius = Math.random() * 20 + 10;
+            // Define los segmentos iniciales del pastel
             this.segments = [Math.random() * 0.4, Math.random() * 0.3, Math.random() * 0.3];
-            this.colors = ['#60a5fa', '#1F2937', '#6EE7B7']; // Azul y grises
+            this.colors = ['#34D399', '#1F2937', '#6EE7B7']; // Restauración de los colores originales
             this.animationPhase = Math.random() * Math.PI * 2;
         }
 
@@ -264,6 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.globalAlpha = 0.7;
             let startAngle = 0;
             for (let i = 0; i < this.segments.length; i++) {
+                // Anima el tamaño de cada segmento
                 const segmentValue = this.segments[i] * (0.5 + Math.sin(this.animationPhase + i) * 0.5);
                 const endAngle = startAngle + segmentValue * Math.PI * 2;
                 
@@ -274,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ctx.fillStyle = this.colors[i % this.colors.length];
                 ctx.fill();
                 
-                startAngle = endAngle;
+                startAngle = endAngle; // El próximo segmento empieza donde el anterior terminó
             }
             ctx.globalAlpha = 1;
         }
@@ -286,8 +294,9 @@ document.addEventListener('DOMContentLoaded', () => {
         height = window.innerHeight;
         canvas.width = width;
         canvas.height = height;
-        elements.length = 0;
+        elements.length = 0; // Limpiar elementos existentes
 
+        // Agrega los diferentes tipos de elementos al array
         for (let i = 0; i < numParticles; i++) { elements.push(new Particle()); }
         for (let i = 0; i < numGraphs; i++) { elements.push(new MinimalGraph()); }
         for (let i = 0; i < numHeatmaps; i++) { elements.push(new Heatmap()); }
@@ -298,14 +307,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Bucle principal de animación
     function animate() {
+        // Fondo con un gradiente muy sutil
         const gradient = ctx.createRadialGradient(width / 2, height / 2, 0, width / 2, height / 2, Math.max(width, height));
-        gradient.addColorStop(0, 'rgba(17, 24, 39, 0.1)');
-        gradient.addColorStop(1, 'rgba(17, 24, 39, 0.9)');
+        gradient.addColorStop(0, 'rgba(17, 24, 39, 0.1)'); // Color de fondo interior transparente
+        gradient.addColorStop(1, 'rgba(17, 24, 39, 0.9)'); // Color de fondo exterior semi-transparente
         ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, width, height);
+        ctx.fillRect(0, 0, width, height); // Limpiar el canvas con el gradiente
 
+        // Actualiza y dibuja cada elemento en el array
         elements.forEach((element, index) => {
             if (element.update()) {
+                // Si el elemento debe ser reiniciado, crea uno nuevo del mismo tipo
                 if (element instanceof Particle) { elements[index] = new Particle(); }
                 else if (element instanceof MinimalGraph) { elements[index] = new MinimalGraph(); }
                 else if (element instanceof Heatmap) { elements[index] = new Heatmap(); }
@@ -316,10 +328,12 @@ document.addEventListener('DOMContentLoaded', () => {
             element.draw();
         });
 
+        // Solicita el siguiente cuadro de animación
         requestAnimationFrame(animate);
     }
 
+    // Inicia la animación cuando la página carga y se redimensiona
     window.addEventListener('resize', init);
-    init();
-    animate();
+    init(); // Inicializa al cargar
+    animate(); // Inicia el bucle de animación
 });
