@@ -92,8 +92,8 @@ h1, h2, h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* Usa un RGBA basado en el color de acento restaurado */
-    background-color: rgba(52, 211, 153, 0.9);
+    /* Cambiado a fondo oscuro con mayor opacidad */
+    background-color: rgba(17, 24, 39, 0.95);
     backdrop-filter: blur(8px); /* Aplica un desenfoque al contenido detrás */
     opacity: 0;
     visibility: hidden;
