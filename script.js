@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const transitionImage = document.getElementById('transition-image');
     const transitionTitle = document.getElementById('transition-title');
 
-    // Datos de transición para las pestañas, usando SVGs en base64
+    // Datos de transición para las pestañas, usando SVGs en base64 - ACTUALIZADOS
     const tabTransitionData = {
         'inicio': {
             title: 'Inicio',
@@ -17,13 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'portafolio': {
             title: 'Portafolio',
-            // Gráfico de líneas con picos
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNTAwIj48cGF0aCBkPSJNNTAgNDUwIEwgMjAwLDExMCBMIDQwMCwzODAgTCA1NTAsMTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiMzREMzOTkiIHN0cm9rZS13aWR0aD0iMTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvcmFkYXJEb2N1bWVudD48L3N2Zz4=`
+            // Nuevo SVG de portafolio - Convertido a base64
+            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiBmaWxsPSIjMzREMzk5Ij48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMjUgODcuNWE1MCA1MCAwIDAgMSA1MC01MGg1MGE1MCA1MCAwIDAgMSA1MCA1MHYzLjQxN2MxNS41NSAxLjQxNyAzMC45NSAzLjI4MyA0Ni4yMzMgNS41NjdDMzQ0LjU2NyA5OS45NTUgMzU0LjQ4OTEyIDExNS4zMzkyIDM1Ny41ODY3IDEzMy44MjczdjUwLjU1YzAgMjAuMTgzLTEyLjIzMyAzOS4yLTMyLjI2NyA0NS44NjdBNDEyLjEgNDEyLjEgMCAwIDEgMjAwIDI2Mi41Yy00NS41IDAtODkuMjgzLTcuMzY3LTEzMC4yMzMtMjAuOTgzQzQ5LjUzMyAyMzUuMzUgMzcuMzMzIDIxNi40MTcgMzcuMzMzIDE5Ni4yMzN2LTEwMS4wNjJjMC0yMy45IDI5Ljc5Ni00NS4wNjMgODcuNjY3LTUwLjU1NC4xNjE2NTUtNS4yMTMgMy41ODU4Ny0xMS4wOTI4IDYuMzE2NTgtMTUuOTM5NUExNDguODc4IDE0OC44NzggMCAwIDEgMTI1IDkxLjg5M1Y4Ny41eiIgY2xpcC1ydWxlPSJldmVub2RkIiAvPjxwYXRoIGQ9Ik01MCA0MjZWMzkyLjMzM2M3LjE4MyAxLjQzMzE4IDI3LjY5OSA1LjU2NzgzIDU5LjU2NjIgOC40MTAzM0E0MzYuNzcgNDM2LjUyNyAwIDAgMCAyMDAgNDEyLjVjNDguMiAwIDk0LjY2Ny03LjggMTM4LjExNy0yMi4yNWE2NS44NzYgNjUuODc2IDAgMCAwIDExLjg4My01LjE4M1Y0MjZjMCAyNC4yIDQ5LjY1OCAyNS4yOTUgNjYuODMzIDQ2LjM4M0MyNDM1LjMzMyA0NzYuNzggMTgyLjggMjAwIDQ5MC40IDE4MC4yVjMwNmE4MTguMTcgODE4LjE3IDAgMCAxLTEwNy45LTcuMTE3QzgwLjc4MyA0NzQuODggNTAgNDUwLjI4IDUwIDQyNloiIC8+PC9zdmc+`
         },
         'sobre-mi-propuesta': {
             title: 'Sobre mí',
-            // Gráfico de Puntos Conectados (Scatter plot con líneas)
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cG9seWxpbmUgc3Ryb2tlPSIjMzREMzk5IiBzdHJva2Utd2lkdGg9IjgiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgcG9pbnRzPSI2Mi41LDIyNSA5My44LDE3NSA5My44LDM1MCAxNTYuMywyMjUgMTg3LjUsMzA1IDI1MCwxMTIuNSAzMTIuNSwyNTAgMzc1LDE3NSA0NjguOCwyNTAgNDY4LjgsMTc1IDUwMCwzMjUiLz48Y2lyY2xlIGN4PSI2Mi41IiBjeT0iMjI1IiByPSIxMiIgZmlsbD0iIzM0RDM5OSIvPjxjaXJjbGUgY3g9IjkzLjgiIGN5PSIxNzUiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iOTMuOCIgY3k9IjM1MCIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIxNTYuMyIgY3k9IjIyNSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIxODcuNSIgY3k9IjMwNSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIyNTUuMCIgY3k9IjExMi41IiByPSIxMiIgZmlsbD0iIzM0RDM5OSIvPjxjaXJjbGUgY3g9IjMxMi41IiBjeT0iMjUwIiByPSIxMiIgZmlsbD0iIzM0RDM5OSIvPjxjaXJjbGUgY3g9IjM3NSIgY3k9IjE3NSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSI0NjguOCIgY3k9IjI1MCIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSI0NjguOCIgY3k9IjE3NSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSI1MDAiIGN5PSIzMjUiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PC9zdmc+`
+            // Nuevo SVG de persona - Convertido a base64
+            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiBmaWxsPSIjMzREMzk5Ij48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zMTEuNDE3IDMxOC4xNjJBMTYyLjA1IDE2Mi4wNSAwIDAgMCAzNjIuNSAyMDBjMC04OS43NS03Mi43NS0xNjIuNS0xNjIuNS0xNjIuNVM0Ny41IDExMC4yNSA0Ny41IDIwMGExNjIuMDUgMTYyLjA1IDAgMCAwIDUxLjA4MyAxMTguMTYyQTE2MS45MyAxNjEuOTMgMCAwIDAgMjAwIDM2Mi41YTE2MS45MyAxNjEuOTMgMCAwIDAgMTExLjQxNy00NC4zMzh6bS0yMDguOTE3LTIxLjQxNkExMjQuNzcgMTI0Ljc3IDAgMCAxIDIwMCAyNTBhMTI0Ljc3IDEyNC43NyAwIDAgMSA5Ny41IDQ2Ljc0NkExMzcuMDYgMTM3LjA2IDAgMCAxIDIwMCAzMzcuNWExMzcuMDYgMTM3LjA2IDAgMCAxLTk3LjUtNDAuNzU0ek0yNjIuNSAxNTBhNjIuNSA2Mi41IDAgMSAxLTEyNSAwIDYyLjUgNjIuNSAwIDAgMSAxMjUgMFoiIGNsaXAtcnVsZT0iZXZlbm9kZCIgLz48L3N2Zz4=`
         },
         'servicios-habilidades': {
             title: 'Servicios y habilidades',
@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'contacto': {
             title: 'Contacto',
-            // Dos círculos, simbolizando conexión
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNTAwIj48Y2lyY2xlIGN4PSIyMDAiIGN5PSIyMDAiIHI9IjEwMCIgc3Ryb2tlPSIjMzREMzk5IiBzdHJva2Utd2lkdGg9IjE1IiBmaWxsPSJub25lIi8+PGNpcmNsZSBjeD0iNDAwIiBjeT0iMTAwIiByPSI1MCIgc3Ryb2tlPSIjMzREMzk5IiBzdHJva2Utd2lkdGg9IjEwIiBmaWxsPSJub25lIi8+PC9zdmc+`
+            // Nuevo SVG de contacto - Convertido a base64
+            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiBmaWxsPSIjMzREMzk5Ij48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yMDAgMzcuNWMtODkuNzUgMC0xNjIuNSA3Mi43NS0xNjIuNSAxNjIuNXM3Mi43NSAxNjIuNSAxNjIuNSAxNjIuNSAxNjIuNS03Mi43NSAxNjIuNS0xNjIuNVM4OS43NSAzNy41IDIwMCAzNy41ek0xMDQuMzcgMTAxLjJhMTM3LjUgMTM3LjUgMCAxIDAgMTc2LjAzLTEyLjc2N0E3NS41IDc1LjUgMCAwIDEgMjM3LjUgMTEyLjVsLjI3NS41NWExMy40ODMgMTMuNDgzIDAgMCAxLTEuODA4IDE4LjA5Mkw5OS4zNzUgMjQ3LjVjLjEyNS0uNy4xMjUtMS40LjI0Mi0yLjEzOGExOC43NSAxOC43NSAwIDAgMC0yLjE2My0zLjQzOGwtMjAuOCAxNi40cy0xLjA0LjQ2NS0yLjQ3NSAxLjZjLjE0LS42NS4yOC0xLjMxNi4zMzMtMS45NDRhOS43NSA5Ljc1IDAgMSAwLS45NC0xLjI2YTguMzc0IDguMzc0IDAgMCAwLTMuNCA4LjM3YTguNzI5IDguNzI5IDAgMCAwIDguMzcgNi4wNCA5Ljc1IDkuNzUgMCAxIDAtMS4yNi0uOTQuNzUuNzUgMCAwIDEgMS41MSA2LjAxNnoiIGNsaXAtcnVsZT0iZXZlbm9kZCIgLz48L3N2Zz4=`
         }
     };
 
