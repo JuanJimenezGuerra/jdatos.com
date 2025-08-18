@@ -4,7 +4,6 @@
     ========================================
     Define una paleta de colores y variables de tipografía para el sitio.
 */
-
 :root {
     --color-primary: #1F2937; /* Gris oscuro para el fondo */
     --color-accent: #34D399; /* Color de acento verde restaurado */
@@ -32,7 +31,6 @@ h1, h2, h3 {
     Posiciona el canvas como un fondo fijo que ocupa toda la pantalla,
     quedando detrás del resto del contenido.
 */
-
 #data-visualization-canvas {
     position: fixed;
     top: 0;
@@ -49,7 +47,6 @@ h1, h2, h3 {
     Maneja la animación de entrada y salida de las secciones de contenido
     y el overlay de transición.
 */
-
 .tab-content {
     /* Estado inicial (oculto) de las pestañas */
     display: none;
@@ -81,7 +78,6 @@ h1, h2, h3 {
     ========================================
     Define la apariencia y animación del overlay que aparece al cambiar de pestaña.
 */
-
 #tab-transition-overlay {
     position: fixed;
     top: 0;
@@ -146,7 +142,6 @@ h1, h2, h3 {
     ========================================
     Define animaciones reutilizables que son aplicadas en el HTML.
 */
-
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
