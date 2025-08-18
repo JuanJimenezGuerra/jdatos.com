@@ -1,4 +1,3 @@
-
 /*
     ========================================
     Estilos Globales y Variables
@@ -14,10 +13,14 @@
 }
 
 body {
-    /* Aplica la fuente y colores base a todo el cuerpo del documento */
+    /*
+        CORRECCIÓN: El fondo del body ahora es transparente para permitir
+        que la animación del canvas (con z-index: 0) sea visible.
+        El fondo de la página se manejará directamente en el canvas.
+    */
     font-family: 'Source Sans Pro', sans-serif;
     color: var(--color-text);
-    background-color: var(--color-background);
+    background-color: transparent;
 }
 
 h1, h2, h3 {
@@ -89,7 +92,6 @@ h1, h2, h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* CORREGIDO: El fondo ahora es oscuro */
     background-color: rgba(17, 24, 39, 0.9); /* Usa el color de fondo principal con transparencia */
     backdrop-filter: blur(8px); /* Aplica un desenfoque al contenido detrás */
     opacity: 0;
