@@ -1,176 +1,269 @@
-/*
-    ========================================
-    Estilos Globales y Variables
-    ========================================
-    Define una paleta de colores y variables de tipografía para el sitio.
-*/
+/* Definición de la paleta de colores y tipografía para el tema oscuro */
 
 :root {
-    --color-primary: #0F172A; /* Nuevo gris azulado oscuro */
-    --color-accent: #60A5FA; /* Nuevo azul vibrante */
-    --color-text: #F1F5F9; /* Nuevo gris muy claro */
-    --color-background: #020617; /* Nuevo fondo muy oscuro, casi negro */
-    --transition-duration: 0.3s; /* Duración base para transiciones */
+
+    --color-primary: #1F2937; /* Gris oscuro para el fondo */
+
+    --color-accent: #34D399; /* Verde vibrante */
+
+    --color-text: #E5E7EB; /* Gris claro para el texto principal */
+
+    --color-background: #111827; /* Fondo principal muy oscuro */
+
+    --transition-duration: 0.3s; /* Transiciones más rápidas */
+
 }
+
+
 
 body {
-    /* Aplica la fuente y colores base a todo el cuerpo del documento */
-    font-family: 'Source Sans Pro', sans-serif;
-    color: var(--color-text);
-    background-color: var(--color-background);
+
+    font-family: 'Source Sans Pro', sans-serif;
+
+    color: var(--color-text);
+
+    background-color: var(--color-background);
+
 }
+
+
 
 h1, h2, h3 {
-    /* Define la fuente para los títulos */
-    font-family: 'Montserrat', sans-serif;
+
+    font-family: 'Montserrat', sans-serif;
+
 }
 
-/*
-    ========================================
-    Estilos de la Visualización de Datos (Canvas)
-    ========================================
-    Posiciona el canvas como un fondo fijo que ocupa toda la pantalla,
-    quedando detrás del resto del contenido.
-*/
 
-#data-visualization-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
 
-/*
-    ========================================
-    Estilos de la Transición de Pestañas
-    ========================================
-    Maneja la animación de entrada y salida de las secciones de contenido
-    y el overlay de transición.
-*/
+/* --- Estilos de Transición de Pestañas Mejorados --- */
 
 .tab-content {
-    /* Estado inicial (oculto) de las pestañas */
-    display: none;
-    opacity: 0;
-    transform: scale(0.95); /* Comienza ligeramente reducido */
-    transition: opacity var(--transition-duration) ease-out, transform var(--transition-duration) ease-out;
-    position: relative;
-    z-index: 10;
+
+    display: none;
+
+    opacity: 0;
+
+    transform: scale(0.95); /* Empieza un poco más pequeño */
+
+    transition: opacity var(--transition-duration) ease-out, transform var(--transition-duration) ease-out;
+
+    position: relative;
+
+    z-index: 10;
+
 }
+
+
 
 .tab-content.active {
-    /* Estado activo (visible) de las pestañas */
-    display: block;
-    opacity: 1;
-    transform: scale(1); /* Se expande a su tamaño normal */
+
+    display: block;
+
+    opacity: 1;
+
+    transform: scale(1); /* Se expande a su tamaño normal */
+
 }
+
+
 
 .tab-link.active {
-    /* Estilo para el enlace de la pestaña activa en la navegación */
-    font-weight: 700;
-    color: var(--color-accent);
-    border-bottom-width: 2px;
-    border-color: var(--color-accent);
+
+    font-weight: 700;
+
+    color: var(--color-accent);
+
+    border-bottom-width: 2px;
+
+    border-color: var(--color-accent);
+
 }
 
-/*
-    ========================================
-    Estilos del Overlay de Transición
-    ========================================
-    Define la apariencia y animación del overlay que aparece al cambiar de pestaña.
-*/
+
+
+/* --- Estilos del nuevo Canvas de Visualización de Datos --- */
+
+#data-visualization-canvas {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    z-index: 0;
+
+    background-color: #111827;
+
+}
+
+
+
+/* --- NUEVOS Estilos de Transición con Imagen y Título --- */
 
 #tab-transition-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(2, 6, 23, 0.9); /* Fondo semitransparente para un efecto oscuro */
-    backdrop-filter: blur(8px); /* Aplica un desenfoque al contenido detrás */
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s ease-in, visibility 0.4s;
-    z-index: 20; /* Asegura que el overlay esté por encima de todo */
+
+    position: fixed; /* Ocupa toda la ventana */
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background-color: rgba(17, 24, 39, 0.9); /* Fondo semitransparente oscuro */
+
+    backdrop-filter: blur(8px); /* Efecto de desenfoque */
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: opacity 0.4s ease-in, visibility 0.4s;
+
+    z-index: 20; /* Asegurar que esté por encima de todo */
+
 }
+
+
 
 #tab-transition-overlay.active {
-    /* Activa la visibilidad y opacidad del overlay */
-    opacity: 1;
-    visibility: visible;
+
+    opacity: 1;
+
+    visibility: visible;
+
 }
+
+
 
 #tab-transition-overlay img {
-    /* Estilos para la imagen SVG dentro del overlay */
-    max-width: 90%;
-    max-height: 50vh;
-    border-radius: 1rem;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-    transform: scale(0.8);
-    transition: transform 0.4s ease-out;
+
+    max-width: 90%;
+
+    max-height: 50vh;
+
+    border-radius: 1rem;
+
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+
+    transform: scale(0.8);
+
+    transition: transform 0.4s ease-out;
+
 }
+
+
 
 #tab-transition-overlay h2 {
-    /* Estilos para el título dentro del overlay */
-    color: var(--color-accent);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    margin-top: 2rem;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.4s ease-in 0.2s, transform 0.4s ease-in 0.2s;
+
+    color: var(--color-accent);
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 2rem;
+
+    font-weight: 700;
+
+    margin-top: 2rem;
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    transition: opacity 0.4s ease-in 0.2s, transform 0.4s ease-in 0.2s; /* Pequeño retraso */
+
 }
+
+
 
 #tab-transition-overlay.active img {
-    /* Anima la imagen para que se expanda */
-    transform: scale(1);
+
+    transform: scale(1);
+
 }
+
+
 
 #tab-transition-overlay.active h2 {
-    /* Anima el título para que aparezca */
-    opacity: 1;
-    transform: translateY(0);
+
+    opacity: 1;
+
+    transform: translateY(0);
+
 }
 
-/*
-    ========================================
-    Animaciones de Keyframes
-    ========================================
-    Define animaciones reutilizables que son aplicadas en el HTML.
-*/
+
+
+/* --- Animaciones del Contenido (existentes) --- */
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+
+    from { opacity: 0; transform: translateY(20px); }
+
+    to { opacity: 1; transform: translateY(0); }
+
 }
+
 .animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+
 .animate-fade-in-up.delay-100 { animation-delay: 0.1s; }
+
 .animate-fade-in-up.delay-200 { animation-delay: 0.2s; }
+
 .animate-fade-in-up.delay-300 { animation-delay: 0.3s; }
+
 .animate-fade-in-up.delay-400 { animation-delay: 0.4s; }
 
+
+
 @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+
+    0%, 100% { transform: scale(1); }
+
+    50% { transform: scale(1.05); }
+
 }
+
 .animate-pulse-slow { animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
 
+
+
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-30px); }
-    60% { transform: translateY(-15px); }
+
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+
+    40% { transform: translateY(-30px); }
+
+    60% { transform: translateY(-15px); }
+
 }
+
 .animate-bounce-once { animation: bounce 1.5s ease-in-out 0.5s 1; }
 
+
+
 @keyframes pulse-fast {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+
+    0%, 100% { opacity: 1; }
+
+    50% { opacity: 0.5; }
+
 }
+
 .animate-pulse-fast { animation: pulse-fast 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
