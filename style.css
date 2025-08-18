@@ -4,6 +4,7 @@
     ========================================
     Define una paleta de colores y variables de tipografía para el sitio.
 */
+
 :root {
     --color-primary: #1F2937; /* Gris oscuro para el fondo */
     --color-accent: #34D399; /* Color de acento verde restaurado */
@@ -13,14 +14,10 @@
 }
 
 body {
-    /*
-        CORRECCIÓN: El fondo del body ahora es transparente para permitir
-        que la animación del canvas (con z-index: 0) sea visible.
-        El fondo de la página se manejará directamente en el canvas.
-    */
+    /* Aplica la fuente y colores base a todo el cuerpo del documento */
     font-family: 'Source Sans Pro', sans-serif;
     color: var(--color-text);
-    background-color: transparent;
+    background-color: var(--color-background);
 }
 
 h1, h2, h3 {
@@ -35,6 +32,7 @@ h1, h2, h3 {
     Posiciona el canvas como un fondo fijo que ocupa toda la pantalla,
     quedando detrás del resto del contenido.
 */
+
 #data-visualization-canvas {
     position: fixed;
     top: 0;
@@ -45,28 +43,13 @@ h1, h2, h3 {
 }
 
 /*
-    ========================================
-    Contenedor Principal de la Interfaz
-    ========================================
-    Este nuevo contenedor envuelve todo el contenido principal de la
-    página. Su fondo semi-transparente permite que el canvas se vea
-    por detrás, y su z-index lo asegura por encima del canvas.
-*/
-.main-content-wrapper {
-    position: relative;
-    z-index: 5;
-    background-color: rgba(17, 24, 39, 0.9);
-    backdrop-filter: blur(8px);
-    min-height: 100vh;
-}
-
-/*
     =======================================
     Estilos de la Transición de Pestañas
     =======================================
     Maneja la animación de entrada y salida de las secciones de contenido
     y el overlay de transición.
 */
+
 .tab-content {
     /* Estado inicial (oculto) de las pestañas */
     display: none;
@@ -98,6 +81,7 @@ h1, h2, h3 {
     ========================================
     Define la apariencia y animación del overlay que aparece al cambiar de pestaña.
 */
+
 #tab-transition-overlay {
     position: fixed;
     top: 0;
@@ -108,7 +92,8 @@ h1, h2, h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(17, 24, 39, 0.9); /* Usa el color de fondo principal con transparencia */
+    /* Usa un RGBA basado en el color de acento restaurado */
+    background-color: rgba(52, 211, 153, 0.9);
     backdrop-filter: blur(8px); /* Aplica un desenfoque al contenido detrás */
     opacity: 0;
     visibility: hidden;
@@ -157,21 +142,11 @@ h1, h2, h3 {
 
 /*
     ========================================
-    Estilos de las Líneas de Servicio
-    ========================================
-    Define el estilo para las líneas de separación en las secciones de servicio.
-*/
-.service-line {
-    border-bottom: 2px solid var(--color-accent);
-    padding-bottom: 0.5rem; /* Pequeño espacio debajo de la línea */
-}
-
-/*
-    ========================================
     Animaciones de Keyframes
     ========================================
     Define animaciones reutilizables que son aplicadas en el HTML.
 */
+
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
