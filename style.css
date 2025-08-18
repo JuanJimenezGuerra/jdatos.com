@@ -13,7 +13,11 @@
 }
 
 body {
-    /* Hacemos el fondo del body transparente para que el canvas se vea */
+    /*
+        CORRECCIÓN: El fondo del body ahora es transparente para permitir
+        que la animación del canvas (con z-index: 0) sea visible.
+        El fondo de la página se manejará directamente en el canvas.
+    */
     font-family: 'Source Sans Pro', sans-serif;
     color: var(--color-text);
     background-color: transparent;
