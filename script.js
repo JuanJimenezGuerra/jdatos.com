@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         draw() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(77, 102, 106, ${Math.max(0, this.opacity)})`;
+            ctx.fillStyle = `rgba(52, 211, 153, ${Math.max(0, this.opacity)})`;
             ctx.fill();
         }
     }
@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         draw() {
-            ctx.strokeStyle = '#4D666A';
+            ctx.strokeStyle = '#34D399';
             ctx.lineWidth = this.lineWidth;
             ctx.globalAlpha = 0.7;
             ctx.beginPath();
@@ -190,8 +190,8 @@ document.addEventListener('DOMContentLoaded', () => {
         draw() {
             // Crea un gradiente radial para el efecto de brillo
             const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
-            gradient.addColorStop(0, `rgba(77, 102, 106, ${this.intensity * 0.6})`);
-            gradient.addColorStop(1, 'rgba(77, 102, 106, 0)');
+            gradient.addColorStop(0, `rgba(52, 211, 153, ${this.intensity * 0.6})`);
+            gradient.addColorStop(1, 'rgba(52, 211, 153, 0)');
             ctx.fillStyle = gradient;
             ctx.fillRect(this.x - this.radius, this.y - this.radius, this.radius * 2, this.radius * 2);
         }
@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         draw() {
             ctx.globalAlpha = 0.6;
-            ctx.fillStyle = '#4D666A';
+            ctx.fillStyle = '#34D399';
             for (let i = 0; i < this.numBars; i++) {
                 // Anima la altura de la barra usando una función sinusoidal
                 const animatedHeight = this.barHeights[i] * (0.5 + Math.sin(this.animationPhase + i * 0.5) * 0.5);
@@ -259,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.radius = Math.random() * 20 + 10;
             // Define los segmentos iniciales del pastel
             this.segments = [Math.random() * 0.4, Math.random() * 0.3, Math.random() * 0.3];
-            this.colors = ['#4D666A', '#1F2937', '#6EE7B7']; // Actualización de colores
+            this.colors = ['#34D399', '#1F2937', '#6EE7B7']; // Restauración de los colores originales
             this.animationPhase = Math.random() * Math.PI * 2;
         }
 
