@@ -13,11 +13,21 @@
     <!-- Enlace a la hoja de estilos personalizada -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="text-[var(--color-text)]">
-    <!-- El canvas de fondo va fuera del contenedor principal -->
+<body class="bg-[var(--color-background)] text-[var(--color-text)]">
+
+    <!--
+        CORRECCIÓN CRÍTICA:
+        El canvas se coloca al principio del body para actuar como fondo fijo.
+        Su visibilidad es controlada por los estilos CSS.
+    -->
     <canvas id="data-visualization-canvas"></canvas>
-    
-    <!-- Contenedor principal del contenido, con fondo semitransparente -->
+
+    <!--
+        CORRECCIÓN CRÍTICA:
+        Todo el contenido visible de la página se envuelve en este contenedor.
+        La clase 'main-content-wrapper' en el CSS le dará un fondo semi-transparente
+        y un z-index para que se muestre encima del canvas animado.
+    -->
     <div class="main-content-wrapper">
 
         <!-- Encabezado y Barra de Navegación -->
@@ -26,222 +36,193 @@
                 <div class="text-2xl font-bold text-white mb-4 md:mb-0">
                     <a href="#" class="hover:text-[var(--color-accent)] transition-colors duration-300">Juan David Jimenez</a>
                 </div>
-                <div class="flex flex-wrap justify-center md:space-x-4 space-x-2 text-sm md:text-base">
-                    <button class="tab-link px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 transition-all active" data-target="inicio">Inicio</button>
-                    <button class="tab-link px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 transition-all" data-target="portafolio">Portafolio</button>
-                    <button class="tab-link px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 transition-all" data-target="sobre-mi-propuesta">Sobre mí</button>
-                    <button class="tab-link px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 transition-all" data-target="servicios-habilidades">Servicios y habilidades</button>
-                    <button class="tab-link px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 transition-all" data-target="contacto">Contacto</button>
+                <div class="space-x-4 flex items-center">
+                    <a href="#inicio" data-target="inicio" class="tab-link active text-gray-300 hover:text-white px-3 py-2 rounded-md transition-colors duration-300">Inicio</a>
+                    <a href="#portafolio" data-target="portafolio" class="tab-link text-gray-300 hover:text-white px-3 py-2 rounded-md transition-colors duration-300">Portafolio</a>
+                    <a href="#sobre-mi-propuesta" data-target="sobre-mi-propuesta" class="tab-link text-gray-300 hover:text-white px-3 py-2 rounded-md transition-colors duration-300">Sobre mí</a>
+                    <a href="#servicios-habilidades" data-target="servicios-habilidades" class="tab-link text-gray-300 hover:text-white px-3 py-2 rounded-md transition-colors duration-300">Servicios y Habilidades</a>
+                    <a href="#contacto" data-target="contacto" class="tab-link text-gray-300 hover:text-white px-3 py-2 rounded-md transition-colors duration-300">Contacto</a>
                 </div>
             </nav>
         </header>
 
-        <!-- Contenido Principal -->
-        <main class="container mx-auto p-6 md:p-12 min-h-screen relative z-10">
-            <!-- Overlay para la transición de secciones -->
-            <div id="tab-transition-overlay">
-                <img id="transition-image" src="" alt="Elemento visual de transición"/>
-                <h2 id="transition-title"></h2>
-            </div>
+        <!-- Overlay de Transición entre Pestañas -->
+        <div id="tab-transition-overlay">
+            <img id="transition-image" src="" alt="Gráfico de transición">
+            <h2 id="transition-title" class="text-center"></h2>
+        </div>
+
+        <!-- Contenido principal con secciones de pestañas -->
+        <main class="container mx-auto p-4 md:p-8">
 
             <!-- Sección de Inicio -->
-            <section id="inicio" class="tab-content active">
-                <div class="text-center rounded-2xl p-8 md:p-16 shadow-lg border border-gray-700 backdrop-blur-sm bg-gray-900/70">
-                    <img src="Perfil.jpg" 
-                         alt="Foto de perfil de Juan David Jimenez"
-                         class="w-32 h-32 object-cover rounded-full mx-auto mb-6 border-4 border-[var(--color-accent)] shadow-lg animate-fade-in-up animate-pulse-slow">
-                    <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-4 animate-fade-in-up delay-100">
-                        Juan David Jimenez: Convirtiendo Datos en Estrategias de Negocio y Soluciones Inteligentes
-                    </h1>
-                    <p class="text-base md:text-lg text-gray-300 max-w-3xl mx-auto mb-8 animate-fade-in-up delay-200">
-                        Como Economista con experiencia en Inteligencia de Negocios, me dedico a transformar tu información en conocimiento clave para optimizar operaciones, monetizar datos y obtener ventajas competitivas. Actualmente, estoy profundizando en Machine Learning y Ciencia de Datos para ofrecerte soluciones aún más avanzadas y predictivas.
+            <section id="inicio" class="tab-content active animate-fade-in-up">
+                <div class="text-center my-12 md:my-24">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up">Juan David Jimenez</h1>
+                    <p class="text-xl md:text-3xl font-light text-[var(--color-accent)] animate-fade-in-up delay-100">Analista y Científico de Datos</p>
+                    <p class="mt-6 max-w-2xl mx-auto text-lg leading-relaxed animate-fade-in-up delay-200">
+                        Transformando datos en conocimiento y valor para la toma de decisiones estratégicas.
                     </p>
-                    <a href="#contacto" class="inline-block mt-8 bg-[var(--color-accent)] text-gray-900 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 transform hover:scale-105 animate-fade-in-up delay-300 animate-bounce-once">
-                        Agenda una Consulta Gratuita
-                    </a>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 my-12 md:my-24 text-center">
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg animate-fade-in-up delay-300">
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--color-accent)]">Análisis de Datos</h3>
+                        <p class="text-sm">Exploración profunda para descubrir patrones y tendencias ocultas.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg animate-fade-in-up delay-400">
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--color-accent)]">Ciencia de Datos</h3>
+                        <p class="text-sm">Modelos predictivos y soluciones basadas en aprendizaje automático.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg animate-fade-in-up delay-500">
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--color-accent)]">Visualización</h3>
+                        <p class="text-sm">Creación de dashboards interactivos que cuentan una historia con datos.</p>
+                    </div>
                 </div>
             </section>
 
-            <!-- Sección de Portafolio -->
+            <!-- Sección de Portafolio (Inicialmente oculta) -->
             <section id="portafolio" class="tab-content">
-                <div class="bg-gray-900 p-8 md:p-12 rounded-2xl shadow-xl">
-                    <h2 class="text-2xl md:text-4xl font-bold text-[var(--color-accent)] mb-6 border-b-2 border-gray-700 pb-2 text-center">
-                        Mi Portafolio
-                    </h2>
-                    <p class="text-gray-300 text-base md:text-lg mb-8 max-w-3xl mx-auto text-center animate-fade-in-up">
-                        Aquí encontrarás proyectos sólidos que demuestran mi capacidad para resolver problemas reales de negocio y mis habilidades técnicas.
-                    </p>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-100">
-                            <div class="aspect-w-16 aspect-h-9 w-full mb-4">
-                                <!-- Video embebido de YouTube para el dashboard de Zoho Analytics -->
-                                <iframe src="https://www.youtube.com/embed/fD3q01-yE6Y"
-                                        frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen
-                                        class="rounded-lg w-full h-full"></iframe>
-                            </div>
-                            <h3 class="text-xl font-bold text-white mb-2">Dashboard en Zoho Analytics</h3>
-                            <p class="text-gray-400">Creación de dashboards interactivos para visualizar métricas clave y optimizar la toma de decisiones.</p>
-                        </div>
-                        <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-200">
-                            <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full h-[156px] mb-4">
-                                <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
-                            </div>
-                            <h3 class="text-xl font-bold text-white mb-2">Paneles y homepages en Zoho CRM</h3>
-                            <p class="text-gray-400">Diseño y desarrollo de paneles personalizados para monitorear el rendimiento de ventas y el comportamiento del cliente.</p>
-                        </div>
-                        <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-300">
-                            <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full h-[156px] mb-4">
-                                <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
-                            </div>
-                            <h3 class="text-xl font-bold text-white mb-2">Dashboard en Power BI</h3>
-                            <p class="text-gray-400">Análisis y creación de informes dinámicos para transformar datos complejos en conocimiento accesible y útil.</p>
-                        </div>
-                        <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-400">
-                            <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full h-[156px] mb-4">
-                                <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
-                            </div>
-                            <h3 class="text-xl font-bold text-white mb-2">Consultas SQL para el análisis de datos</h3>
-                            <p class="text-gray-400">Diseño de consultas SQL avanzadas para la extracción, limpieza y análisis de grandes conjuntos de datos.</p>
-                        </div>
-                        <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-500">
-                            <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full h-[156px] mb-4">
-                                <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
-                            </div>
-                            <h3 class="text-xl font-bold text-white mb-2">Modelos de clasificación en Machine Learning</h3>
-                            <p class="text-gray-400">Desarrollo de modelos para categorizar y predecir resultados, como la segmentación de clientes o la detección de fraudes.</p>
-                        </div>
-                        <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-600">
-                            <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full h-[156px] mb-4">
-                                <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
-                            </div>
-                            <h3 class="text-xl font-bold text-white mb-2">Predicción de series de tiempo</h3>
-                            <p class="text-gray-400">Creación de modelos predictivos para pronosticar ventas, demanda o tendencias de mercado futuras.</p>
-                        </div>
-                        <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-700">
-                            <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full h-[156px] mb-4">
-                                <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
-                            </div>
-                            <h3 class="text-xl font-bold text-white mb-2">Integración de Machine Learning en Zoho</h3>
-                            <p class="text-gray-400">Implementación de modelos de Machine Learning directamente en plataformas como Zoho para potenciar funcionalidades de análisis y predicción.</p>
-                        </div>
+                <h2 class="text-3xl md:text-5xl font-bold mb-8 text-center">Portafolio</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Ejemplo de Proyecto 1 -->
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-2">Análisis de Satisfacción del Cliente</h3>
+                        <p class="text-sm text-gray-400 mb-4">Tecnologías: Python, Pandas, Matplotlib</p>
+                        <p class="text-sm">
+                            Análisis de encuestas y datos de interacción para identificar los principales factores
+                            que influyen en la satisfacción del cliente. Se desarrollaron visualizaciones
+                            interactivas para el equipo de gestión.
+                        </p>
                     </div>
-                </div>
-            </section>
-            
-            <!-- Sección Sobre Mí -->
-            <section id="sobre-mi-propuesta" class="tab-content">
-                <div class="bg-gray-900 p-8 md:p-12 rounded-2xl shadow-xl animate-fade-in-up">
-                    <h2 class="text-2xl md:text-4xl font-bold text-[var(--color-accent)] mb-6 border-b-2 border-gray-700 pb-2 text-center">
-                        Sobre Mí
-                    </h2>
-                    <div class="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
-                        <div class="w-full md:w-1/3 text-center">
-                            <img src="Perfil.jpg" alt="Foto de perfil de Juan David Jimenez" class="w-40 h-40 object-cover rounded-full mx-auto mb-4 border-4 border-gray-600 shadow-lg animate-pulse-slow">
-                            <h3 class="text-xl font-semibold text-white">Juan David Jimenez</h3>
-                            <p class="text-gray-400">Analista y Científico de Datos</p>
-                        </div>
-                        <div class="w-full md:w-2/3">
-                            <p class="text-gray-300 text-base md:text-lg leading-relaxed mb-4">
-                                Soy un **economista** con pasión por el análisis de datos. Mi experiencia se centra en convertir información compleja en soluciones prácticas y rentables para las empresas.
-                            </p>
-                            <p class="text-gray-300 text-base md:text-lg leading-relaxed mb-4">
-                                Durante mi carrera, he trabajado con plataformas como **Zoho Analytics** y **Power BI** para construir **dashboards interactivos** que impulsan la toma de decisiones. Mis habilidades en **SQL** me permiten extraer y manipular grandes volúmenes de datos con precisión.
-                            </p>
-                            <p class="text-gray-300 text-base md:text-lg leading-relaxed">
-                                Actualmente, mi enfoque es expandir mis conocimientos en **Machine Learning** y **Ciencia de Datos** para crear **modelos predictivos** y de **clasificación** que ofrezcan una ventaja competitiva a mis clientes.
-                            </p>
-                        </div>
+                    <!-- Ejemplo de Proyecto 2 -->
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-2">Modelo de Predicción de Churn</h3>
+                        <p class="text-sm text-gray-400 mb-4">Tecnologías: Scikit-learn, TensorFlow, AWS SageMaker</p>
+                        <p class="text-sm">
+                            Construcción y despliegue de un modelo de aprendizaje automático para predecir la
+                            probabilidad de que un cliente abandone el servicio, permitiendo acciones de
+                            retención proactivas.
+                        </p>
                     </div>
                 </div>
             </section>
 
-            <!-- Sección de Servicios y Habilidades -->
-            <section id="servicios-habilidades" class="tab-content">
-                <div class="bg-gray-900 p-8 md:p-12 rounded-2xl shadow-xl">
-                    <h2 class="text-2xl md:text-4xl font-bold text-[var(--color-accent)] mb-6 border-b-2 border-gray-700 pb-2 text-center">
-                        Servicios y Habilidades
-                    </h2>
-                    <div class="grid md:grid-cols-2 gap-8 mb-8">
-                        <div>
-                            <h3 class="text-xl md:text-2xl font-semibold text-white mb-4 animate-fade-in-up delay-100">Servicios Clave</h3>
-                            <div class="service-line mb-4 animate-fade-in-up delay-200"></div>
-                            <ul class="list-disc list-inside space-y-2 text-gray-300">
-                                <li>Inteligencia de Negocios y Visualización</li>
-                                <li>Análisis de Datos y Modelado Predictivo</li>
-                                <li>Automatización de Informes</li>
-                                <li>Consultoría en Estrategia de Datos</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="text-xl md:text-2xl font-semibold text-white mb-4 animate-fade-in-up delay-300">Habilidades Técnicas</h3>
-                            <div class="service-line mb-4 animate-fade-in-up delay-400"></div>
-                            <ul class="list-disc list-inside space-y-2 text-gray-300">
-                                <li>**Herramientas BI:** Power BI, Zoho Analytics</li>
-                                <li>**Bases de Datos:** SQL</li>
-                                <li>**Lenguajes:** Python (Pandas, Scikit-learn, Matplotlib), R</li>
-                                <li>**Web:** HTML, CSS, JavaScript, Tailwind CSS</li>
-                            </ul>
-                        </div>
+            <!-- Sección Sobre Mí (Inicialmente oculta) -->
+            <section id="sobre-mi-propuesta" class="tab-content">
+                <h2 class="text-3xl md:text-5xl font-bold mb-8 text-center">Sobre Mí</h2>
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <img src="https://placehold.co/200x200/34D399/111827?text=JD" alt="Foto de perfil" class="rounded-full w-48 h-48 border-4 border-[var(--color-accent)] animate-pulse-slow">
+                    <div class="text-sm max-w-xl">
+                        <p class="mb-4">
+                            Soy un analista y científico de datos apasionado por desentrañar las historias
+                            detrás de los números. Mi experiencia se centra en utilizar la ciencia de datos para
+                            resolver problemas complejos de negocio y generar valor tangible.
+                        </p>
+                        <p class="mb-4">
+                            Mi enfoque principal es la simplicidad y la claridad. Creo que las herramientas más poderosas
+                            son aquellas que nos permiten comunicar hallazgos complejos de manera sencilla y efectiva,
+                            democratizando el acceso al conocimiento que reside en los datos.
+                        </p>
+                        <p>
+                            Estoy en constante aprendizaje y siempre en busca de nuevas tecnologías y metodologías
+                            para mejorar mis habilidades y mis proyectos.
+                        </p>
                     </div>
                 </div>
             </section>
-            
-            <!-- Sección de Contacto -->
+
+            <!-- Sección de Servicios y Habilidades (Inicialmente oculta) -->
+            <section id="servicios-habilidades" class="tab-content">
+                <h2 class="text-3xl md:text-5xl font-bold mb-8 text-center">Servicios y Habilidades</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Servicio 1: Análisis Descriptivo -->
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg animate-fade-in-up delay-100">
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--color-accent)]">Análisis Descriptivo</h3>
+                        <div class="service-line mb-4"></div>
+                        <p class="text-sm">
+                            Resúmenes estadísticos, exploración de datos (EDA), y visualizaciones
+                            para entender el estado actual de los procesos o fenómenos.
+                        </p>
+                    </div>
+                    <!-- Servicio 2: Modelado Predictivo -->
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg animate-fade-in-up delay-200">
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--color-accent)]">Modelado Predictivo</h3>
+                        <div class="service-line mb-4"></div>
+                        <p class="text-sm">
+                            Creación de modelos de regresión, clasificación y series de tiempo para pronosticar
+                            eventos futuros y comportamientos.
+                        </p>
+                    </div>
+                    <!-- Servicio 3: Automatización de Informes -->
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg animate-fade-in-up delay-300">
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--color-accent)]">Automatización de Informes</h3>
+                        <div class="service-line mb-4"></div>
+                        <p class="text-sm">
+                            Desarrollo de scripts y pipelines de datos para automatizar la
+                            generación de dashboards e informes recurrentes.
+                        </p>
+                    </div>
+                    <!-- Habilidad 1: Lenguajes de Programación -->
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg animate-fade-in-up delay-400">
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--color-accent)]">Lenguajes de Programación</h3>
+                        <div class="service-line mb-4"></div>
+                        <p class="text-sm">
+                            Dominio de **Python** (Pandas, NumPy, Scikit-learn) y **SQL** para la manipulación
+                            y análisis de datos.
+                        </p>
+                    </div>
+                    <!-- Habilidad 2: Visualización -->
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg animate-fade-in-up delay-500">
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--color-accent)]">Visualización</h3>
+                        <div class="service-line mb-4"></div>
+                        <p class="text-sm">
+                            Experiencia con librerías como **Matplotlib**, **Seaborn**, **Plotly** y herramientas
+                            como **Tableau** y **Power BI**.
+                        </p>
+                    </div>
+                    <!-- Habilidad 3: Bases de Datos -->
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg animate-fade-in-up delay-600">
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--color-accent)]">Bases de Datos</h3>
+                        <div class="service-line mb-4"></div>
+                        <p class="text-sm">
+                            Manejo de bases de datos relacionales (**PostgreSQL**, **MySQL**) y NoSQL (**MongoDB**).
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de Contacto (Inicialmente oculta) -->
             <section id="contacto" class="tab-content">
-                <div class="bg-gray-900 p-8 md:p-12 rounded-2xl shadow-xl">
-                    <h2 class="text-2xl md:text-4xl font-bold text-[var(--color-accent)] mb-6 border-b-2 border-gray-700 pb-2 text-center">
-                        Contacto
-                    </h2>
-                    <p class="text-gray-300 text-base md:text-lg text-center mb-8 max-w-2xl mx-auto">
-                        ¿Tienes una idea o un proyecto en mente? Hablemos sobre cómo los datos pueden ayudarte a alcanzar tus metas de negocio.
+                <h2 class="text-3xl md:text-5xl font-bold mb-8 text-center">Contacto</h2>
+                <div class="flex flex-col items-center justify-center space-y-4 text-center text-sm md:text-base">
+                    <p class="max-w-md">
+                        Si tienes alguna pregunta o si te gustaría colaborar en un proyecto, no dudes en contactarme.
+                        Estoy siempre abierto a nuevas oportunidades y desafíos.
                     </p>
-                    <!-- Formulario de contacto -->
-                    <form action="#" method="POST" class="space-y-6">
-                        <div>
-                            <label for="nombre" class="block text-sm font-medium text-gray-400">Nombre Completo</label>
-                            <input type="text" id="nombre" name="nombre" class="mt-1 block w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm text-white" placeholder="Tu nombre">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-400">Correo Electrónico</label>
-                            <input type="email" id="email" name="email" class="mt-1 block w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm text-white" placeholder="tu.email@ejemplo.com">
-                        </div>
-                        <div>
-                            <label for="mensaje" class="block text-sm font-medium text-gray-400">Mensaje</label>
-                            <textarea id="mensaje" name="mensaje" rows="4" class="mt-1 block w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm text-white" placeholder="Describe brevemente tu proyecto o consulta"></textarea>
-                        </div>
-                        <div>
-                            <button type="submit" class="w-full inline-flex justify-center py-3 px-4 border border-transparent shadow-sm text-base font-medium rounded-md text-gray-900 bg-[var(--color-accent)] hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors duration-300">
-                                Enviar Mensaje
-                            </button>
-                        </div>
-                    </form>
-                    <div class="mt-8 space-y-4 text-center">
-                        <div class="flex items-center justify-center space-x-2 animate-fade-in-up delay-100">
-                            <svg class="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.97.77l.73 4.96a1 1 0 01-.15.89l-1.95 1.95a12.28 12.28 0 005.5 5.5l1.95-1.95a1 1 0 01.89-.15l4.96.73a1 1 0 01.77.97V19a2 2 0 01-2 2h-1C9.77 21 4 15.23 4 8V5z" />
-                            </svg>
-                            <a href="tel:+573024827014" class="text-[var(--color-accent)] hover:underline">+57 302 482 7014</a>
-                        </div>
-                        <div class="flex items-center justify-center space-x-2 animate-fade-in-up delay-200">
-                            <svg class="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                            <a href="mailto:juanda-100@hotmail.com" class="text-[var(--color-accent)] hover:underline">juanda-100@hotmail.com</a>
-                        </div>
-                        <div class="flex items-center justify-center space-x-2 animate-fade-in-up delay-300">
-                            <svg class="w-5 h-5 text-[var(--color-accent)]" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.766s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.766-1.75 1.766zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.456v6.779z"/>
-                            </svg>
-                            <a href="https://www.linkedin.com/in/juan-david-jimenez-vasquez-9279a1176/" class="text-[var(--color-accent)] hover:underline" target="_blank">LinkedIn</a>
-                        </div>
+                    <div class="flex items-center space-x-2 animate-bounce-once">
+                        <svg class="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <a href="mailto:juanda-100@hotmail.com" class="text-[var(--color-accent)] hover:underline">juanda-100@hotmail.com</a>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <svg class="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.97.77l.73 4.96a1 1 0 01-.15.89l-1.95 1.95a12.28 12.28 0 005.5 5.5l1.95-1.95a1 1 0 01.89-.15l4.96.73a1 1 001.77.97V19a2 2 0 01-2 2h-1C9.75 21 3 14.25 3 6V5z" />
+                        </svg>
+                        <a href="tel:+573215682121" class="text-[var(--color-accent)] hover:underline">+57 321 568 2121</a>
                     </div>
                 </div>
             </section>
         </main>
+
+        <!-- Pie de página -->
+        <footer class="text-center text-xs py-4 border-t border-gray-700 mt-12 md:mt-24">
+            <p>&copy; 2024 Juan David Jimenez. Todos los derechos reservados. Desarrollado con 💙 y Datos.</p>
+        </footer>
+
     </div>
-    <!-- Scripts -->
+
+    <!-- Carga del script personalizado al final del body -->
     <script src="script.js"></script>
 </body>
 </html>
