@@ -1,3 +1,4 @@
+// Espera a que el DOM (Document Object Model) esté completamente cargado antes de ejecutar el script.
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- Lógica de Transición de Pestañas ---
@@ -45,12 +46,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Retrasa el cambio de contenido hasta que la transición se vea
         setTimeout(() => {
+            // Oculta todas las secciones antes de mostrar la nueva.
             tabContents.forEach(content => {
                 content.classList.remove('active');
+                content.style.opacity = '0'; // Asegura que la opacidad también se restablezca
             });
+
             const targetContent = document.getElementById(targetId);
             if (targetContent) {
                 targetContent.classList.add('active');
+                setTimeout(() => {
+                    targetContent.style.opacity = '1';
+                }, 50); // Pequeño retraso para la transición de opacidad
             }
 
             // Oculta el overlay después de un breve período
@@ -74,6 +81,17 @@ document.addEventListener('DOMContentLoaded', () => {
             activateTab(targetId);
         });
     });
+
+    // Asegura que la primera sección visible al cargar la página sea la de 'Inicio'.
+    const initialTab = document.querySelector('.tab-link.active');
+    if (initialTab) {
+        const initialContent = document.getElementById(initialTab.dataset.target);
+        if (initialContent) {
+            initialContent.classList.add('active');
+            initialContent.style.opacity = '1';
+            initialContent.style.transform = 'translateY(0)';
+        }
+    }
 
     // --- Lógica del Canvas de Visualización de Datos ---
     const canvas = document.getElementById('data-visualization-canvas');
