@@ -68,12 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const ctx = canvas.getContext('2d');
     let width, height;
     const elements = [];
-    const numParticles = 80;
-    const numGraphs = 5;
-    const numHeatmaps = 3;
-    const numBinary = 50;
-    const numBarCharts = 4; // Número de gráficos de barras
-    const numPieCharts = 3; // Número de gráficos de pastel
+    const numParticles = 200;
+    const numGraphs = 10;
+    const numHeatmaps = 10;
+    const numBinary = 100;
+    const numBarCharts = 20; // Número de gráficos de barras
+    const numPieCharts = 20; // Número de gráficos de pastel
     const backgroundColor = '#0A192F';
 
     let mouse = { x: null, y: null };
