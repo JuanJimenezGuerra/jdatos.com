@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const transitionImage = document.getElementById('transition-image');
     const transitionTitle = document.getElementById('transition-title');
 
+    // Datos de transición para las pestañas
     const tabTransitionData = {
         'inicio': {
             title: 'Inicio',
@@ -71,6 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const numGraphs = 5;
     const numHeatmaps = 3;
     const numBinary = 50;
+    const numBarCharts = 4; // Número de gráficos de barras
+    const numPieCharts = 3; // Número de gráficos de pastel
     const backgroundColor = '#0A192F';
 
     let mouse = { x: null, y: null };
@@ -80,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mouse.y = event.y;
     });
 
+    // Clase base para todos los elementos visuales
     class VisualElement {
         constructor(x, y) {
             this.x = x;
@@ -92,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         draw() {}
     }
 
+    // Clase para partículas ascendentes
     class Particle extends VisualElement {
         constructor() {
             super(Math.random() * width, height + 20);
@@ -114,16 +119,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Clase para gráficos de líneas minimalistas
     class MinimalGraph extends VisualElement {
         constructor() {
             super(Math.random() * width, Math.random() * height * 0.7 + height * 0.3);
-            this.type = Math.random() < 0.5 ? 'line' : 'bar';
             this.amplitude = Math.random() * 30 + 10;
             this.frequency = Math.random() * 0.02 + 0.01;
             this.phase = Math.random() * Math.PI * 2;
             this.lineWidth = Math.random() * 1.5 + 0.5;
-            this.barWidth = Math.random() * 10 + 5;
-            this.barHeightScale = Math.random() * 50 + 20;
             this.speed = Math.random() * 0.5 + 0.2;
         }
 
@@ -139,36 +142,29 @@ document.addEventListener('DOMContentLoaded', () => {
         draw() {
             ctx.strokeStyle = '#34D399';
             ctx.lineWidth = this.lineWidth;
-            ctx.fillStyle = '#34D399';
             ctx.globalAlpha = 0.7;
-
-            if (this.type === 'line') {
-                ctx.beginPath();
-                for (let i = 0; i < 50; i++) {
-                    const x = this.x + i * 5;
-                    const yOffset = Math.sin(this.phase + i * 0.1) * this.amplitude;
-                    const y = this.y + yOffset;
-                    if (i === 0) {
-                        ctx.moveTo(x, y);
-                    } else {
-                        ctx.lineTo(x, y);
-                    }
+            ctx.beginPath();
+            for (let i = 0; i < 50; i++) {
+                const x = this.x + i * 5;
+                const yOffset = Math.sin(this.phase + i * 0.1) * this.amplitude;
+                const y = this.y + yOffset;
+                if (i === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
                 }
-                ctx.stroke();
-            } else if (this.type === 'bar') {
-                const barHeight = Math.sin(this.phase) * this.barHeightScale;
-                ctx.fillRect(this.x, this.y + this.amplitude - Math.abs(barHeight), this.barWidth, Math.abs(barHeight));
             }
+            ctx.stroke();
             ctx.globalAlpha = 1;
         }
     }
 
+    // Clase para mapas de calor dinámicos
     class Heatmap extends VisualElement {
         constructor() {
             super(Math.random() * width, Math.random() * height);
             this.radius = Math.random() * 30 + 20;
             this.intensity = Math.random() * 0.8 + 0.2;
-            this.fadeSpeed = 0.01;
         }
 
         update() {
@@ -185,6 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Clase para datos binarios que caen
     class BinaryData extends VisualElement {
         constructor() {
             super(Math.random() * width, -20);
@@ -206,42 +203,103 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.fillText(this.value, this.x, this.y);
         }
     }
+    
+    // Nueva clase para gráficos de barras
+    class BarChart extends VisualElement {
+        constructor() {
+            super(Math.random() * width, Math.random() * height * 0.8 + height * 0.1);
+            this.numBars = Math.floor(Math.random() * 4) + 3;
+            this.barWidth = Math.random() * 8 + 4;
+            this.barHeights = Array.from({ length: this.numBars }, () => Math.random() * 60 + 20);
+            this.animationPhase = Math.random() * Math.PI * 2;
+            this.speed = Math.random() * 0.3 + 0.1;
+        }
 
+        update() {
+            this.animationPhase += 0.05;
+            this.y += this.speed * (Math.random() - 0.5);
+            if (this.y < -50 || this.y > height + 50) {
+                this.y = Math.random() * height;
+            }
+            return false;
+        }
+
+        draw() {
+            ctx.globalAlpha = 0.6;
+            ctx.fillStyle = '#34D399';
+            const totalWidth = this.numBars * (this.barWidth + 2);
+            for (let i = 0; i < this.numBars; i++) {
+                const animatedHeight = this.barHeights[i] * (0.5 + Math.sin(this.animationPhase + i * 0.5) * 0.5);
+                ctx.fillRect(this.x + i * (this.barWidth + 2), this.y, this.barWidth, -animatedHeight);
+            }
+            ctx.globalAlpha = 1;
+        }
+    }
+
+    // Nueva clase para gráficos de pastel
+    class PieChart extends VisualElement {
+        constructor() {
+            super(Math.random() * width, Math.random() * height);
+            this.radius = Math.random() * 20 + 10;
+            this.segments = [Math.random() * 0.4, Math.random() * 0.3, Math.random() * 0.3];
+            this.colors = ['#34D399', '#1F2937', '#6EE7B7'];
+            this.animationPhase = Math.random() * Math.PI * 2;
+        }
+
+        update() {
+            this.animationPhase += 0.02;
+            return false;
+        }
+
+        draw() {
+            ctx.globalAlpha = 0.7;
+            let startAngle = 0;
+            for (let i = 0; i < this.segments.length; i++) {
+                const segmentValue = this.segments[i] * (0.5 + Math.sin(this.animationPhase + i) * 0.5);
+                const endAngle = startAngle + segmentValue * Math.PI * 2;
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.arc(this.x, this.y, this.radius, startAngle, endAngle);
+                ctx.closePath();
+                ctx.fillStyle = this.colors[i % this.colors.length];
+                ctx.fill();
+                startAngle = endAngle;
+            }
+            ctx.globalAlpha = 1;
+        }
+    }
+
+    // Inicializa el canvas y los elementos
     function init() {
         width = window.innerWidth;
         height = window.innerHeight;
         canvas.width = width;
         canvas.height = height;
-        elements.length = 0;
-        for (let i = 0; i < numParticles; i++) {
-            elements.push(new Particle());
-        }
-        for (let i = 0; i < numGraphs; i++) {
-            elements.push(new MinimalGraph());
-        }
-        for (let i = 0; i < numHeatmaps; i++) {
-            elements.push(new Heatmap());
-        }
-        for (let i = 0; i < numBinary; i++) {
-            elements.push(new BinaryData());
-        }
+        elements.length = 0; // Limpiar elementos existentes
+        
+        // Agregar los diferentes tipos de elementos al array
+        for (let i = 0; i < numParticles; i++) { elements.push(new Particle()); }
+        for (let i = 0; i < numGraphs; i++) { elements.push(new MinimalGraph()); }
+        for (let i = 0; i < numHeatmaps; i++) { elements.push(new Heatmap()); }
+        for (let i = 0; i < numBinary; i++) { elements.push(new BinaryData()); }
+        for (let i = 0; i < numBarCharts; i++) { elements.push(new BarChart()); }
+        for (let i = 0; i < numPieCharts; i++) { elements.push(new PieChart()); }
     }
 
+    // Bucle principal de animación
     function animate() {
         ctx.fillStyle = backgroundColor;
         ctx.fillRect(0, 0, width, height);
 
         elements.forEach((element, index) => {
             if (element.update()) {
-                if (element instanceof Particle) {
-                    elements[index] = new Particle();
-                } else if (element instanceof MinimalGraph) {
-                    elements[index] = new MinimalGraph();
-                } else if (element instanceof Heatmap) {
-                    elements[index] = new Heatmap();
-                } else if (element instanceof BinaryData) {
-                    elements[index] = new BinaryData();
-                }
+                // Si el elemento debe ser reiniciado, creamos uno nuevo del mismo tipo
+                if (element instanceof Particle) { elements[index] = new Particle(); }
+                else if (element instanceof MinimalGraph) { elements[index] = new MinimalGraph(); }
+                else if (element instanceof Heatmap) { elements[index] = new Heatmap(); }
+                else if (element instanceof BinaryData) { elements[index] = new BinaryData(); }
+                else if (element instanceof BarChart) { elements[index] = new BarChart(); }
+                else if (element instanceof PieChart) { elements[index] = new PieChart(); }
             }
             element.draw();
         });
