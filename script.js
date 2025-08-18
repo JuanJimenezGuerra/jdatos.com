@@ -1,185 +1,254 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const tabLinks = document.querySelectorAll('.tab-link');
-    const tabContents = document.querySelectorAll('.tab-content');
-    const transitionOverlay = document.getElementById('tab-transition-overlay');
-    const transitionImage = document.getElementById('transition-image');
-    const transitionTitle = document.getElementById('transition-title');
+const tabLinks = document.querySelectorAll('.tab-link');
+const tabContents = document.querySelectorAll('.tab-content');
+const transitionOverlay = document.getElementById('tab-transition-overlay');
+const transitionImage = document.getElementById('transition-image');
+const transitionTitle = document.getElementById('transition-title');
+const tabTransitionData = {
+    'inicio': {
+        title: 'Inicio',
+        svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNTAwIj48cGF0aCBkPSJNNTAgNDUwIEwgMjAwLDEwMCBMIDQwMCw0MDAgTCA1NTAsMTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiMzREMzOTkiIHN0cm9rZS13aWR0aD0iMTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==`
+    },
+    'sobre-mi-propuesta': {
+        title: 'Sobre mí',
+        svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cG9seWxpbmUgc3Ryb2tlPSIjMzREMzk5IiBzdHJva2Utd2lkdGg9IjgiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgcG9pbnRzPSI2Mi41LDIyNSA5My44LDE3NSA5My44LDM1MCAxNTYuMywyMjUgMTg3LjUsMzA1IDI1MCwxMTIuNSAzMTIuNSwyNTAgMzc1LDE3NSA0NjguOCwyNTAgNDY4LjgsMTc1IDUwMCwzMjUiLz48Y2lyY2xlIGN4PSI2Mi41IiBjeT0iMjI1IiByPSIxMiIgZmlsbD0iIzM0RDM5OSIvPjxjaXJjbGUgY3g9IjkzLjgiIGN5PSIxNzUiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iOTMuOCIgY3k9IjM1MCIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIxNTYuMyIgY3k9IjIyNSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyYmxjeD0iMTg3LjUiIGN5PSIzMDUiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iMjU1LjAiIGN5PSIxMTIuNSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIzMTIuNSIgY3k9IjI1MCIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIzNzUiIGN5PSIxNzUiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iNDY4LjgiIGN5PSIyNTAiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iNDY4LjgiIGN5PSIxNzUiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iNTAwIiBjeT0iMzI1IiByPSIxMiIgZmlsbD0iIzM0RDM5OSIvPjwvc3ZnPg==`
+    },
+    'servicios-habilidades': {
+        title: 'Servicios y habilidades',
+        svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cGF0aCBkPSJNMzYwLDUwTDE2MCwyNTBMNDYwLDU1MEw1NzYsMjUwWiIgc3Ryb2tlPSJub25lIiBmaWxsPSIjMzREMzk5IiBmaWxsLW9wYWNpdHk9IjAuNSIvPjxwYXRoIGQ9Ik0zNjAsNTAgTCAxNjAsMjUwIEwgNDYwLDU1MCBMIDU3NiwyNTBaIiBzdHJva2U9IiMzREMzOTkiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+`
+    },
+    'portafolio': {
+        title: 'Portafolio',
+        svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNTAwIj48cGF0aCBkPSJNNTAgNDUwIEwgMjAwLDExMCBMIDQwMCwzODAgTCA1NTAsMTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiMzREMzOTkiIHN0cm9rZS13aWR0aD0iMTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvcmFkYXJEb2N1bWVudD48L3N2Zz4=`
+    },
+    'contacto': {
+        title: 'Contacto',
+        svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNTAwIj48Y2lyY2xlIGN4PSIyMDAiIGN5PSIyMDAiIHI9IjEwMCIgc3Ryb2tlPSIjMzREMzk5IiBzdHJva2Utd2lkdGg9IjE1IiBmaWxsPSJub25lIi8+PGNpcmNsZSBjeD0iNDAwIiBjeT0iMTAwIiByPSI1MCIgc3Ryb2tlPSIjMzREMzk5IiBzdHJva2Utd2lkdGg9IjEwIiBmaWxsPSJub25lIi8+PC9zdmc+`
+    }
+};
 
-    const tabTransitionData = {
-        'inicio': {
-            title: 'Inicio',
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNTAwIj48cGF0aCBkPSJNNTAgNDUwIEwgMjAwLDEwMCBMIDQwMCw0MDAgTCA1NTAsMTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiMzREMzOTkiIHN0cm9rZS13aWR0aD0iMTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==`
-        },
-        'sobre-mi-propuesta': {
-            title: 'Sobre mí',
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cG9seWxpbmUgc3Ryb2tlPSIjMzREMzk5IiBzdHJva2Utd2lkdGg9IjgiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgcG9pbnRzPSI2Mi41LDIyNSA5My44LDE3NSA5My44LDM1MCAxNTYuMywyMjUgMTg3LjUsMzA1IDI1MCwxMTIuNSAzMTIuNSwyNTAgMzc1LDE3NSA0NjguOCwyNTAgNDY4LjgsMTc1IDUwMCwzMjUiLz48Y2lyY2xlIGN4PSI2Mi41IiBjeT0iMjI1IiByPSIxMiIgZmlsbD0iIzM0RDM5OSIvPjxjaXJjbGUgY3g9IjkzLjgiIGN5PSIxNzUiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PGNpcmNsZSBjeD0iOTMuOCIgY3k9IjM1MCIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIxNTYuMyIgY3k9IjIyNSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIxODcuNSIgY3k9IjMwNSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSIyNTUuMCIgY3k9IjExMi41IiByPSIxMiIgZmlsbD0iIzM0RDM5OSIvPjxjaXJjbGUgY3g9IjMxMi41IiBjeT0iMjUwIiByPSIxMiIgZmlsbD0iIzM0RDM5OSIvPjxjaXJjbGUgY3g9IjM3NSIgY3k9IjE3NSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSI0NjguOCIgY3k9IjI1MCIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSI0NjguOCIgY3k9IjE3NSIgcj0iMTIiIGZpbGw9IiMzREMzOTkiLz48Y2lyY2xlIGN4PSI1MDAiIGN5PSIzMjUiIHI9IjEyIiBmaWxsPSIjMzREMzk5Ii8+PC9zdmc+`
-        },
-        'servicios-habilidades': {
-            title: 'Servicios y habilidades',
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cGF0aCBkPSJNMzYwLDUwTDE2MCwyNTBMNDYwLDU1MEw1NzYsMjUwWiIgc3Ryb2tlPSJub25lIiBmaWxsPSIjMzREMzk5IiBmaWxsLW9wYWNpdHk9IjAuNSIvPjxwYXRoIGQ9Ik0zNjAsNTAgTCAxNjAsMjUwIEwgNDYwLDU1MCBMIDU3NiwyNTBaIiBzdHJva2U9IiMzREMzOTkiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+`
-        },
-        'portafolio': {
-            title: 'Portafolio',
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNTAwIj48cGF0aCBkPSJNNTAgNDUwIEwgMjAwLDExMCBMIDQwMCwzODAgTCA1NTAsMTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiMzREMzOTkiIHN0cm9rZS13aWR0aD0iMTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvcmFkYXJEb2N1bWVudD48L3N2Zz4=`
-        },
-        'contacto': {
-            title: 'Contacto',
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNTAwIj48Y2lyY2xlIGN4PSIyMDAiIGN5PSIyMDAiIHI9IjEwMCIgc3Ryb2tlPSIjMzREMzk5IiBzdHJva2Utd2lkdGg9IjE1IiBmaWxsPSJub25lIi8+PGNpcmNsZSBjeD0iNDAwIiBjeT0iMTAwIiByPSI1MCIgc3Ryb2tlPSIjMzREMzk5IiBzdHJva2Utd2lkdGg9IjEwIiBmaWxsPSJub25lIi8+PC9zdmc+`
+function activateTab(targetId) {
+    const { title, svg } = tabTransitionData\[targetId];
+    transitionImage.src = svg;
+    transitionTitle.textContent = title;
+    transitionOverlay.classList.add('active');
+
+    setTimeout(() => {
+        tabContents.forEach(content => {
+            content.classList.remove('active');
+        });
+        const targetContent = document.getElementById(targetId);
+        if (targetContent) {
+            targetContent.classList.add('active');
         }
-    };
-
-    function activateTab(targetId) {
-        const { title, svg } = tabTransitionData[targetId];
-        transitionImage.src = svg;
-        transitionTitle.textContent = title;
-        transitionOverlay.classList.add('active');
 
         setTimeout(() => {
-            tabContents.forEach(content => {
-                content.classList.remove('active');
-            });
-            const targetContent = document.getElementById(targetId);
-            if (targetContent) {
-                targetContent.classList.add('active');
-            }
+            transitionOverlay.classList.remove('active');
+        }, 600);
+    }, 400);
+}
 
-            setTimeout(() => {
-                transitionOverlay.classList.remove('active');
-            }, 600);
-        }, 400);
+tabLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const targetId = link.dataset.target;
+
+        tabLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+
+        activateTab(targetId);
+    });
+});
+
+const canvas = document.getElementById('data-visualization-canvas');
+if (!canvas) return;
+
+const ctx = canvas.getContext('2d');
+let width, height;
+const elements = [];
+const numParticles = 80;
+const numGraphs = 5;
+const numHeatmaps = 3;
+const numBinary = 50;
+const backgroundColor = '#0A192F'; // Azul marino oscuro
+
+let mouse = { x: null, y: null };
+
+window.addEventListener('mousemove', (event) => {
+    mouse.x = event.x;
+    mouse.y = event.y;
+});
+
+class VisualElement {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.alpha = 0;
+    }
+    update() {
+        return false;
+    }
+    draw() {}
+}
+
+class Particle extends VisualElement {
+    constructor() {
+        super(Math.random() * width, height + 20);
+        this.radius = Math.random() * 1.5 + 0.5;
+        this.speedY = -(Math.random() * 0.8 + 0.5);
+        this.opacity = Math.random() * 0.6 + 0.4;
     }
 
-    tabLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            const targetId = link.dataset.target;
-
-            tabLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
-
-            activateTab(targetId);
-        });
-    });
-
-    const canvas = document.getElementById('data-visualization-canvas');
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    let width, height;
-    const elements = [];
-    const numElements = 50;
-
-    let mouse = { x: null, y: null };
-
-    window.addEventListener('mousemove', (event) => {
-        mouse.x = event.x;
-        mouse.y = event.y;
-    });
-
-    class VisualElement {
-        constructor(x, y) {
-            this.x = x;
-            this.y = y;
-            this.alpha = 0;
-        }
-        update() {
-            return false;
-        }
-        draw() {}
+    update() {
+        this.y += this.speedY;
+        this.opacity -= 0.005;
+        return this.y < -20 || this.opacity <= 0;
     }
 
-    class DataFlow extends VisualElement {
-        constructor() {
-            super(Math.random() * width, Math.random() * height);
-            this.vx = (Math.random() - 0.5) * 0.2;
-            this.vy = (Math.random() - 0.5) * 0.2;
-            this.size = Math.random() * 3 + 1;
-            this.maxAlpha = Math.random() * 0.4 + 0.1;
-            this.alphaSpeed = 0.005;
-            this.connectedTo = null;
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(52, 211, 153, ${Math.max(0, this.opacity)})`;
+        ctx.fill();
+    }
+}
+
+class MinimalGraph extends VisualElement {
+    constructor() {
+        super(Math.random() * width, Math.random() * height * 0.7 + height * 0.3);
+        this.type = Math.random() < 0.5 ? 'line' : 'bar';
+        this.amplitude = Math.random() * 30 + 10;
+        this.frequency = Math.random() * 0.02 + 0.01;
+        this.phase = Math.random() * Math.PI * 2;
+        this.lineWidth = Math.random() * 1.5 + 0.5;
+        this.barWidth = Math.random() * 10 + 5;
+        this.barHeightScale = Math.random() * 50 + 20;
+        this.speed = Math.random() * 0.5 + 0.2;
+    }
+
+    update() {
+        this.phase += this.frequency;
+        this.x += this.speed * (Math.random() - 0.5);
+        if (this.x < -50 || this.x > width + 50) {
+            this.x = Math.random() * width;
         }
+        return false;
+    }
 
-        update() {
-            const dx = this.x - mouse.x;
-            const dy = this.y - mouse.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            const repelRadius = 120;
+    draw() {
+        ctx.strokeStyle = '#34D399';
+        ctx.lineWidth = this.lineWidth;
+        ctx.fillStyle = '#34D399';
+        ctx.globalAlpha = 0.7;
 
-            if (distance < repelRadius) {
-                const force = 1 - (distance / repelRadius);
-                this.x += dx / distance * force * 0.3;
-                this.y += dy / distance * force * 0.3;
-            }
-
-            this.x += this.vx;
-            this.y += this.vy;
-
-            if (this.alpha < this.maxAlpha) {
-                this.alpha += this.alphaSpeed;
-            }
-
-            if (this.x < -50 || this.x > width + 50 || this.y < -50 || this.y > height + 50) {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.alpha = 0;
-            }
-            return false;
-        }
-
-        draw() {
+        if (this.type === 'line') {
             ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(52, 211, 153, ${this.alpha})`;
-            ctx.fill();
-        }
-    }
-
-    function init() {
-        width = window.innerWidth;
-        height = window.innerHeight;
-        canvas.width = width;
-        canvas.height = height;
-        elements.length = 0;
-        for (let i = 0; i < numElements; i++) {
-            elements.push(new DataFlow());
-        }
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, width, height);
-
-        const gradient = ctx.createRadialGradient(width / 2, height / 2, 0, width / 2, height / 2, Math.max(width, height));
-        gradient.addColorStop(0, 'rgba(17, 24, 39, 0.1)');
-        gradient.addColorStop(1, 'rgba(17, 24, 39, 0.9)');
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, width, height);
-
-        for (let i = 0; i < elements.length; i++) {
-            const el1 = elements[i];
-            el1.update();
-            el1.draw();
-            for (let j = i + 1; j < elements.length; j++) {
-                const el2 = elements[j];
-                const dx = el1.x - el2.x;
-                const dy = el1.y - el2.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                const connectionDistance = 120;
-
-                if (distance < connectionDistance) {
-                    ctx.beginPath();
-                    ctx.moveTo(el1.x, el1.y);
-                    ctx.lineTo(el2.x, el2.y);
-                    ctx.strokeStyle = `rgba(52, 211, 153, ${Math.min(el1.alpha, el2.alpha) * 0.3})`;
-                    ctx.lineWidth = 0.3;
-                    ctx.stroke();
+            for (let i = 0; i < 50; i++) {
+                const x = this.x + i * 5;
+                const yOffset = Math.sin(this.phase + i * 0.1) * this.amplitude;
+                const y = this.y + yOffset;
+                if (i === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
                 }
             }
+            ctx.stroke();
+        } else if (this.type === 'bar') {
+            const barHeight = Math.sin(this.phase) * this.barHeightScale;
+            ctx.fillRect(this.x, this.y + this.amplitude - Math.abs(barHeight), this.barWidth, Math.abs(barHeight));
         }
+        ctx.globalAlpha = 1;
+    }
+}
 
-        requestAnimationFrame(animate);
+class Heatmap extends VisualElement {
+    constructor() {
+        super(Math.random() * width, Math.random() * height);
+        this.radius = Math.random() * 30 + 20;
+        this.intensity = Math.random() * 0.8 + 0.2;
+        this.fadeSpeed = 0.01;
     }
 
-    window.addEventListener('resize', init);
-    init();
-    animate();
-});
+    update() {
+        this.intensity = 0.5 + Math.sin(Date.now() * 0.002 + this.x * 0.01 + this.y * 0.01) * 0.5;
+        return false;
+    }
+
+    draw() {
+        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
+        gradient.addColorStop(0, `rgba(52, 211, 153, ${this.intensity * 0.6})`);
+        gradient.addColorStop(1, 'rgba(52, 211, 153, 0)');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(this.x - this.radius, this.y - this.radius, this.radius * 2, this.radius * 2);
+    }
+}
+
+class BinaryData extends VisualElement {
+    constructor() {
+        super(Math.random() * width, -20);
+        this.value = Math.random() < 0.5 ? '0' : '1';
+        this.speedY = Math.random() * 1 + 0.5;
+        this.fontSize = Math.random() * 10 + 8;
+        this.opacity = Math.random() * 0.7 + 0.3;
+    }
+
+    update() {
+        this.y += this.speedY;
+        this.opacity -= 0.003;
+        return this.y > height + 20 || this.opacity <= 0;
+    }
+
+    draw() {
+        ctx.font = `${this.fontSize}px monospace`;
+        ctx.fillStyle = `rgba(255, 255, 255, ${Math.max(0, this.opacity)})`;
+        ctx.fillText(this.value, this.x, this.y);
+    }
+}
+
+function init() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+    elements.length = 0;
+    for (let i = 0; i < numParticles; i++) {
+        elements.push(new Particle());
+    }
+    for (let i = 0; i < numGraphs; i++) {
+        elements.push(new MinimalGraph());
+    }
+    for (let i = 0; i < numHeatmaps; i++) {
+        elements.push(new Heatmap());
+    }
+    for (let i = 0; i < numBinary; i++) {
+        elements.push(new BinaryData());
+    }
+}
+
+function animate() {
+    ctx.fillStyle = backgroundColor;
+    ctx.fillRect(0, 0, width, height);
+
+    elements.forEach((element, index) => {
+        if (element.update()) {
+            if (element instanceof Particle) {
+                elements\[index] = new Particle();
+            } else if (element instanceof MinimalGraph) {
+                elements\[index] = new MinimalGraph();
+            } else if (element instanceof Heatmap) {
+                elements\[index] = new Heatmap();
+            } else if (element instanceof BinaryData) {
+                elements\[index] = new BinaryData();
+            }
+        }
+        element.draw();
+    });
+
+    requestAnimationFrame(animate);
+}
+
+window.addEventListener('resize', init);
+init();
+animate();
+});    
