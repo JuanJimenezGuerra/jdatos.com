@@ -7,12 +7,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const transitionImage = document.getElementById('transition-image');
     const transitionTitle = document.getElementById('transition-title');
 
-    // Datos de transición para las pestañas, usando SVGs en base64
+    // Datos de transición para las pestañas, usando SVGs en base64 con el color correcto
     const tabTransitionData = {
         'inicio': {
             title: 'Inicio',
             // Gráfico de líneas simple
             svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNTAwIj48cGF0aCBkPSJNNTAgNDUwIEwgMjAwLDEwMCBMIDQwMCw0MDAgTCA1NTAsMTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiMzREMzOTkiIHN0cm9rZS13aWR0aD0iMTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==`
+        },
+        'portafolio': {
+            title: 'Portafolio',
+            // Gráfico circular
+            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cGF0aCBkPSJNMjkwLDI5MCBMNDEwLDEyMCA0OTAsMTcwIEM0NzgsMjIxLjUgNDIzLDI4OSAyODgsMjg4IEwyOTAsMjkwIiBmaWxsPSJub25lIiBzdHJva2U9IiMzREMzOTkiIHN0cm9rZS13aWR0aD0iMTUiLz48cGF0aCBkPSJNMjkwLDI5MCBMNDkwLDE3MCA0NzAsNDMwIEM0NjUsNDYwIDM3MCw0OTAgMjkwLDI5MCBaIiBmaWxsPSJub25lIiBzdHJva2U9IiMzREMzOTkiIHN0cm9rZS13aWR0aD0iMTUiLz48cGF0aCBkPSJNMjkwLDI5MCBMMjAwLDEwMCBMMTkwLDIxMCBMMjkwLDI5MCIgZmlsbD0ibm9uZSINCiAgICAgc3Ryb2tlPSIjMzlFMzE5IiBzdHJva2Utd2lkdGg9IjE1Ii8+PHBhdGggZD0iTTI5MCwyOTAgTDE5MCwyMTAgOTAsMjk3IEwyOTAsMjkwIiBmaWxsPSJub25lIiANCiAgICAgc3Ryb2tlPSIjMzQwODk5IiBzdHJva2Utd2lkdGg9IjE1Ii8+PC9zdmc+`
         },
         'sobre-mi-propuesta': {
             title: 'Sobre mí',
@@ -23,11 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Servicios y habilidades',
             // Gráfico de Barras Verticales
             svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cmVjdCB4PSIxMDAiIHk9IjMwMCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzM0RDM5OSIvPjxyZWN0IHg9IjIwMCIgeT0iMjAwIiB3aWR0aD0iNjAiIGhlaWdodD0iMzAwIiBmaWxsPSIjMzREMzk5Ii8+PHJlY3QgeD0iMzAwIiB5PSIxMDAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiMzREMzOTkiLz48cmVjdCB4PSI0MDAiIHk9IjI1MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjI1MCIgZmlsbD0iIzM0RDM5OSIvPjwvc3ZnPg==`
-        },
-        'portafolio': {
-            title: 'Portafolio',
-            // Gráfico circular verde
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cGF0aCBkPSJNMjkwLDI5MCBMNDEwLDEyMCA0OTAsMTcwIEM0NzgsMjIxLjUgNDIzLDI4OSAyODgsMjg4IEwyOTAsMjkwIiBmaWxsPSIjMzREMzk5Ii8+PHBhdGggZD0iTTI5MCwyOTAgTDQ5MCwxNzAgNDcwLDQzMCBDNDY1LDQ2MCAzNzAsNDkwIDI5MCwyOTAgWiIgZmlsbD0iIzI2OTk3NCIvPjxwYXRoIGQ9Ik0yOTAsMjkwIEwyMDAsMTAwIEwxOTAsMjEwIEwyOTAsMjkwIiBmaWxsPSIjMjY5OTc0Ii8+PHBhdGggZD0iTTI5MCwyOTAgTDE5MCwyMTAgOTAsMjk3IEwyOTAsMjkwIiBmaWxsPSIjMzkzNDk5Ii8+PC9zdmc+`
         },
         'contacto': {
             title: 'Contacto',
