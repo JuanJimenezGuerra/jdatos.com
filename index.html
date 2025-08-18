@@ -1,290 +1,286 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juan David Jimenez - Analista y Científico de Datos</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan David Jimenez - Analista y Científico de Datos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-[var(--color-background)] text-[var(--color-text)]">
 
-    <canvas id="data-visualization-canvas"></canvas>
+    <canvas id="data-visualization-canvas"></canvas>
 
-    <header class="bg-gray-900 shadow-sm sticky top-0 z-50">
-        <nav class="container mx-auto p-4 flex flex-col md:flex-row justify-between items-center">
-            <div class="text-2xl font-bold text-white mb-4 md:mb-0">
-                <a href="#" class="hover:text-[var(--color-accent)] transition-colors duration-300">JDatos.com</a>
-            </div>
-            <div class="flex flex-wrap justify-center md:space-x-4 space-x-2 text-sm md:text-base">
-                <button class="tab-link px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 transition-all active" data-target="inicio">Inicio</button>
-                <button class="tab-link px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 transition-all" data-target="sobre-mi-propuesta">Sobre mí</button>
-                <button class="tab-link px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 transition-all" data-target="portafolio">Portafolio</button>
-                <button class="tab-link px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 transition-all" data-target="servicios-habilidades">Servicios y habilidades</button>
-                <button class="tab-link px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 transition-all" data-target="contacto">Contacto</button>
-            </div>
-        </nav>
-    </header>
+    <header class="bg-gray-900 shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto p-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="text-2xl font-bold text-white mb-4 md:mb-0">
+                <a href="#" class="hover:text-[var(--color-accent)] transition-colors duration-300">Juan David Jimenez</a>
+            </div>
+            <div class="flex flex-wrap justify-center md:space-x-4 space-x-2 text-sm md:text-base">
+                <button class="tab-link px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 transition-all active" data-target="inicio">Inicio</button>
+                <button class="tab-link px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 transition-all" data-target="portafolio">Portafolio</button>
+                <button class="tab-link px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 transition-all" data-target="sobre-mi-propuesta">Sobre mí</button>
+                <button class="tab-link px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 transition-all" data-target="servicios-habilidades">Servicios y habilidades</button>
+                <button class="tab-link px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 transition-all" data-target="contacto">Contacto</button>
+            </div>
+        </nav>
+    </header>
 
-    <main class="container mx-auto p-6 md:p-12 min-h-screen relative z-10">
-        <div id="tab-transition-overlay">
-            <img id="transition-image" src="" alt="Gráfica de datos"/>
-            <h2 id="transition-title"></h2>
-        </div>
+    <main class="container mx-auto p-6 md:p-12 min-h-screen relative z-10">
+        <div id="tab-transition-overlay">
+            <img id="transition-image" src="" alt="Gráfica de datos"/>
+            <h2 id="transition-title"></h2>
+        </div>
 
-        <section id="inicio" class="tab-content active">
-            <div class="text-center rounded-2xl p-8 md:p-16 shadow-lg border border-gray-700 backdrop-blur-sm bg-gray-900/70">
-                <img src="Perfil.jpg" 
-    alt="Foto de perfil de Juan David Jimenez"
-    class="w-32 h-32 object-cover rounded-full mx-auto mb-6 border-4 border-[var(--color-accent)] shadow-lg animate-fade-in-up animate-pulse-slow">
-                <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-4 animate-fade-in-up delay-100">
-                    Juan David Jimenez: Convirtiendo Datos en Estrategias de Negocio y Soluciones Inteligentes
-                </h1>
-                <p class="text-base md:text-lg text-gray-300 max-w-3xl mx-auto mb-8 animate-fade-in-up delay-200">
-                    Como Economista con experiencia en Inteligencia de Negocios, me dedico a transformar tu información en conocimiento clave para optimizar operaciones, monetizar datos y obtener ventajas competitivas. Actualmente, estoy profundizando en Machine Learning y Ciencia de Datos para ofrecerte soluciones aún más avanzadas y predictivas.
-                </p>
-                <a href="#contacto" class="inline-block mt-8 bg-[var(--color-accent)] text-gray-900 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 transform hover:scale-105 animate-fade-in-up delay-300 animate-bounce-once">
-    Agenda una Consulta Gratuita
-</a>
-            </div>
-        </section>
+        <section id="inicio" class="tab-content active">
+            <div class="text-center rounded-2xl p-8 md:p-16 shadow-lg border border-gray-700 backdrop-blur-sm bg-gray-900/70">
+                <img src="Foto de perfil. jpg" 
+    alt="Foto de perfil de Juan David Jimenez"
+    class="w-32 h-32 object-cover rounded-full mx-auto mb-6 border-4 border-[var(--color-accent)] shadow-lg animate-fade-in-up animate-pulse-slow">
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-4 animate-fade-in-up delay-100">
+                    Juan David Jimenez: Convirtiendo Datos en Estrategias de Negocio y Soluciones Inteligentes
+                </h1>
+                <p class="text-base md:text-lg text-gray-300 max-w-3xl mx-auto mb-8 animate-fade-in-up delay-200">
+                    Como Economista con experiencia en Inteligencia de Negocios, me dedico a transformar tu información en conocimiento clave para optimizar operaciones, monetizar datos y obtener ventajas competitivas. Actualmente, estoy profundizando en Machine Learning y Ciencia de Datos para ofrecerte soluciones aún más avanzadas y predictivas.
+                </p>
+                <a href="#contacto" class="inline-block mt-8 bg-[var(--color-accent)] text-gray-900 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 transform hover:scale-105 animate-fade-in-up delay-300 animate-bounce-once">
+                    Agenda una Consulta Gratuita
+                </a>
+            </div>
+        </section>
 
-        <section id="sobre-mi-propuesta" class="tab-content">
-            <div class="bg-gray-900 p-8 md:p-12 rounded-2xl shadow-xl">
-                <h2 class="text-2xl md:text-4xl font-bold text-[var(--color-accent)] mb-6 border-b-2 border-gray-700 pb-2">
-                    Quién Soy y Mi Propuesta de Valor
-                </h2>
-                <div class="space-y-6 text-gray-300 text-base md:text-lg">
-                    <p class="animate-fade-in-up">Soy **Juan David Jimenez Guerra**, un Economista con más de 4 años de experiencia en análisis de datos y Business Intelligence. Mi formación académica y mi experiencia profesional me permiten ir más allá del dato, entendiendo el contexto empresarial para asegurar que mis análisis generen resultados tangibles y estratégicos para tu negocio.</p>
-                    <p class="animate-fade-in-up delay-100">Cuento con diplomados en **Big Data Analytics** y **Análisis de Datos y Machine Learning en Python** de la Universidad de Antioquia, lo que me permite combinar una sólida visión de negocio con las más recientes técnicas de ciencia de datos para ofrecerte un servicio de alta calidad.</p>
-                    <div class="mt-8 grid md:grid-cols-3 gap-6 text-center">
-                        <div class="flex items-start space-x-4 bg-gray-800 p-6 rounded-lg shadow-inner animate-fade-in-up delay-200 hover:shadow-2xl transition-shadow duration-300">
-                            <svg class="w-10 h-10 flex-shrink-0 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <div>
-                                <h3 class="font-bold text-white">Dedicación</h3>
-                                <p class="text-sm">Comprometido en construir relaciones de trabajo a largo plazo.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4 bg-gray-800 p-6 rounded-lg shadow-inner animate-fade-in-up delay-300 hover:shadow-2xl transition-shadow duration-300">
-                            <svg class="w-10 h-10 flex-shrink-0 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.017A6.995 6.995 0 0012 3c-2.404 0-4.664.995-6.234 2.766a7 7 0 00-.547 9.538 7 7 0 009.538.547A6.995 6.995 0 0021 12c0-2.404-.995-4.664-2.766-6.234z" />
-                            </svg>
-                            <div>
-                                <h3 class="font-bold text-white">Lealtad</h3>
-                                <p class="text-sm">Enfoque en la calidad y la confianza para superar expectativas.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4 bg-gray-800 p-6 rounded-lg shadow-inner animate-fade-in-up delay-400 hover:shadow-2xl transition-shadow duration-300">
-                            <svg class="w-10 h-10 flex-shrink-0 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            </svg>
-                            <div>
-                                <h3 class="font-bold text-white">Resolución de Problemas</h3>
-                                <p class="text-sm">Capacidad para asesorar y generar soluciones estratégicas.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section id="portafolio" class="tab-content">
+            <div class="bg-gray-900 p-8 md:p-12 rounded-2xl shadow-xl">
+                <h2 class="text-2xl md:text-4xl font-bold text-[var(--color-accent)] mb-6 border-b-2 border-gray-700 pb-2 text-center">
+                    Mi Portafolio
+                </h2>
+                <p class="text-gray-300 text-base md:text-lg mb-8 max-w-3xl mx-auto text-center animate-fade-in-up">
+                    Aquí encontrarás proyectos sólidos que demuestran mi capacidad para resolver problemas reales de negocio y mis habilidades técnicas.
+                </p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-100">
+                        <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full h-[156px] mb-4">
+                            <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Dashboard en Zoho Analytics</h3>
+                        <p class="text-gray-400">Creación de dashboards interactivos para visualizar métricas clave y optimizar la toma de decisiones.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-200">
+                        <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full h-[156px] mb-4">
+                            <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Paneles y homepages en Zoho CRM</h3>
+                        <p class="text-gray-400">Diseño y desarrollo de paneles personalizados para monitorear el rendimiento de ventas y el comportamiento del cliente.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-300">
+                        <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full h-[156px] mb-4">
+                            <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Dashboard en Power BI</h3>
+                        <p class="text-gray-400">Análisis y creación de informes dinámicos para transformar datos complejos en conocimiento accesible y útil.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-400">
+                        <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full h-[156px] mb-4">
+                            <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Consultas SQL para el análisis de datos</h3>
+                        <p class="text-gray-400">Diseño de consultas SQL avanzadas para la extracción, limpieza y análisis de grandes conjuntos de datos.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-500">
+                        <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full h-[156px] mb-4">
+                            <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Modelos de clasificación en Machine Learning</h3>
+                        <p class="text-gray-400">Desarrollo de modelos para categorizar y predecir resultados, como la segmentación de clientes o la detección de fraudes.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-600">
+                        <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full h-[156px] mb-4">
+                            <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Modelos de recomendación en Machine Learning</h3>
+                        <p class="text-gray-400">Implementación de sistemas para sugerir productos o servicios personalizados, mejorando la experiencia del usuario.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-700">
+                        <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full h-[156px] mb-4">
+                            <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Integración de modelos de Machine Learning a Zoho CRM</h3>
+                        <p class="text-gray-400">Conexión de modelos predictivos y de recomendación directamente al CRM para automatizar flujos de trabajo y estrategias de marketing.</p>
+                    </div>
+                </div>
+                <div class="mt-12 text-center">
+                    <a href="#" class="inline-block bg-[var(--color-accent)] text-gray-900 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 transform hover:scale-105">
+                        Visita mi perfil de GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
 
-        <section id="portafolio" class="tab-content">
-            <div class="bg-gray-900 p-8 md:p-12 rounded-2xl shadow-xl">
-                <h2 class="text-2xl md:text-4xl font-bold text-[var(--color-accent)] mb-6 border-b-2 border-gray-700 pb-2 text-center">
-                    Mi Portafolio
-                </h2>
-                <p class="text-gray-300 text-base md:text-lg mb-8 max-w-3xl mx-auto text-center animate-fade-in-up">
-                    Aquí encontrarás proyectos sólidos que demuestran mi capacidad para resolver problemas reales de negocio y mis habilidades técnicas.
-                </p>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-100">
-                        <div class="aspect-w-16 aspect-h-9 w-full mb-4">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                                    frameborder="0" 
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                    allowfullscreen 
-                                    class="rounded-lg w-full h-full"></iframe>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Dashboard en Zoho Analytics</h3>
-                        <p class="text-gray-400">Creación de dashboards interactivos para visualizar métricas clave y optimizar la toma de decisiones.</p>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-200">
-                        <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full h-[156px] mb-4">
-                            <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Paneles y homepages en Zoho CRM</h3>
-                        <p class="text-gray-400">Diseño y desarrollo de paneles personalizados para monitorear el rendimiento de ventas y el comportamiento del cliente.</p>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-300">
-                        <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full h-[156px] mb-4">
-                            <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Dashboard en Power BI</h3>
-                        <p class="text-gray-400">Análisis y creación de informes dinámicos para transformar datos complejos en conocimiento accesible y útil.</p>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-400">
-                        <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full h-[156px] mb-4">
-                            <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Consultas SQL para el análisis de datos</h3>
-                        <p class="text-gray-400">Diseño de consultas SQL avanzadas para la extracción, limpieza y análisis de grandes conjuntos de datos.</p>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-500">
-                        <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full h-[156px] mb-4">
-                            <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Modelos de clasificación en Machine Learning</h3>
-                        <p class="text-gray-400">Desarrollo de modelos para categorizar y predecir resultados, como la segmentación de clientes o la detección de fraudes.</p>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-600">
-                        <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full h-[156px] mb-4">
-                            <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Modelos de recomendación en Machine Learning</h3>
-                        <p class="text-gray-400">Implementación de sistemas para sugerir productos o servicios personalizados, mejorando la experiencia del usuario.</p>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-700">
-                        <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full h-[156px] mb-4">
-                            <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Integración de modelos de Machine Learning a Zoho CRM</h3>
-                        <p class="text-gray-400">Conexión de modelos predictivos y de recomendación directamente al CRM para automatizar flujos de trabajo y estrategias de marketing.</p>
-                    </div>
-                </div>
-                <div class="mt-12 text-center">
-                    <a href="#" class="inline-block bg-[var(--color-accent)] text-gray-900 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 transform hover:scale-105">
-                        Visita mi perfil de GitHub
-                    </a>
-                </div>
-            </div>
-        </section>
+        <section id="sobre-mi-propuesta" class="tab-content">
+            <div class="bg-gray-900 p-8 md:p-12 rounded-2xl shadow-xl">
+                <h2 class="text-2xl md:text-4xl font-bold text-[var(--color-accent)] mb-6 border-b-2 border-gray-700 pb-2">
+                    Quién Soy y Mi Propuesta de Valor
+                </h2>
+                <div class="space-y-6 text-gray-300 text-base md:text-lg">
+                    <p class="animate-fade-in-up">Soy **Juan David Jimenez Guerra**, un Economista con más de 4 años de experiencia en análisis de datos y Business Intelligence. Mi formación académica y mi experiencia profesional me permiten ir más allá del dato, entendiendo el contexto empresarial para asegurar que mis análisis generen resultados tangibles y estratégicos para tu negocio.</p>
+                    <p class="animate-fade-in-up delay-100">Cuento con diplomados en **Big Data Analytics** y **Análisis de Datos y Machine Learning en Python** de la Universidad de Antioquia, lo que me permite combinar una sólida visión de negocio con las más recientes técnicas de ciencia de datos para ofrecerte un servicio de alta calidad.</p>
+                    <div class="mt-8 grid md:grid-cols-3 gap-6 text-center">
+                        <div class="flex items-start space-x-4 bg-gray-800 p-6 rounded-lg shadow-inner animate-fade-in-up delay-200 hover:shadow-2xl transition-shadow duration-300">
+                            <svg class="w-10 h-10 flex-shrink-0 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <div>
+                                <h3 class="font-bold text-white">Dedicación</h3>
+                                <p class="text-sm">Comprometido en construir relaciones de trabajo a largo plazo.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 bg-gray-800 p-6 rounded-lg shadow-inner animate-fade-in-up delay-300 hover:shadow-2xl transition-shadow duration-300">
+                            <svg class="w-10 h-10 flex-shrink-0 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.017A6.995 6.995 0 0012 3c-2.404 0-4.664.995-6.234 2.766a7 7 0 00-.547 9.538 7 7 0 009.538.547A6.995 6.995 0 0021 12c0-2.404-.995-4.664-2.766-6.234z" />
+                            </svg>
+                            <div>
+                                <h3 class="font-bold text-white">Lealtad</h3>
+                                <p class="text-sm">Enfoque en la calidad y la confianza para superar expectativas.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 bg-gray-800 p-6 rounded-lg shadow-inner animate-fade-in-up delay-400 hover:shadow-2xl transition-shadow duration-300">
+                            <svg class="w-10 h-10 flex-shrink-0 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                            <div>
+                                <h3 class="font-bold text-white">Resolución de Problemas</h3>
+                                <p class="text-sm">Capacidad para asesorar y generar soluciones estratégicas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <section id="servicios-habilidades" class="tab-content">
-            <div class="bg-gray-900 p-8 md:p-12 rounded-2xl shadow-xl border border-gray-700">
-                <h2 class="text-2xl md:text-4xl font-bold text-[var(--color-accent)] mb-6 border-b-2 border-[var(--color-accent)] pb-2 text-center">
-                    Servicios y habilidades
-                </h2>
-                <p class="text-gray-300 text-base md:text-lg mb-8 max-w-3xl mx-auto text-center animate-fade-in-up">
-                    Ofrezco una combinación de servicios y habilidades técnicas para ayudarte a tomar decisiones informadas y estratégicas.
-                </p>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="p-6 rounded-lg shadow-md border-t-4 border-blue-500 bg-gray-800 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-100">
-                        <div class="flex items-center space-x-3 mb-4">
-                            <svg class="w-12 h-12 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <h3 class="text-xl md:text-2xl font-bold text-white">Análisis y Visualización de Datos</h3>
-                        </div>
-                        <ul class="list-disc list-inside space-y-2 pl-4 text-gray-300">
-                            <li>Extracción y transformación de datos.</li>
-                            <li>Creación de dashboards en **Power BI y Zoho Analytics**.</li>
-                            <li>Diseño y gestión de KPIs.</li>
-                        </ul>
-                    </div>
-                    <div class="p-6 rounded-lg shadow-md border-t-4 border-blue-500 bg-gray-800 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-200">
-                        <div class="flex items-center space-x-3 mb-4">
-                            <svg class="w-12 h-12 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h-5m-5 0h5m5 0a2 2 0 11-4 0m4 0a2 2 0 10-4 0m-5 0a2 2 0 11-4 0m4 0a2 2 0 10-4 0M8 8H6v6a2 2 0 002 2h4a2 2 0 002-2V8h-2m-4 0a2 2 0 00-2 2v4a2 2 0 002 2h2m4-4a2 2 0 002 2v4a2 2 0 002 2h2m-4-4a2 2 0 002 2v2a2 2 0 002 2" />
-                            </svg>
-                            <h3 class="text-xl md:text-2xl font-bold text-white">Consultoría en Datos</h3>
-                        </div>
-                        <ul class="list-disc list-inside space-y-2 pl-4 text-gray-300">
-                            <li>Asesoramiento en estrategias de Big Data.</li>
-                            <li>Optimización de soluciones de análisis de datos existentes.</li>
-                        </ul>
-                    </div>
-                    <div class="p-6 rounded-lg shadow-lg border-t-4 border-[var(--color-accent)] bg-gray-800 transform scale-105 hover:scale-110 transition-all duration-300 animate-fade-in-up delay-300">
-                        <div class="flex items-center space-x-3 mb-4">
-                            <svg class="w-12 h-12 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 10.5V6a1.5 1.5 0 00-1.5-1.5h-15A1.5 1.5 0 001.5 6v12a1.5 1.5 0 001.5 1.5h15a1.5 1.5 0 001.5-1.5v-4.5M10.5 12a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 17.25h.008v.008H12v-.008z" />
-                            </svg>
-                            <h3 class="text-xl md:text-2xl font-bold text-white">Incursión en Machine Learning e IA</h3>
-                        </div>
-                        <p class="font-bold text-[var(--color-accent)] mb-2">¡Nueva oferta de valor!</p>
-                        <ul class="list-disc list-inside space-y-2 pl-4 text-gray-300">
-                            <li>Aplicación de modelos descriptivos y predictivos.</li>
-                            <li>Implementación de soluciones iniciales de IA.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="mt-12 animate-fade-in-up delay-400">
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center space-x-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[var(--color-accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tool"><path d="M14.7 6.3L17.7 3.3c.6-.6 1.4-.9 2.3-.9s1.7.3 2.3.9c1.2 1.2 1.2 3.1 0 4.3L15.4 12"/><path d="M12.5 16.2L8.6 20.1a2.4 2.4 0 0 1-3.4 0L2.1 17a2.4 2.4 0 0 1 0-3.4L6 9.5"/><path d="M7 14l6.5-6.5"/></svg>
-                        <span>Tecnologías Clave</span>
-                    </h3>
-                    <div class="flex flex-wrap gap-4 text-gray-300">
-                        <span class="bg-gray-700 px-4 py-2 rounded-full font-semibold transition-transform duration-300 transform hover:scale-110">Python</span>
-                        <span class="bg-gray-700 px-4 py-2 rounded-full font-semibold transition-transform duration-300 transform hover:scale-110">SQL</span>
-                        <span class="bg-gray-700 px-4 py-2 rounded-full font-semibold transition-transform duration-300 transform hover:scale-110">Power BI</span>
-                        <span class="bg-gray-700 px-4 py-2 rounded-full font-semibold transition-transform duration-300 transform hover:scale-110">Zoho Analytics</span>
-                        <span class="bg-gray-700 px-4 py-2 rounded-full font-semibold transition-transform duration-300 transform hover:scale-110">Zoho CRM</span>
-                        <span class="bg-gray-700 px-4 py-2 rounded-full font-semibold transition-transform duration-300 transform hover:scale-110">Excel</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section id="servicios-habilidades" class="tab-content">
+            <div class="bg-gray-900 p-8 md:p-12 rounded-2xl shadow-xl border border-gray-700">
+                <h2 class="text-2xl md:text-4xl font-bold text-[var(--color-accent)] mb-6 border-b-2 border-[var(--color-accent)] pb-2 text-center">
+                    Servicios y habilidades
+                </h2>
+                <p class="text-gray-300 text-base md:text-lg mb-8 max-w-3xl mx-auto text-center animate-fade-in-up">
+                    Ofrezco una combinación de servicios y habilidades técnicas para ayudarte a tomar decisiones informadas y estratégicas.
+                </p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="p-6 rounded-lg shadow-md border-t-4 border-blue-500 bg-gray-800 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-100">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <svg class="w-12 h-12 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <h3 class="text-xl md:text-2xl font-bold text-white">Análisis y Visualización de Datos</h3>
+                        </div>
+                        <ul class="list-disc list-inside space-y-2 pl-4 text-gray-300">
+                            <li>Extracción y transformación de datos.</li>
+                            <li>Creación de dashboards en **Power BI y Zoho Analytics**.</li>
+                            <li>Diseño y gestión de KPIs.</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 rounded-lg shadow-md border-t-4 border-blue-500 bg-gray-800 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-200">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <svg class="w-12 h-12 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h-5m-5 0h5m5 0a2 2 0 11-4 0m4 0a2 2 0 10-4 0m-5 0a2 2 0 11-4 0m4 0a2 2 0 10-4 0M8 8H6v6a2 2 0 002 2h4a2 2 0 002-2V8h-2m-4 0a2 2 0 00-2 2v4a2 2 0 002 2h2m4-4a2 2 0 002 2v4a2 2 0 002 2h2m-4-4a2 2 0 002 2v2a2 2 0 002 2" />
+                            </svg>
+                            <h3 class="text-xl md:text-2xl font-bold text-white">Consultoría en Datos</h3>
+                        </div>
+                        <ul class="list-disc list-inside space-y-2 pl-4 text-gray-300">
+                            <li>Asesoramiento en estrategias de Big Data.</li>
+                            <li>Optimización de soluciones de análisis de datos existentes.</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 rounded-lg shadow-lg border-t-4 border-[var(--color-accent)] bg-gray-800 transform scale-105 hover:scale-110 transition-all duration-300 animate-fade-in-up delay-300">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <svg class="w-12 h-12 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 10.5V6a1.5 1.5 0 00-1.5-1.5h-15A1.5 1.5 0 001.5 6v12a1.5 1.5 0 001.5 1.5h15a1.5 1.5 0 001.5-1.5v-4.5M10.5 12a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 17.25h.008v.008H12v-.008z" />
+                            </svg>
+                            <h3 class="text-xl md:text-2xl font-bold text-white">Incursión en Machine Learning e IA</h3>
+                        </div>
+                        <p class="font-bold text-[var(--color-accent)] mb-2">¡Nueva oferta de valor!</p>
+                        <ul class="list-disc list-inside space-y-2 pl-4 text-gray-300">
+                            <li>Aplicación de modelos descriptivos y predictivos.</li>
+                            <li>Implementación de soluciones iniciales de IA.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-12 animate-fade-in-up delay-400">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[var(--color-accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tool"><path d="M14.7 6.3L17.7 3.3c.6-.6 1.4-.9 2.3-.9s1.7.3 2.3.9c1.2 1.2 1.2 3.1 0 4.3L15.4 12"/><path d="M12.5 16.2L8.6 20.1a2.4 2.4 0 0 1-3.4 0L2.1 17a2.4 2.4 0 0 1 0-3.4L6 9.5"/><path d="M7 14l6.5-6.5"/></svg>
+                        <span>Tecnologías Clave</span>
+                    </h3>
+                    <div class="flex flex-wrap gap-4 text-gray-300">
+                        <span class="bg-gray-700 px-4 py-2 rounded-full font-semibold transition-transform duration-300 transform hover:scale-110">Python</span>
+                        <span class="bg-gray-700 px-4 py-2 rounded-full font-semibold transition-transform duration-300 transform hover:scale-110">SQL</span>
+                        <span class="bg-gray-700 px-4 py-2 rounded-full font-semibold transition-transform duration-300 transform hover:scale-110">Power BI</span>
+                        <span class="bg-gray-700 px-4 py-2 rounded-full font-semibold transition-transform duration-300 transform hover:scale-110">Zoho Analytics</span>
+                        <span class="bg-gray-700 px-4 py-2 rounded-full font-semibold transition-transform duration-300 transform hover:scale-110">Zoho CRM</span>
+                        <span class="bg-gray-700 px-4 py-2 rounded-full font-semibold transition-transform duration-300 transform hover:scale-110">Excel</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <section id="contacto" class="tab-content">
-            <div class="bg-gray-900 p-8 md:p-12 rounded-2xl shadow-xl border border-gray-700">
-                <h2 class="text-2xl md:text-4xl font-bold text-[var(--color-accent)] mb-6 border-b-2 border-[var(--color-accent)] pb-2 text-center">
-                    Contacto
-                </h2>
-                <div class="max-w-xl mx-auto space-y-6 text-gray-300 text-base md:text-lg">
-                    <p class="text-center font-bold text-white animate-fade-in-up">
-                        Facilita la comunicación para que podamos empezar a trabajar juntos.
-                    </p>
-                    <form class="space-y-4 bg-gray-800 p-8 rounded-xl shadow-inner animate-fade-in-up delay-100">
-                        <div>
-                            <label for="name" class="block text-gray-300 font-semibold mb-1">Nombre</label>
-                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-600 rounded-lg bg-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] transition-colors" placeholder="Tu nombre">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-gray-300 font-semibold mb-1">Correo Electrónico</label>
-                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-600 rounded-lg bg-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] transition-colors" placeholder="tu.correo@ejemplo.com">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-gray-300 font-semibold mb-1">Mensaje</label>
-                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-600 rounded-lg bg-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] transition-colors" placeholder="Escribe tu mensaje aquí"></textarea>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="bg-[var(--color-accent)] text-gray-900 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 transform hover:scale-105">
-                                Enviar Mensaje
-                            </button>
-                        </div>
-                    </form>
-                    <div class="mt-8 pt-6 border-t-2 border-[var(--color-accent)] text-center animate-fade-in-up delay-200">
-                        <p class="font-bold text-white mb-2">Información de Contacto Directa:</p>
-                        <div class="flex flex-col items-center space-y-2">
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
-                                <a href="mailto:juanda-100@hotmail.com" class="text-[var(--color-accent)] hover:underline">juanda-100@hotmail.com</a>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.97.77l.73 4.96a1 1 0 01-.15.89l-1.95 1.95a12.28 12.28 0 005.5 5.5l1.95-1.95a1 1 0 01.89-.15l4.96.73a1 1 0 01.77.97V19a2 2 0 01-2 2h-12a2 2 0 01-2-2v-12z" />
-                                </svg>
-                                <p class="text-white">(+57) 3016147725</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section id="contacto" class="tab-content">
+            <div class="bg-gray-900 p-8 md:p-12 rounded-2xl shadow-xl border border-gray-700">
+                <h2 class="text-2xl md:text-4xl font-bold text-[var(--color-accent)] mb-6 border-b-2 border-[var(--color-accent)] pb-2 text-center">
+                    Contacto
+                </h2>
+                <div class="max-w-xl mx-auto space-y-6 text-gray-300 text-base md:text-lg">
+                    <p class="text-center font-bold text-white animate-fade-in-up">
+                        Facilita la comunicación para que podamos empezar a trabajar juntos.
+                    </p>
+                    <form class="space-y-4 bg-gray-800 p-8 rounded-xl shadow-inner animate-fade-in-up delay-100">
+                        <div>
+                            <label for="name" class="block text-gray-300 font-semibold mb-1">Nombre</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-600 rounded-lg bg-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] transition-colors" placeholder="Tu nombre">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-300 font-semibold mb-1">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-600 rounded-lg bg-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] transition-colors" placeholder="tu.correo@ejemplo.com">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-300 font-semibold mb-1">Mensaje</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-600 rounded-lg bg-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] transition-colors" placeholder="Escribe tu mensaje aquí"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="bg-[var(--color-accent)] text-gray-900 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 transform hover:scale-105">
+                                Enviar Mensaje
+                            </button>
+                        </div>
+                    </form>
+                    <div class="mt-8 pt-6 border-t-2 border-[var(--color-accent)] text-center animate-fade-in-up delay-200">
+                        <p class="font-bold text-white mb-2">Información de Contacto Directa:</p>
+                        <div class="flex flex-col items-center space-y-2">
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                                <a href="mailto:juanda-100@hotmail.com" class="text-[var(--color-accent)] hover:underline">juanda-100@hotmail.com</a>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.97.77l.73 4.96a1 1 0 01-.15.89l-1.95 1.95a12.28 12.28 0 005.5 5.5l1.95-1.95a1 1 0 01.89-.15l4.96.73a1 1 0 01.77.97V19a2 2 0 01-2 2h-12a2 2 0 01-2-2v-12z" />
+                                </svg>
+                                <p class="text-white">(+57) 3016147725</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    </main>
-    <footer class="bg-gray-950 text-gray-400 py-6 mt-12">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2025 Juan David Jimenez. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-    <script src="script.js"></script>
+    </main>
+    <footer class="bg-gray-950 text-gray-400 py-6 mt-12">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Juan David Jimenez. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
