@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const transitionImage = document.getElementById('transition-image');
     const transitionTitle = document.getElementById('transition-title');
 
-    // Datos de transición para las pestañas, usando SVGs en base64 con el color correcto
+    // Mapeo de datos para la transición, usando SVGs en base64.
+    // Puedes actualizar los SVGs cambiando el valor de la cadena base64.
     const tabTransitionData = {
         'inicio': {
             title: 'Inicio',
@@ -37,97 +38,101 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Función para activar una pestaña con la animación de transición
+    /**
+     * Activa una pestaña específica con una animación de transición.
+     * @param {string} targetId El ID de la pestaña de destino.
+     */
     function activateTab(targetId) {
         const { title, svg } = tabTransitionData[targetId];
         transitionImage.src = svg;
         transitionTitle.textContent = title;
         transitionOverlay.classList.add('active');
 
-        // Retrasa el cambio de contenido hasta que la transición se vea
+        // Retrasa el cambio de contenido para que la animación de entrada se complete.
+        // El valor 400ms debe coincidir con la duración de la transición en el CSS.
         setTimeout(() => {
-            // Oculta todas las secciones antes de mostrar la nueva.
+            // Oculta todas las secciones de contenido.
             tabContents.forEach(content => {
                 content.classList.remove('active');
-                content.style.opacity = '0'; // Asegura que la opacidad también se restablezca
+                content.style.opacity = '0';
             });
 
+            // Muestra la nueva sección de contenido.
             const targetContent = document.getElementById(targetId);
             if (targetContent) {
                 targetContent.classList.add('active');
+                // Un pequeño retraso para la transición de opacidad del contenido.
                 setTimeout(() => {
                     targetContent.style.opacity = '1';
-                }, 50); // Pequeño retraso para la transición de opacidad
+                }, 50);
             }
 
-            // Oculta el overlay después de un breve período
+            // Oculta el overlay de transición una vez que el nuevo contenido está visible.
+            // El valor 600ms debe coincidir con la duración de la animación de salida en el CSS.
             setTimeout(() => {
                 transitionOverlay.classList.remove('active');
-            }, 600); // Duración de la animación de salida
-        }, 400); // Coincide con la duración de la animación de entrada
+            }, 600);
+        }, 400);
     }
 
-    // Agrega el event listener a cada enlace de navegación
+    // Añade el event listener a cada enlace de navegación para la transición.
     tabLinks.forEach(link => {
         link.addEventListener('click', (event) => {
-            event.preventDefault(); // Evita el comportamiento por defecto del enlace
+            event.preventDefault(); // Evita el comportamiento predeterminado del enlace
             const targetId = link.dataset.target;
 
-            // Actualiza la clase 'active' para los enlaces de navegación
+            // Actualiza la clase 'active' para los enlaces.
             tabLinks.forEach(l => l.classList.remove('active'));
             link.classList.add('active');
 
-            // Activa la pestaña con la nueva lógica de transición
+            // Activa la pestaña con la función de transición.
             activateTab(targetId);
         });
     });
 
-    // Asegura que la primera sección visible al cargar la página sea la de 'Inicio'.
+    // Muestra la primera sección al cargar la página.
     const initialTab = document.querySelector('.tab-link.active');
     if (initialTab) {
         const initialContent = document.getElementById(initialTab.dataset.target);
         if (initialContent) {
             initialContent.classList.add('active');
             initialContent.style.opacity = '1';
-            initialContent.style.transform = 'translateY(0)';
         }
     }
 
     // --- Lógica del Canvas de Visualización de Datos ---
     const canvas = document.getElementById('data-visualization-canvas');
     if (!canvas) {
-        // Si el canvas no existe, no se ejecuta el resto del script para evitar errores
+        // Si no se encuentra el canvas, no se ejecuta el resto del script para evitar errores.
+        console.error("No se encontró el elemento 'data-visualization-canvas'.");
         return;
     }
 
     const ctx = canvas.getContext('2d');
     let width, height;
-    const elements = []; // Array que contendrá todos los elementos visuales animados
-    
-    // Cantidades para cada tipo de elemento visual
-    const numParticles = 200;
-    const numGraphs = 10;
-    const numHeatmaps = 10;
-    const numBinary = 100;
-    const numBarCharts = 20;
-    const numPieCharts = 20;
+    let elements = []; // Array que contendrá todos los elementos visuales animados
 
-    // Clase base para todos los elementos visuales
+    // Mapeo de tipos de elementos y sus cantidades.
+    const elementConfig = {
+        Particle: { count: 200, class: Particle },
+        MinimalGraph: { count: 10, class: MinimalGraph },
+        Heatmap: { count: 10, class: Heatmap },
+        BinaryData: { count: 100, class: BinaryData },
+        BarChart: { count: 20, class: BarChart },
+        PieChart: { count: 20, class: PieChart }
+    };
+    
+    // Clase base para todos los elementos visuales.
     class VisualElement {
         constructor(x, y) {
             this.x = x;
             this.y = y;
-            this.alpha = 0; // Utilizado para la animación de entrada
         }
-        update() {
-            // Método para actualizar la posición o estado del elemento.
-            // Retorna 'true' si el elemento debe ser reiniciado.
-            return false;
-        }
-        draw() {} // Método para dibujar el elemento en el canvas
+        update() { return false; } // Actualiza el estado del elemento.
+        draw() {} // Dibuja el elemento en el canvas.
     }
 
-    // Clase para partículas ascendentes
+    // Clase para partículas ascendentes.
     class Particle extends VisualElement {
         constructor() {
             super(Math.random() * width, height + 20);
@@ -150,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Clase para gráficos de líneas minimalistas (ondas)
+    // Clase para gráficos de líneas minimalistas (ondas).
     class MinimalGraph extends VisualElement {
         constructor() {
             super(Math.random() * width, Math.random() * height * 0.7 + height * 0.3);
@@ -190,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Clase para mapas de calor dinámicos (círculos difusos)
+    // Clase para mapas de calor dinámicos (círculos difusos).
     class Heatmap extends VisualElement {
         constructor() {
             super(Math.random() * width, Math.random() * height);
@@ -199,13 +204,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         update() {
-            // Cambia la intensidad del color con el tiempo
             this.intensity = 0.5 + Math.sin(Date.now() * 0.002 + this.x * 0.01 + this.y * 0.01) * 0.5;
             return false;
         }
 
         draw() {
-            // Crea un gradiente radial para el efecto de brillo
             const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
             gradient.addColorStop(0, `rgba(52, 211, 153, ${this.intensity * 0.6})`);
             gradient.addColorStop(1, 'rgba(52, 211, 153, 0)');
@@ -214,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Clase para datos binarios que caen (0s y 1s)
+    // Clase para datos binarios que caen (0s y 1s).
     class BinaryData extends VisualElement {
         constructor() {
             super(Math.random() * width, -20);
@@ -237,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // Clase para gráficos de barras animados
+    // Clase para gráficos de barras animados.
     class BarChart extends VisualElement {
         constructor() {
             super(Math.random() * width, Math.random() * height * 0.8 + height * 0.1);
@@ -261,7 +264,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.globalAlpha = 0.6;
             ctx.fillStyle = '#34D399';
             for (let i = 0; i < this.numBars; i++) {
-                // Anima la altura de la barra usando una función sinusoidal
                 const animatedHeight = this.barHeights[i] * (0.5 + Math.sin(this.animationPhase + i * 0.5) * 0.5);
                 ctx.fillRect(this.x + i * (this.barWidth + 2), this.y, this.barWidth, -animatedHeight);
             }
@@ -269,14 +271,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Clase para gráficos de pastel (pie charts) animados
+    // Clase para gráficos de pastel (pie charts) animados.
     class PieChart extends VisualElement {
         constructor() {
             super(Math.random() * width, Math.random() * height);
             this.radius = Math.random() * 20 + 10;
-            // Define los segmentos iniciales del pastel
             this.segments = [Math.random() * 0.4, Math.random() * 0.3, Math.random() * 0.3];
-            this.colors = ['#34D399', '#1F2937', '#6EE7B7']; // Restauración de los colores originales
+            this.colors = ['#34D399', '#1F2937', '#6EE7B7'];
             this.animationPhase = Math.random() * Math.PI * 2;
         }
 
@@ -289,7 +290,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.globalAlpha = 0.7;
             let startAngle = 0;
             for (let i = 0; i < this.segments.length; i++) {
-                // Anima el tamaño de cada segmento
                 const segmentValue = this.segments[i] * (0.5 + Math.sin(this.animationPhase + i) * 0.5);
                 const endAngle = startAngle + segmentValue * Math.PI * 2;
                 
@@ -300,58 +300,54 @@ document.addEventListener('DOMContentLoaded', () => {
                 ctx.fillStyle = this.colors[i % this.colors.length];
                 ctx.fill();
                 
-                startAngle = endAngle; // El próximo segmento empieza donde el anterior terminó
+                startAngle = endAngle;
             }
             ctx.globalAlpha = 1;
         }
     }
 
-    // Inicializa el canvas y los elementos visuales
+    // Inicializa el canvas y los elementos visuales.
     function init() {
         width = window.innerWidth;
         height = window.innerHeight;
         canvas.width = width;
         canvas.height = height;
-        elements.length = 0; // Limpiar elementos existentes
+        elements = []; // Limpiar elementos existentes
 
-        // Agrega los diferentes tipos de elementos al array
-        for (let i = 0; i < numParticles; i++) { elements.push(new Particle()); }
-        for (let i = 0; i < numGraphs; i++) { elements.push(new MinimalGraph()); }
-        for (let i = 0; i < numHeatmaps; i++) { elements.push(new Heatmap()); }
-        for (let i = 0; i < numBinary; i++) { elements.push(new BinaryData()); }
-        for (let i = 0; i < numBarCharts; i++) { elements.push(new BarChart()); }
-        for (let i = 0; i < numPieCharts; i++) { elements.push(new PieChart()); }
+        // Genera los elementos basados en la configuración.
+        for (const type in elementConfig) {
+            const { count, class: ElementClass } = elementConfig[type];
+            for (let i = 0; i < count; i++) {
+                elements.push(new ElementClass());
+            }
+        }
     }
 
-    // Bucle principal de animación
+    // Bucle principal de animación.
     function animate() {
-        // Fondo con un gradiente muy sutil
+        // Limpia el canvas con un gradiente de fondo.
         const gradient = ctx.createRadialGradient(width / 2, height / 2, 0, width / 2, height / 2, Math.max(width, height));
-        gradient.addColorStop(0, 'rgba(17, 24, 39, 0.1)'); // Color de fondo interior transparente
-        gradient.addColorStop(1, 'rgba(17, 24, 39, 0.9)'); // Color de fondo exterior semi-transparente
+        gradient.addColorStop(0, 'rgba(17, 24, 39, 0.1)');
+        gradient.addColorStop(1, 'rgba(17, 24, 39, 0.9)');
         ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, width, height); // Limpiar el canvas con el gradiente
+        ctx.fillRect(0, 0, width, height);
 
-        // Actualiza y dibuja cada elemento en el array
+        // Actualiza y dibuja cada elemento.
         elements.forEach((element, index) => {
+            // Si el método 'update' retorna 'true', el elemento debe ser reiniciado.
             if (element.update()) {
-                // Si el elemento debe ser reiniciado, crea uno nuevo del mismo tipo
-                if (element instanceof Particle) { elements[index] = new Particle(); }
-                else if (element instanceof MinimalGraph) { elements[index] = new MinimalGraph(); }
-                else if (element instanceof Heatmap) { elements[index] = new Heatmap(); }
-                else if (element instanceof BinaryData) { elements[index] = new BinaryData(); }
-                else if (element instanceof BarChart) { elements[index] = new BarChart(); }
-                else if (element instanceof PieChart) { elements[index] = new PieChart(); }
+                const elementType = element.constructor.name;
+                const ElementClass = elementConfig[elementType].class;
+                elements[index] = new ElementClass();
             }
             element.draw();
         });
 
-        // Solicita el siguiente cuadro de animación
         requestAnimationFrame(animate);
     }
 
-    // Inicia la animación cuando la página carga y se redimensiona
+    // Inicia la animación al cargar la página y al redimensionar la ventana.
     window.addEventListener('resize', init);
-    init(); // Inicializa al cargar
-    animate(); // Inicia el bucle de animación
+    init();
+    animate();
 });
