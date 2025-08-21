@@ -9,6 +9,7 @@
     --color-primary: #1F2937; /* Gris oscuro para el fondo */
     --color-accent: #34D399; /* Color de acento verde restaurado */
     --color-text: #E5E7EB; /* Gris claro para el texto principal */
+    --color-text-light: #F9FAFB; /* Color marfil/blanco para mejor legibilidad */
     --color-background: #111827; /* Fondo principal muy oscuro */
     --transition-duration: 0.3s; /* Duración base para transiciones */
 }
