@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juan David Jimenez - Analista y Científico de Datos</title>
-    <link rel="icon" type="image/jpeg" href="logo1.png">
+    <link rel="icon" type="image/png" href="logo1.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,17 +23,18 @@
                 </a>
             </div>
             <div class="flex flex-wrap justify-center md:space-x-4 space-x-2 text-sm md:text-base">
-                <button class="tab-link px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 transition-all active font-bold" data-target="inicio">Inicio</button>
-                <button class="tab-link px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 transition-all font-bold" data-target="portafolio">Portafolio</button>
-                <button class="tab-link px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 transition-all font-bold" data-target="sobre-mi-propuesta">Sobre mí</button>
-                <button class="tab-link px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 transition-all font-bold" data-target="servicios-habilidades">Servicios y habilidades</button>
-                <button class="tab-link px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 transition-all font-bold" data-target="contacto">Contacto</button>
+                <button class="tab-link px-3 py-2 rounded-lg text-[var(--color-text-light)] hover:bg-gray-800 transition-all active font-bold" data-target="inicio">Inicio</button>
+                <button class="tab-link px-3 py-2 rounded-lg text-[var(--color-text-light)] hover:bg-gray-800 transition-all font-bold" data-target="portafolio">Portafolio</button>
+                <button class="tab-link px-3 py-2 rounded-lg text-[var(--color-text-light)] hover:bg-gray-800 transition-all font-bold" data-target="sobre-mi-propuesta">Sobre mí</button>
+                <button class="tab-link px-3 py-2 rounded-lg text-[var(--color-text-light)] hover:bg-gray-800 transition-all font-bold" data-target="servicios-habilidades">Servicios y habilidades</button>
+                <button class="tab-link px-3 py-2 rounded-lg text-[var(--color-text-light)] hover:bg-gray-800 transition-all font-bold" data-target="contacto">Contacto</button>
             </div>
         </nav>
     </header>
 
     <main class="container mx-auto p-6 md:p-12 min-h-screen relative z-10">
 
+        <!-- INICIO -->
         <section id="inicio" class="tab-content active">
             <div class="text-center rounded-2xl p-8 md:p-16 shadow-lg border border-gray-700 backdrop-blur-sm bg-gray-900/70">
                 <img src="Perfil.jpg" 
@@ -52,13 +53,10 @@
             </div>
         </section>
 
+        <!-- PORTAFOLIO -->
         <section id="portafolio" class="tab-content">
             <div class="bg-gray-900 p-8 md:p-12 rounded-2xl shadow-xl">
-                <h2 class="text-2xl md:text-4xl font-bold text-[var(--color-accent)] mb-6 border-b-2 border-gray-700 pb-2 text-center flex items-center justify-center gap-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-[var(--color-accent)]">
-                        <path fill-rule="evenodd" d="M7.5 5.25a3 3 0 0 1 3-3h3a3 3 0 0 1 3 3v.205c.933.085 1.857.197 2.774.334 1.454.218 2.476 1.483 2.476 2.917v3.033c0 1.211-.734 2.352-1.936 2.752A24.726 24.726 0 0 1 12 15.75c-2.73 0-5.357-.442-7.814-1.259-1.202-.4-1.936-1.541-1.936-2.752V8.706c0-1.434 1.022-2.7 2.476-2.917A48.814 48.814 0 0 1 7.5 5.455V5.25Zm7.5 0v.09a49.488 49.488 0 0 0-6 0v-.09a1.5 1.5 0 0 1 1.5-1.5h3a1.5 1.5 0 0 1 1.5 1.5Zm-3 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd" />
-                        <path d="M3 18.4v-2.796a4.3 4.3 0 0 0 .713.31A26.226 26.226 0 0 0 12 17.25c2.892 0 5.68-.468 8.287-1.335.252-.084.49-.189.713-.311V18.4c0 1.452-1.047 2.728-2.523 2.923-2.12.282-4.282.427-6.477.427a49.19 49.19 0 0 1-6.477-.427C4.047 21.128 3 19.852 3 18.4Z" />
-                    </svg>
+                <h2 class="text-2xl md:text-4xl font-bold text-[var(--color-accent)] mb-6 border-b-2 border-gray-700 pb-2 text-center">
                     Mi Portafolio
                 </h2>
                 <p class="text-[var(--color-text-light)] text-base md:text-lg mb-8 max-w-3xl mx-auto text-center animate-fade-in-up">
@@ -67,11 +65,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-100">
                         <div class="aspect-video w-full mb-4">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                                    frameborder="0" 
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                    allowfullscreen 
-                                    class="rounded-lg w-full h-full"></iframe>
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-lg w-full h-full"></iframe>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-2">Dashboard en Zoho Analytics</h3>
                         <p class="text-[var(--color-text-light)]">Creación de dashboards interactivos para visualizar métricas clave y optimizar la toma de decisiones.</p>
@@ -83,81 +77,34 @@
                         <h3 class="text-xl font-bold text-white mb-2">Paneles y homepages en Zoho CRM</h3>
                         <p class="text-[var(--color-text-light)]">Diseño y desarrollo de paneles personalizados para monitorear el rendimiento de ventas y el comportamiento del cliente.</p>
                     </div>
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-300">
-                        <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full aspect-video mb-4">
-                            <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Dashboard en Power BI</h3>
-                        <p class="text-[var(--color-text-light)]">Análisis y creación de informes dinámicos para transformar datos complejos en conocimiento accesible y útil.</p>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-400">
-                        <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full aspect-video mb-4">
-                            <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Consultas SQL para el análisis de datos</h3>
-                        <p class="text-[var(--color-text-light)]">Diseño de consultas SQL avanzadas para la extracción, limpieza y análisis de grandes conjuntos de datos.</p>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-500">
-                        <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full aspect-video mb-4">
-                            <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Modelos de clasificación en Machine Learning</h3>
-                        <p class="text-[var(--color-text-light)]">Desarrollo de modelos para categorizar y predecir resultados, como la segmentación de clientes o la detección de fraudes.</p>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-600">
-                        <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full aspect-video mb-4">
-                            <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Modelos de recomendación en Machine Learning</h3>
-                        <p class="text-[var(--color-text-light)]">Implementación de sistemas para sugerir productos o servicios personalizados, mejorando la experiencia del usuario.</p>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-700">
-                        <div class="flex items-center justify-center bg-gray-700 rounded-lg w-full aspect-video mb-4">
-                            <p class="text-xl font-semibold text-[var(--color-accent)] animate-pulse-fast">Próximamente</p>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Integración de modelos de Machine Learning a Zoho CRM</h3>
-                        <p class="text-[var(--color-text-light)]">Conexión de modelos predictivos y de recomendación directamente al CRM para automatizar flujos de trabajo y estrategias de marketing.</p>
-                    </div>
+                    <!-- Puedes seguir agregando más proyectos -->
                 </div>
             </div>
         </section>
 
+        <!-- SOBRE MI -->
         <section id="sobre-mi-propuesta" class="tab-content">
             <div class="bg-gray-900 p-8 md:p-12 rounded-2xl shadow-xl">
                 <h2 class="text-2xl md:text-4xl font-bold text-[var(--color-accent)] mb-6 border-b-2 border-gray-700 pb-2">
                     Quién Soy y Mi Propuesta de Valor
                 </h2>
                 <div class="space-y-6 text-[var(--color-text-light)] text-base md:text-lg">
-                    <p class="animate-fade-in-up">Soy **Juan David Jimenez Guerra**, analista de datos con experiencia en la construcción de procesos ETL, visualización de información y diseño de dashboards orientados a la toma de decisiones estratégicas. Apasionado por el aprendizaje continuo y el desarrollo de soluciones basadas en Machine Learning, tanto descriptivas como predictivas. Me destaco por la capacidad de análisis, el compromiso con los resultados y la creatividad para resolver problemas de forma eficiente.</p>
-                    
-                    <!-- Sección de Educación -->
+                    <p class="animate-fade-in-up">Soy <strong>Juan David Jimenez Guerra</strong>, analista de datos con experiencia en la construcción de procesos ETL, visualización de información y diseño de dashboards orientados a la toma de decisiones estratégicas. Apasionado por el aprendizaje continuo y el desarrollo de soluciones basadas en Machine Learning. Me destaco por la capacidad de análisis, el compromiso con los resultados y la creatividad para resolver problemas de forma eficiente.</p>
+
+                    <!-- Sección Educación -->
                     <div class="mt-8">
-                        <h3 class="text-xl md:text-2xl font-bold text-[var(--color-accent)] mb-6 flex items-center space-x-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[var(--color-accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-                            </svg>
-                            <span>Educación</span>
-                        </h3>
-                        
+                        <h3 class="text-xl md:text-2xl font-bold text-[var(--color-accent)] mb-6">Educación</h3>
                         <div class="grid md:grid-cols-2 gap-6">
-                            <!-- UdeA -->
                             <div class="bg-gray-800 p-6 rounded-lg flex items-center space-x-4">
-                                <div class="flex-shrink-0">
-                                    <img src="udea.png" alt="Logo UdeA" class="w-16 h-16 object-contain rounded-lg">
-                                </div>
+                                <img src="udea.png" alt="Logo UdeA" class="w-16 h-16 object-contain rounded-lg">
                                 <div>
                                     <h4 class="text-lg font-bold text-white mb-2">Universidad de Antioquia</h4>
                                     <p class="text-[var(--color-text-light)] mb-1">Especialización en analítica y ciencia de datos</p>
                                     <p class="text-[var(--color-text-light)]">Economía</p>
                                 </div>
                             </div>
-                            
-                            <!-- UNAULA -->
                             <div class="bg-gray-800 p-6 rounded-lg flex items-center space-x-4">
-                                <div class="flex-shrink-0">
-                                    <img src="unaula.ico" alt="Logo UNAULA" class="w-16 h-16 object-contain rounded-lg">
-                                </div>
+                                <img src="unaula.ico" alt="Logo UNAULA" class="w-16 h-16 object-contain rounded-lg">
                                 <div>
                                     <h4 class="text-lg font-bold text-white mb-2">Universidad Autónoma Latinoamericana</h4>
                                     <p class="text-[var(--color-text-light)]">Licenciatura en ciencias sociales</p>
@@ -174,6 +121,7 @@
             </div>
         </section>
 
+        <!-- SERVICIOS -->
         <section id="servicios-habilidades" class="tab-content">
             <div class="bg-gray-900 p-8 md:p-12 rounded-2xl shadow-xl border border-gray-700">
                 <h2 class="text-2xl md:text-4xl font-bold text-[var(--color-accent)] mb-6 border-b-2 border-[var(--color-accent)] pb-2 text-center">
@@ -183,49 +131,74 @@
                     Ofrezco una combinación de servicios y habilidades técnicas para ayudarte a tomar decisiones informadas y estratégicas.
                 </p>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="p-6 rounded-lg shadow-md border-t-4 border-[var(--color-accent)] bg-gray-800 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-100">
-                        <div class="flex items-center space-x-3 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-12 h-12 text-[var(--color-accent)]">
-                                <path d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75ZM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 0 1-1.875-1.875V8.625ZM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 0 1 3 19.875v-6.75Z" />
-                            </svg>
-                            <h3 class="text-xl md:text-2xl font-bold text-white">Análisis y Visualización de Datos</h3>
-                        </div>
+                    <div class="p-6 rounded-lg shadow-md border-t-4 border-[var(--color-accent)] bg-gray-800">
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-4">Análisis y Visualización de Datos</h3>
                         <ul class="list-disc list-inside space-y-2 pl-4 text-[var(--color-text-light)]">
                             <li>Extracción y transformación de datos.</li>
-                            <li>Creación de dashboards en **Power BI y Zoho Analytics**.</li>
+                            <li>Creación de dashboards en Power BI y Zoho Analytics.</li>
                             <li>Diseño y gestión de KPIs.</li>
                         </ul>
                     </div>
-                    <div class="p-6 rounded-lg shadow-md border-t-4 border-[var(--color-accent)] bg-gray-800 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-200">
-                        <div class="flex items-center space-x-3 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-12 h-12 text-[var(--color-accent)]">
-                                <path fill-rule="evenodd" d="M2.25 13.5a8.25 8.25 0 0 1 8.25-8.25.75.75 0 0 1 .75.75v6.75H18a.75.75 0 0 1 .75.75 8.25 8.25 0 0 1-16.5 0Z" clip-rule="evenodd" />
-                                <path fill-rule="evenodd" d="M12.75 3a.75.75 0 0 1 .75-.75 8.25 8.25 0 0 1 8.25 8.25.75.75 0 0 1-.75.75h-7.5a.75.75 0 0 1-.75-.75V3Z" clip-rule="evenodd" />
-                            </svg>
-                            <h3 class="text-xl md:text-2xl font-bold text-white">Consultoría en Datos</h3>
-                        </div>
+                    <div class="p-6 rounded-lg shadow-md border-t-4 border-[var(--color-accent)] bg-gray-800">
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-4">Consultoría en Datos</h3>
                         <ul class="list-disc list-inside space-y-2 pl-4 text-[var(--color-text-light)]">
                             <li>Asesoramiento en estrategias de Big Data.</li>
-                            <li>Optimización de soluciones de análisis de datos existentes.</li>
+                            <li>Optimización de soluciones analíticas existentes.</li>
                         </ul>
                     </div>
-                    <div class="p-6 rounded-lg shadow-lg border-t-4 border-[var(--color-accent)] bg-gray-800 transform scale-105 hover:scale-110 transition-all duration-300 animate-fade-in-up delay-300">
-                        <div class="flex items-center space-x-3 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-12 h-12 text-[var(--color-accent)]">
-                                <path fill-rule="evenodd" d="M11.622 1.602a.75.75 0 0 1 .756 0l2.25 1.313a.75.75 0 0 1-.756 1.295L12 3.118 10.128 4.21a.75.75 0 1 1-.756-1.295l2.25-1.313ZM5.898 5.81a.75.75 0 0 1-.27 1.025l-1.14.665 1.14.665a.75.75 0 1 1-.756 1.295L3.75 8.806v.944a.75.75 0 0 1-1.5 0V7.5a.75.75 0 0 1 .372-.648l2.25-1.312a.75.75 0 0 1 1.026.27Zm12.204 0a.75.75 0 0 1 1.026-.27l2.25 1.312a.75.75 0 0 1 .372.648v2.25a.75.75 0 0 1-1.5 0v-.944l-1.122.654a.75.75 0 1 1-.756-1.295l1.14-.665-1.14-.665a.75.75 0 0 1-.27-1.025Zm-9 5.25a.75.75 0 0 1 1.026-.27L12 11.882l1.872-1.092a.75.75 0 1 1 .756 1.295l-1.878 1.096V15a.75.75 0 0 1-1.5 0v-1.82l-1.878-1.095a.75.75 0 0 1-.27-1.025ZM3 13.5a.75.75 0 0 1 .75.75v1.82l1.878 1.095a.75.75 0 1 1-.756 1.295l-2.25-1.312a.75.75 0 0 1-.372-.648v-2.25A.75.75 0 0 1 3 13.5Zm18 0a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-.372.648l-2.25 1.312a.75.75 0 1 1-.756-1.295l1.878-1.096V14.25a.75.75 0 0 1 .75-.75Zm-9 5.25a.75.75 0 0 1 .75.75v.944l1.122-.654a.75.75 0 1 1 .756 1.295l-2.25 1.313a.75.75 0 0 1-.756 0l-2.25-1.313a.75.75 0 1 1 .756-1.295l1.122.654V19.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd" />
-                            </svg>
-                            <h3 class="text-xl md:text-2xl font-bold text-white">Incursión en Machine Learning e IA</h3>
-                        </div>
-                        <p class="font-bold text-[var(--color-accent)] mb-2">¡Nueva oferta de valor!</p>
+                    <div class="p-6 rounded-lg shadow-md border-t-4 border-[var(--color-accent)] bg-gray-800">
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-4">Machine Learning e IA</h3>
                         <ul class="list-disc list-inside space-y-2 pl-4 text-[var(--color-text-light)]">
-                            <li>Aplicación de modelos descriptivos y predictivos.</li>
-                            <li>Implementación de soluciones iniciales de IA.</li>
+                            <li>Modelos predictivos y descriptivos.</li>
+                            <li>Recomendadores y segmentación de clientes.</li>
                         </ul>
                     </div>
                 </div>
+
+                <!-- Tecnologías -->
                 <div class="mt-12 animate-fade-in-up delay-400">
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center space-x-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-[var(--color-accent)]">
-                            <path d="M9 12a3 3 0 1 1 6 0 3 3 0 0 1-6 0Z" />
-                            <path fill-rule="evenodd" d="M9.344 3.071a49.52 49.52 0 0 1 5.312 0c.967.052 1.83.585 2.332 1.39l.821 1.317c.24.383.645.643 1.11.71a48.14 48.14 0 0 1 2.592.3c.925.1 1.689.734 1.982 1.64l.43 1.323c.133.41.41.768.8 1.01a47.494 47.494 0 0 1 2.257 1.6c.728.6 1.05 1.521.84 2.4l-.306 1.285c-.101.431-.101.882 0 1.313l.306 1.285c.21.879-.112 1.8-.84 2.4a47.494 47.494 0 0 1-2.257 1.6c-.39.242-.667.6-.8 1.01l-.43 1.323c-.293.906-1.057 1.54-1.982 1.64-.853.09-1.72.18-2.592.3-.465.067-.87.327-1.11.71l-.821 1.317c-.502.805-1.365 1.338-2.332 1.39a49.52 49.52 0 0 1-5.312 0c-.967-.052-1.83-.585-2.332-1.39l-.821-1.317c-.24-.383-.645-.643-1.11-.71a48.14 48.14 0 0 1-2.592-.3c-.925-.1-1.689-.734-1.982-1.64l-.43-1.323c-.133-.41-.41-.768-.8-1.01a47.494 47.494 0 0 1-2.257-1.6c-.728-.6-1.05-1.521-.84-2.4l.306-1.285c.101-.431.101-.882 0-1.313l-.306-1.285c-.21-.879.112-1.8.84-2.4a47.494 47.494 0 0 1 2.257-1.6c.39-.242.667-.6.8-1.01l.43-1.323c.293-.906 1.057-1.54 1.982-1.64.853-.09 1.72-.18 2.592-.3.465-.067.87-.327 1.11-.71l.821-1.317c.502-.805 1.365-1.338 2.332-1.39ZM12 15.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z" clip-rule="evenodd" />
-                        </svg>
+                    <h3 class="text-xl font-bold text-white mb-4 text-center">Tecnologías Clave</h3>
+                    <div class="flex flex-wrap gap-4 justify-center text-[var(--color-text-light)]">
+                        <span class="bg-gray-700 px-4 py-2 rounded-full font-semibold">Python</span>
+                        <span class="bg-gray-700 px-4 py-2 rounded-full font-semibold">Power BI</span>
+                        <span class="bg-gray-700 px-4 py-2 rounded-full font-semibold">Zoho Analytics</span>
+                        <span class="bg-gray-700 px-4 py-2 rounded-full font-semibold">SQL</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+        <section id="contacto" class="tab-content">
+            <div class="bg-gray-900 p-8 md:p-12 rounded-2xl shadow-xl">
+                <h2 class="text-2xl md:text-4xl font-bold text-[var(--color-accent)] mb-6 border-b-2 border-gray-700 pb-2 text-center">
+                    Contáctame
+                </h2>
+                <p class="text-[var(--color-text-light)] text-base md:text-lg mb-8 text-center">
+                    ¿Tienes un proyecto en mente? Envíame un mensaje y conversemos.
+                </p>
+                <form class="max-w-2xl mx-auto space-y-6">
+                    <div>
+                        <label class="block text-[var(--color-text-light)] mb-2">Nombre</label>
+                        <input type="text" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white" required>
+                    </div>
+                    <div>
+                        <label class="block text-[var(--color-text-light)] mb-2">Correo</label>
+                        <input type="email" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white" required>
+                    </div>
+                    <div>
+                        <label class="block text-[var(--color-text-light)] mb-2">Mensaje</label>
+                        <textarea rows="4" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-[var(--color-accent)] text-gray-900 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 transform hover:scale-105">
+                        Enviar Mensaje
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
