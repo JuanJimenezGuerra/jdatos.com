@@ -2,38 +2,29 @@
     ========================================
     Estilos Globales y Variables
     ========================================
-    Define una paleta de colores y variables de tipografía para el sitio.
 */
 
 :root {
-    --color-primary: #1F2937; /* Gris oscuro para el fondo */
-    --color-accent: #34D399; /* Color de acento verde restaurado */
-    --color-text: #E5E7EB; /* Gris claro para el texto principal */
-    --color-text-light: #F9FAFB; /* Color marfil/blanco para mejor legibilidad */
-    --color-background: #111827; /* Fondo principal muy oscuro */
-    --transition-duration: 0.3s; /* Duración base para transiciones */
+    --color-primary: #1F2937; /* Gris oscuro para fondos secundarios */
+    --color-accent: #34D399; /* Verde acento */
+    --color-text: #E5E7EB; /* Gris claro */
+    --color-text-light: #F9FAFB; /* Marfil / blanco para mejorar legibilidad */
+    --color-background: #111827; /* Fondo principal */
+    --transition-duration: 0.3s; /* Duración base transiciones */
 }
 
 body {
-    /* Aplica la fuente y colores base a todo el cuerpo del documento */
     font-family: 'Source Sans Pro', sans-serif;
-    color: var(--color-text);
+    color: var(--color-text-light);
     background-color: var(--color-background);
 }
 
-h1, h2, h3 {
-    /* Define la fuente para los títulos */
+h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
+    color: var(--color-text-light);
 }
 
-/*
-    ========================================
-    Estilos de la Visualización de Datos (Canvas)
-    ========================================
-    Posiciona el canvas como un fondo fijo que ocupa toda la pantalla,
-    quedando detrás del resto del contenido.
-*/
-
+/* Canvas de fondo */
 #data-visualization-canvas {
     position: fixed;
     top: 0;
@@ -43,41 +34,48 @@ h1, h2, h3 {
     z-index: 0;
 }
 
-/*
-    =======================================
-    Estilos de las Pestañas (Sin Transiciones)
-    =======================================
-    Maneja la visualización directa de las secciones de contenido
-    sin animaciones de transición.
-*/
-
+/* Tabs */
 .tab-content {
-    /* Estado inicial (oculto) de las pestañas */
     display: none;
     position: relative;
     z-index: 10;
 }
 
 .tab-content.active {
-    /* Estado activo (visible) de las pestañas */
     display: block;
 }
 
 .tab-link.active {
-    /* Estilo para el enlace de la pestaña activa en la navegación */
     font-weight: 700;
     color: var(--color-accent);
     border-bottom-width: 2px;
     border-color: var(--color-accent);
 }
 
-/*
-    ========================================
-    Animaciones de Keyframes
-    ========================================
-    Define animaciones reutilizables que son aplicadas en el HTML.
-*/
+/* Formularios */
+input, textarea {
+    background-color: #1F2937;
+    border: 1px solid #374151;
+    color: var(--color-text-light);
+    transition: border var(--transition-duration) ease;
+}
 
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.3);
+}
+
+/* Botones */
+button {
+    transition: background-color var(--transition-duration) ease, transform var(--transition-duration) ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Animaciones */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -89,7 +87,6 @@ h1, h2, h3 {
 .animate-fade-in-up.delay-400 { animation-delay: 0.4s; }
 .animate-fade-in-up.delay-500 { animation-delay: 0.5s; }
 .animate-fade-in-up.delay-600 { animation-delay: 0.6s; }
-.animate-fade-in-up.delay-700 { animation-delay: 0.7s; }
 
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
