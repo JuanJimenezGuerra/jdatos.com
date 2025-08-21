@@ -4,61 +4,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Lógica de Transición de Pestañas ---
     const tabLinks = document.querySelectorAll('.tab-link');
     const tabContents = document.querySelectorAll('.tab-content');
-    const transitionOverlay = document.getElementById('tab-transition-overlay');
-    const transitionImage = document.getElementById('transition-image');
-    const transitionTitle = document.getElementById('transition-title');
 
-    // Datos de transición para las pestañas, usando SVGs en base64 - ACTUALIZADOS
-    const tabTransitionData = {
-        'inicio': {
-            title: 'Inicio',
-            // Gráfico de líneas simple
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNTAwIj48cGF0aCBkPSJNNTAgNDUwIEwgMjAwLDEwMCBMIDQwMCw0MDAgTCA1NTAsMTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiMzREMzOTkiIHN0cm9rZS13aWR0aD0iMTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==`
-        },
-        'portafolio': {
-            title: 'Portafolio',
-            // Nuevo SVG de portafolio actualizado - Convertido a base64
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiBmaWxsPSIjMzREMzk5Ij48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMjUgODcuNWE1MCA1MCAwIDAgMSA1MC01MGg1MGE1MCA1MCAwIDAgMSA1MCA1MHYzLjQxN2MxNS41NSAxLjQxNyAzMC45NSAzLjI4MyA0Ni4yMzMgNS41NjdDMzQ0LjU2NyA5OS45NjcgMzU0LjEzMyAxMTUuNTUgMzU0LjEzMyAxMzMuMTE3djUwLjU1YzAgMjAuMTgzLTEyLjIzMyAzOS4yLTMyLjI2NyA0NS44NjdBNDEyLjEgNDEyLjEgMCAwIDEgMjAwIDI2Mi41Yy00NS41IDAtODkuMjgzLTcuMzY3LTEzMC4yMzMtMjAuOTgzQzQ5LjUzMyAyMzUuMzUgMzcuMzMzIDIxNi40MTcgMzcuMzMzIDE5Ni4yMzN2LTYzLjExNmMwLTIzLjkgMTcuMDMzLTQ1IDQxLjI2Ny00OC42MTdBODEzLjU2NyA4MTMuNTY3IDAgMCAxIDEyNSA5MS45MTdWODcuNXptMTI1IDBoLTEwMHYxLjVhODI0Ljc4MyA4MjQuNzgzIDAgMCAwLTEwMCAwdi0xLjVhMjUgMjUgMCAwIDEgMjUtMjVoNTBhMjUgMjUgMCAwIDEgMjUgMjVabS01MCA2OC43NWExMi41IDEyLjUgMCAxIDAtMjUgMCAxMi41IDEyLjUgMCAwIDAgMjUgMFoiIGNsaXAtcnVsZT0iZXZlbm9kZCIgLz48cGF0aCBkPSJNNTAgMzA2LjY2N3Y0Ni42YTcxLjY2NyA3MS42NjcgMCAwIDAgMTEuODgzIDUuMTgzQTQzNi43NyA0MzYuNzcgMCAwIDAgMjAwIDM3NS44MzNjNDguMiAwIDk0LjY2Ny03LjggMTM4LjExNy0yMi4zODNhNzEuNjY3IDcxLjY2NyAwIDAgMCAxMS44ODMtNS4xODNWMzA2LjY2N2MwIDI0LjIgNTAuMzMzIDMwLjQxNyA0OS41NSAyNy44MjMyODMzQzM5NS4zMzMgMzEzLjcgMzc3LjQ2NyAyOTguNzMzIDM1OC4zIDI4OS4zNjdhODE4LjE3IDgxOC4xNyAwIDAgMS0xMDcuOS03LjExN0M4MC43ODMgNTU0LjMzIDUwIDMyOS43IDUwIDMwNi42NjdaIiAvPjwvc3ZnPg==`
-        },
-        'sobre-mi-propuesta': {
-            title: 'Sobre mí',
-            // Nuevo SVG de persona - Convertido a base64
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiBmaWxsPSIjMzREMzk5Ij48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zMTEuNDE3IDMxOC4xNjJBMTYyLjA1IDE2Mi4wNSAwIDAgMCAzNjIuNSAyMDBjMC04OS43NS03Mi43NS0xNjIuNS0xNjIuNS0xNjIuNVM0Ny41IDExMC4yNSA0Ny41IDIwMGExNjIuMDUgMTYyLjA1IDAgMCAwIDUxLjA4MyAxMTguMTYyQTE2MS45MyAxNjEuOTMgMCAwIDAgMjAwIDM2Mi41YTE2MS45MyAxNjEuOTMgMCAwIDAgMTExLjQxNy00NC4zMzh6bS0yMDguOTE3LTIxLjQxNkExMjQuNzcgMTI0Ljc3IDAgMCAxIDIwMCAyNTBhMTI0Ljc3IDEyNC43NyAwIDAgMSA5Ny41IDQ2Ljc0NkExMzcuMDYgMTM3LjA2IDAgMCAxIDIwMCAzMzcuNWExMzcuMDYgMTM3LjA2IDAgMCAxLTk3LjUtNDAuNzU0ek0yNjIuNSAxNTBhNjIuNSA2Mi41IDAgMSAxLTEyNSAwIDYyLjUgNjIuNSAwIDAgMSAxMjUgMFoiIGNsaXAtcnVsZT0iZXZlbm9kZCIgLz48L3N2Zz4=`
-        },
-        'servicios-habilidades': {
-            title: 'Servicios y habilidades',
-            // Gráfico de Área (similar a un gráfico de radar)
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTc2Ij48cGF0aCBkPSJNMzYwLDUwTDE2MCwyNTBMNDYwLDU1MEw1NzYsMjUwWiIgc3Ryb2tlPSJub25lIiBmaWxsPSIjMzREMzk5IiBmaWxsLW9wYWNpdHk9IjAuNSIvPjxwYXRoIGQ9Ik0zNjAsNTAgTCAxNjAsMjUwIEwgNDYwLDU1MCBMIDU3NiwyNTBaIiBzdHJva2U9IiMzREMzOTkiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+`
-        },
-        'contacto': {
-            title: 'Contacto',
-            // Nuevo SVG de contacto actualizado - Convertido a base64
-            svg: `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiBmaWxsPSIjMzREMzk5Ij48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yMDAgMzcuNWMtODkuNzUgMC0xNjIuNSA3Mi43NS0xNjIuNSAxNjIuNXM3Mi43NSAxNjIuNSAxNjIuNSAxNjIuNSAxNjIuNS03Mi43NSAxNjIuNS0xNjIuNVM4OS43NSAzNy41IDIwMCAzNy41ek0xMDQuMzcgMTAxLjJhMTM3LjUgMTM3LjUgMCAxIDAgMTc2LjAzLTEyLjc2N0E3NS41IDc1LjUgMCAwIDEgMjU4LjUgMTA5LjVsLjI3NS41NWExMy40ODMgMTMuNDgzIDAgMCAxLTE4LjA5MiAxOC4wOTJsLTEwLjA2Ny01LjAzM2ExOC43NSAxOC43NSAwIDAgMC0yMS42MzIgMy41bC0yLjIgMi4xODNjLTcuMzE3IDcuMzE3LTcuMzE3IDE5LjIgMCAyNi41MTdsNC45MzMgNC45MzNjNC4yNjcgNC4yODMgMTAuMzcgNi4yMzMgMTYuMzMzIDUuMjMzbDE5LjUtMy4yNWM1LjM4My0uOSAxMC45IDYuMDE3IDE1LjA4MyAzLjgzM2wyMi4xNjcgMTguNDY3YzUuMzMzIDQuNDUgNy42NjcgMTEuNTY3IDUuOTY3IDE4LjMzM2ExNDUgMTQ1IDAgMCAxLTM4LjEzNCA2Ny4zMzNsLTEyLjA1IDEyLjA2N2ExOC43NSAxOC43NSAwIDAgMS0yMS42MzMgMy41bC0yLjU1LTEuMjY3YTE4Ljc1IDE4Ljc1IDAgMCAxLTEwLjM2Ny0xNi43NjZ2LTE4LjE1YzAtNC45NjctMS45ODMtOS43NS01LjUtMTMuMjY3bC0yMi40NS0yMi40NWExOC43NSAxOC43NSAwIDAgMS0zLjUtMjEuNjMzTDE2Mi41IDIwMGwtMjcuMzMzLTI3LjMzM2ExMDAgMTAwIDAgMCAxLTI3LjkzMy01NC4yODNsLTIuODY3LTEuNzE3WiIgY2xpcC1ydWxlPSJldmVub2RkIiAvPjwvc3ZnPg==`
-        }
-    };
-
-    // Función para activar una pestaña con la animación de transición
+    // Función para activar una pestaña sin transiciones
     function activateTab(targetId) {
-        const { title, svg } = tabTransitionData[targetId];
-        transitionImage.src = svg;
-        transitionTitle.textContent = title;
-        transitionOverlay.classList.add('active');
-
-        // Retrasa el cambio de contenido hasta que la transición se vea
-        setTimeout(() => {
-            tabContents.forEach(content => {
-                content.classList.remove('active');
-            });
-            const targetContent = document.getElementById(targetId);
-            if (targetContent) {
-                targetContent.classList.add('active');
-            }
-
-            // Oculta el overlay después de un breve período
-            setTimeout(() => {
-                transitionOverlay.classList.remove('active');
-            }, 600); // Duración de la animación de salida
-        }, 400); // Coincide con la duración de la animación de entrada
+        // Oculta todas las pestañas inmediatamente
+        tabContents.forEach(content => {
+            content.classList.remove('active');
+        });
+        
+        // Muestra la pestaña objetivo inmediatamente
+        const targetContent = document.getElementById(targetId);
+        if (targetContent) {
+            targetContent.classList.add('active');
+        }
     }
 
     // Agrega el event listener a cada enlace de navegación
@@ -71,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tabLinks.forEach(l => l.classList.remove('active'));
             link.classList.add('active');
 
-            // Activa la pestaña con la nueva lógica de transición
+            // Activa la pestaña sin transiciones
             activateTab(targetId);
         });
     });
@@ -128,18 +86,18 @@ document.addEventListener('DOMContentLoaded', () => {
         draw() {} // Método para dibujar el elemento en el canvas
     }
 
-    // Clase para partículas ascendentes
+    // Clase para partículas ascendentes - velocidad reducida
     class Particle extends VisualElement {
         constructor() {
             super(Math.random() * width, height + 20);
             this.radius = Math.random() * 1.5 + 0.5;
-            this.speedY = -(Math.random() * 0.8 + 0.5);
+            this.speedY = -(Math.random() * 0.4 + 0.2); // Reducida de 0.8 + 0.5 a 0.4 + 0.2
             this.opacity = Math.random() * 0.6 + 0.4;
         }
 
         update() {
             this.y += this.speedY;
-            this.opacity -= 0.005;
+            this.opacity -= 0.003; // Reducida de 0.005
             return this.y < -20 || this.opacity <= 0;
         }
 
@@ -151,15 +109,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Clase para gráficos de líneas minimalistas (ondas)
+    // Clase para gráficos de líneas minimalistas (ondas) - velocidad reducida
     class MinimalGraph extends VisualElement {
         constructor() {
             super(Math.random() * width, Math.random() * height * 0.7 + height * 0.3);
             this.amplitude = Math.random() * 30 + 10;
-            this.frequency = Math.random() * 0.02 + 0.01;
+            this.frequency = Math.random() * 0.01 + 0.005; // Reducida de 0.02 + 0.01
             this.phase = Math.random() * Math.PI * 2;
             this.lineWidth = Math.random() * 1.5 + 0.5;
-            this.speed = Math.random() * 0.5 + 0.2;
+            this.speed = Math.random() * 0.25 + 0.1; // Reducida de 0.5 + 0.2
         }
 
         update() {
@@ -191,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Clase para mapas de calor dinámicos (círculos difusos)
+    // Clase para mapas de calor dinámicos (círculos difusos) - velocidad reducida
     class Heatmap extends VisualElement {
         constructor() {
             super(Math.random() * width, Math.random() * height);
@@ -200,8 +158,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         update() {
-            // Cambia la intensidad del color con el tiempo
-            this.intensity = 0.5 + Math.sin(Date.now() * 0.002 + this.x * 0.01 + this.y * 0.01) * 0.5;
+            // Cambia la intensidad del color con el tiempo - velocidad reducida
+            this.intensity = 0.5 + Math.sin(Date.now() * 0.001 + this.x * 0.005 + this.y * 0.005) * 0.5; // Reducida velocidad
             return false;
         }
 
@@ -215,19 +173,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Clase para datos binarios que caen (0s y 1s)
+    // Clase para datos binarios que caen (0s y 1s) - velocidad reducida
     class BinaryData extends VisualElement {
         constructor() {
             super(Math.random() * width, -20);
             this.value = Math.random() < 0.5 ? '0' : '1';
-            this.speedY = Math.random() * 1 + 0.5;
+            this.speedY = Math.random() * 0.5 + 0.25; // Reducida de 1 + 0.5
             this.fontSize = Math.random() * 10 + 8;
             this.opacity = Math.random() * 0.7 + 0.3;
         }
 
         update() {
             this.y += this.speedY;
-            this.opacity -= 0.003;
+            this.opacity -= 0.002; // Reducida de 0.003
             return this.y > height + 20 || this.opacity <= 0;
         }
 
@@ -238,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // Clase para gráficos de barras animados
+    // Clase para gráficos de barras animados - velocidad reducida
     class BarChart extends VisualElement {
         constructor() {
             super(Math.random() * width, Math.random() * height * 0.8 + height * 0.1);
@@ -246,11 +204,11 @@ document.addEventListener('DOMContentLoaded', () => {
             this.barWidth = Math.random() * 8 + 4;
             this.barHeights = Array.from({ length: this.numBars }, () => Math.random() * 60 + 20);
             this.animationPhase = Math.random() * Math.PI * 2;
-            this.speed = Math.random() * 0.3 + 0.1;
+            this.speed = Math.random() * 0.15 + 0.05; // Reducida de 0.3 + 0.1
         }
 
         update() {
-            this.animationPhase += 0.05;
+            this.animationPhase += 0.025; // Reducida de 0.05
             this.y += this.speed * (Math.random() - 0.5);
             if (this.y < -50 || this.y > height + 50) {
                 this.y = Math.random() * height;
@@ -270,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Clase para gráficos de pastel (pie charts) animados
+    // Clase para gráficos de pastel (pie charts) animados - velocidad reducida
     class PieChart extends VisualElement {
         constructor() {
             super(Math.random() * width, Math.random() * height);
@@ -282,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         update() {
-            this.animationPhase += 0.02;
+            this.animationPhase += 0.01; // Reducida de 0.02
             return false;
         }
 
