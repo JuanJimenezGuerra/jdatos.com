@@ -44,18 +44,15 @@ h1, h2, h3 {
 
 /*
     =======================================
-    Estilos de la Transición de Pestañas
+    Estilos de las Pestañas (Sin Transiciones)
     =======================================
-    Maneja la animación de entrada y salida de las secciones de contenido
-    y el overlay de transición.
+    Maneja la visualización directa de las secciones de contenido
+    sin animaciones de transición.
 */
 
 .tab-content {
     /* Estado inicial (oculto) de las pestañas */
     display: none;
-    opacity: 0;
-    transform: scale(0.95); /* Comienza ligeramente reducido */
-    transition: opacity var(--transition-duration) ease-out, transform var(--transition-duration) ease-out;
     position: relative;
     z-index: 10;
 }
@@ -63,8 +60,6 @@ h1, h2, h3 {
 .tab-content.active {
     /* Estado activo (visible) de las pestañas */
     display: block;
-    opacity: 1;
-    transform: scale(1); /* Se expande a su tamaño normal */
 }
 
 .tab-link.active {
@@ -73,71 +68,6 @@ h1, h2, h3 {
     color: var(--color-accent);
     border-bottom-width: 2px;
     border-color: var(--color-accent);
-}
-
-/*
-    ========================================
-    Estilos del Overlay de Transición
-    ========================================
-    Define la apariencia y animación del overlay que aparece al cambiar de pestaña.
-*/
-
-#tab-transition-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* Cambiado a fondo oscuro con mayor opacidad */
-    background-color: rgba(17, 24, 39, 0.95);
-    backdrop-filter: blur(8px); /* Aplica un desenfoque al contenido detrás */
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s ease-in, visibility 0.4s;
-    z-index: 20; /* Asegura que el overlay esté por encima de todo */
-}
-
-#tab-transition-overlay.active {
-    /* Activa la visibilidad y opacidad del overlay */
-    opacity: 1;
-    visibility: visible;
-}
-
-#tab-transition-overlay img {
-    /* Estilos para la imagen SVG dentro del overlay */
-    max-width: 90%;
-    max-height: 50vh;
-    border-radius: 1rem;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-    transform: scale(0.8);
-    transition: transform 0.4s ease-out;
-}
-
-#tab-transition-overlay h2 {
-    /* Estilos para el título dentro del overlay */
-    color: var(--color-accent);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    margin-top: 2rem;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.4s ease-in 0.2s, transform 0.4s ease-in 0.2s;
-}
-
-#tab-transition-overlay.active img {
-    /* Anima la imagen para que se expanda */
-    transform: scale(1);
-}
-
-#tab-transition-overlay.active h2 {
-    /* Anima el título para que aparezca */
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /*
