@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Lógica de Transición de Pestañas ---
     const tabLinks = document.querySelectorAll('.tab-link');
     const tabContents = document.querySelectorAll('.tab-content');
+    const footerNavs = document.querySelectorAll('.footer-nav');
 
     // Función para activar una pestaña sin transiciones
     function activateTab(targetId) {
@@ -16,21 +17,43 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetContent = document.getElementById(targetId);
         if (targetContent) {
             targetContent.classList.add('active');
+            // Hacer scroll hacia arriba cuando se cambia de pestaña
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     }
 
-    // Agrega el event listener a cada enlace de navegación
+    // Función para actualizar enlaces activos
+    function updateActiveLinks(activeElement) {
+        // Remueve active de todos los enlaces de navegación
+        tabLinks.forEach(l => l.classList.remove('active'));
+        footerNavs.forEach(l => l.classList.remove('active'));
+        
+        // Agrega active al elemento clickeado
+        if (activeElement) {
+            activeElement.classList.add('active');
+        }
+    }
+
+    // Agrega el event listener a cada enlace de navegación principal
     tabLinks.forEach(link => {
         link.addEventListener('click', (event) => {
-            event.preventDefault(); // Evita el comportamiento por defecto del enlace
+            event.preventDefault();
             const targetId = link.dataset.target;
-
-            // Actualiza la clase 'active' para los enlaces de navegación
-            tabLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
-
-            // Activa la pestaña sin transiciones
+            updateActiveLinks(link);
             activateTab(targetId);
+        });
+    });
+
+    // Agrega el event listener a cada enlace de navegación del footer
+    footerNavs.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const targetId = link.dataset.target;
+            
+            if (targetId) {
+                updateActiveLinks(null); // No marcamos como activo los enlaces del footer
+                activateTab(targetId);
+            }
         });
     });
 
@@ -41,13 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             
             // Actualiza la clase 'active' para los enlaces de navegación
-            tabLinks.forEach(l => l.classList.remove('active'));
             const contactoLink = document.querySelector('[data-target="contacto"]');
-            if (contactoLink) {
-                contactoLink.classList.add('active');
-            }
-
-            // Activa la pestaña de contacto
+            updateActiveLinks(contactoLink);
             activateTab('contacto');
         });
     }
