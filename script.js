@@ -17,8 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetContent = document.getElementById(targetId);
         if (targetContent) {
             targetContent.classList.add('active');
-            // Solo hacer scroll hacia arriba para pestañas principales, no para términos y privacidad
-            if (targetId !== 'terminos' && targetId !== 'privacidad') {
+            // Para términos y privacidad, hacer scroll hacia arriba siempre
+            // Para pestañas principales, solo si no son términos o privacidad
+            if (targetId === 'terminos' || targetId === 'privacidad') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
