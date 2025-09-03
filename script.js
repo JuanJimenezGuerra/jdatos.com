@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Lógica de Transición de Pestañas ---
     const tabLinks = document.querySelectorAll('.tab-link');
     const tabContents = document.querySelectorAll('.tab-content');
-    const footerNavs = document.querySelectorAll('.footer-nav');
 
     // Función para activar una pestaña sin transiciones
     function activateTab(targetId) {
@@ -17,13 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetContent = document.getElementById(targetId);
         if (targetContent) {
             targetContent.classList.add('active');
-            // Para términos y privacidad, hacer scroll hacia arriba siempre
-            // Para pestañas principales, solo si no son términos o privacidad
-            if (targetId === 'terminos' || targetId === 'privacidad') {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     }
 
@@ -31,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateActiveLinks(activeElement) {
         // Remueve active de todos los enlaces de navegación
         tabLinks.forEach(l => l.classList.remove('active'));
-        footerNavs.forEach(l => l.classList.remove('active'));
         
         // Agrega active al elemento clickeado
         if (activeElement) {
@@ -49,19 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Agrega el event listener a cada enlace de navegación del footer
-    footerNavs.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            const targetId = link.dataset.target;
-            
-            if (targetId) {
-                updateActiveLinks(null); // No marcamos como activo los enlaces del footer
-                activateTab(targetId);
-            }
-        });
-    });
-
     // --- Funcionalidad del botón "Agenda una Consulta Gratuita" ---
     const consultaBtn = document.getElementById('consulta-btn');
     if (consultaBtn) {
@@ -74,6 +53,85 @@ document.addEventListener('DOMContentLoaded', () => {
             activateTab('contacto');
         });
     }
+
+    // --- Funcionalidad de Modales ---
+    
+    // Elementos de los modales
+    const terminosModal = document.getElementById('terminos-modal');
+    const privacidadModal = document.getElementById('privacidad-modal');
+    const openTerminosBtn = document.getElementById('open-terminos-modal');
+    const openPrivacidadBtn = document.getElementById('open-privacidad-modal');
+    const closeTerminosBtn = document.getElementById('close-terminos-modal');
+    const closePrivacidadBtn = document.getElementById('close-privacidad-modal');
+
+    // Función para abrir modal
+    function openModal(modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Previene scroll del fondo
+    }
+
+    // Función para cerrar modal
+    function closeModal(modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto'; // Restaura scroll del fondo
+    }
+
+    // Event listeners para abrir modales
+    if (openTerminosBtn && terminosModal) {
+        openTerminosBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal(terminosModal);
+        });
+    }
+
+    if (openPrivacidadBtn && privacidadModal) {
+        openPrivacidadBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal(privacidadModal);
+        });
+    }
+
+    // Event listeners para cerrar modales
+    if (closeTerminosBtn && terminosModal) {
+        closeTerminosBtn.addEventListener('click', () => {
+            closeModal(terminosModal);
+        });
+    }
+
+    if (closePrivacidadBtn && privacidadModal) {
+        closePrivacidadBtn.addEventListener('click', () => {
+            closeModal(privacidadModal);
+        });
+    }
+
+    // Cerrar modal al hacer clic fuera del contenido
+    if (terminosModal) {
+        terminosModal.addEventListener('click', (e) => {
+            if (e.target === terminosModal) {
+                closeModal(terminosModal);
+            }
+        });
+    }
+
+    if (privacidadModal) {
+        privacidadModal.addEventListener('click', (e) => {
+            if (e.target === privacidadModal) {
+                closeModal(privacidadModal);
+            }
+        });
+    }
+
+    // Cerrar modal con la tecla Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            if (!terminosModal.classList.contains('hidden')) {
+                closeModal(terminosModal);
+            }
+            if (!privacidadModal.classList.contains('hidden')) {
+                closeModal(privacidadModal);
+            }
+        }
+    });
 
     // --- Lógica del Canvas de Visualización de Datos ---
     const canvas = document.getElementById('data-visualization-canvas');
