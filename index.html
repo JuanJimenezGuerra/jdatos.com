@@ -337,11 +337,89 @@
                     class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]">
             </div>
 
+            <!-- Empresa -->
+            <div>
+                <label for="empresa" class="block text-[var(--color-text-light)] font-semibold mb-2">Empresa u organización</label>
+                <input type="text" id="empresa" name="empresa" 
+                    class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+                    placeholder="Opcional">
+            </div>
+
+            <!-- Sector Económico -->
+            <div>
+                <label for="sector" class="block text-[var(--color-text-light)] font-semibold mb-2">Sector económico</label>
+                <select id="sector" name="sector" required
+                    class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]">
+                    <option value="">Selecciona tu sector</option>
+                    <option value="agricultura">Agricultura, ganadería y pesca</option>
+                    <option value="mineria">Minería y extracción</option>
+                    <option value="manufactura">Manufactura e industria</option>
+                    <option value="construccion">Construcción e inmobiliario</option>
+                    <option value="comercio">Comercio al por mayor y menor</option>
+                    <option value="transporte">Transporte y logística</option>
+                    <option value="hoteleria">Hotelería y turismo</option>
+                    <option value="comunicaciones">Información y comunicaciones</option>
+                    <option value="financiero">Servicios financieros y seguros</option>
+                    <option value="profesionales">Servicios profesionales y técnicos</option>
+                    <option value="administrativos">Servicios administrativos</option>
+                    <option value="educacion">Educación</option>
+                    <option value="salud">Salud y asistencia social</option>
+                    <option value="entretenimiento">Entretenimiento y recreación</option>
+                    <option value="gobierno">Administración pública</option>
+                    <option value="ong">ONG y organizaciones sin fines de lucro</option>
+                    <option value="startup">Startup / Emprendimiento</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+
+            <!-- Tamaño de empresa -->
+            <div>
+                <label for="tamano_empresa" class="block text-[var(--color-text-light)] font-semibold mb-2">Tamaño de la empresa</label>
+                <select id="tamano_empresa" name="tamano_empresa" required
+                    class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]">
+                    <option value="">Selecciona el tamaño</option>
+                    <option value="independiente">Freelancer / Independiente</option>
+                    <option value="microempresa">Microempresa (1-10 empleados)</option>
+                    <option value="pequena">Pequeña empresa (11-50 empleados)</option>
+                    <option value="mediana">Mediana empresa (51-250 empleados)</option>
+                    <option value="grande">Gran empresa (250+ empleados)</option>
+                    <option value="corporativo">Corporativo / Multinacional</option>
+                </select>
+            </div>
+
             <!-- Motivo de contacto (lista de opciones) -->
             <div>
                 <label for="motivo" class="block text-[var(--color-text-light)] font-semibold mb-2">Motivo de contacto</label>
                 <select id="motivo" name="motivo" required
                     class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]">
+                    <option value="">Selecciona una opción</option>
+                    <option value="asesoria">Asesoría</option>
+                    <option value="proyecto">Propuesta de proyecto</option>
+                    <option value="colaboracion">Colaboración</option>
+                    <option value="cotizacion">Solicitar cotización</option>
+                    <option value="capacitacion">Capacitación</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+
+            <!-- Mensaje -->
+            <div>
+                <label for="mensaje" class="block text-[var(--color-text-light)] font-semibold mb-2">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" rows="5" required
+                    class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+                    placeholder="Cuéntame sobre tu proyecto, necesidades o consulta específica..."></textarea>
+            </div>
+
+            <!-- Botón Enviar -->
+            <div class="text-center">
+                <button type="submit"
+                    class="bg-[var(--color-accent)] text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:scale-105 transform transition-transform duration-300">
+                    Enviar mensaje
+                </button>
+            </div>
+        </form>
+    </div>
+</section>ring-2 focus:ring-[var(--color-accent)]">
                     <option value="">Selecciona una opción</option>
                     <option value="asesoria">Asesoría</option>
                     <option value="proyecto">Propuesta de proyecto</option>
