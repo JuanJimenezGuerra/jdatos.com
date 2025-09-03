@@ -52,6 +52,41 @@ h1, h2, h3, h4, h5, h6 {
     border-color: var(--color-accent);
 }
 
+/* Modales */
+.modal-overlay {
+    backdrop-filter: blur(4px);
+    transition: opacity var(--transition-duration) ease;
+}
+
+.modal-content {
+    transform: translateY(-20px);
+    transition: transform var(--transition-duration) ease;
+}
+
+.modal-overlay:not(.hidden) .modal-content {
+    transform: translateY(0);
+}
+
+/* Estilo para el botón de cerrar modal */
+.modal-close-btn {
+    transition: color var(--transition-duration) ease;
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 1;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(75, 85, 99, 0.2);
+}
+
+.modal-close-btn:hover {
+    background: rgba(75, 85, 99, 0.4);
+    color: var(--color-accent);
+}
+
 /* Formularios */
 input, textarea {
     background-color: #1F2937;
@@ -106,3 +141,27 @@ button:hover {
     50% { opacity: 0.5; }
 }
 .animate-pulse-fast { animation: pulse-fast 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+
+/* Animación de entrada para modales */
+@keyframes modalFadeIn {
+    from { 
+        opacity: 0; 
+        transform: scale(0.95) translateY(-10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1) translateY(0); 
+    }
+}
+
+.modal-content {
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Responsividad para modales */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 1rem;
+        max-height: calc(100vh - 2rem);
+    }
+}
