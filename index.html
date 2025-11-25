@@ -295,7 +295,8 @@
             Si tienes un proyecto en mente, deseas asesoría o colaboración, no dudes en escribirme a través de este formulario.
         </p>
 
-        <form action="https://formspree.io/f/yourFormID" method="POST" class="max-w-2xl mx-auto space-y-6">
+        <!-- FORMULARIO ACTUALIZADO -->
+        <form id="contact-form" class="max-w-2xl mx-auto space-y-6">
 
             <!-- Nombre -->
             <div>
@@ -394,6 +395,46 @@
         </form>
     </div>
 </section>
+
+<!-- SCRIPT DE ENVÍO A GOOGLE SHEETS -->
+<script>
+document.getElementById("contact-form").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxld3IgKPUMcegMRDsNOCaXN4bIBiDVPNKG2R_Qy23aIj9pe4MNjyC80-095-vuhW-o/exec";
+
+    const formData = {
+        nombre: document.getElementById("nombre").value,
+        email: document.getElementById("email").value,
+        whatsapp: document.getElementById("whatsapp").value,
+        empresa: document.getElementById("empresa").value,
+        sector: document.getElementById("sector").value,
+        tamano_empresa: document.getElementById("tamano_empresa").value,
+        motivo: document.getElementById("motivo").value,
+        mensaje: document.getElementById("mensaje").value
+    };
+
+    try {
+        const response = await fetch(scriptURL, {
+            method: "POST",
+            body: JSON.stringify(formData)
+        });
+
+        const json = await response.json();
+
+        if (json.success) {
+            alert("Mensaje enviado correctamente. Te contactaré pronto.");
+            document.getElementById("contact-form").reset();
+        } else {
+            alert("Hubo un error al enviar el mensaje.");
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert("Error de conexión. Intenta de nuevo.");
+    }
+});
+</script>
 
     </main>
 
