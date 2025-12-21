@@ -34,71 +34,101 @@
     <main class="container mx-auto p-6 md:p-12 min-h-screen relative z-10">
 
         <!-- INICIO -->
-        <section id="inicio" class="tab-content active">
-            <div class="text-center rounded-2xl p-8 md:p-16 shadow-lg border border-gray-700 backdrop-blur-sm bg-gray-900/70">
-                <img src="Perfil.jpg" 
-    alt="Foto de perfil de Juan David Jimenez"
-    class="w-32 h-32 object-cover rounded-full mx-auto mb-6 border-4 border-[var(--color-accent)] shadow-lg animate-fade-in-up animate-pulse-slow">
-                <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-4 animate-fade-in-up delay-100">
-                    Transformando datos en decisiones inteligentes para tu negocio
-                </h1>
-                <div class="text-base md:text-lg text-[var(--color-text-light)] max-w-3xl mx-auto mb-8 animate-fade-in-up delay-200">
-                    <p class="mb-4">Con un enfoque práctico y estratégico, ayudo a empresas a descubrir oportunidades ocultas en sus datos, optimizar procesos y potenciar la rentabilidad. Mi trabajo combina analítica avanzada, diseño de tableros claros y automatización de procesos para que la información se convierta en acción.</p>
-                    <p class="text-lg font-semibold text-[var(--color-accent)]">La meta es sencilla: que cada dato cuente una historia útil para tu crecimiento.</p>
-                </div>
-                <button id="consulta-btn" class="inline-block mt-8 bg-[var(--color-accent)] text-gray-900 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 transform hover:scale-105 animate-fade-in-up delay-300 animate-bounce-once cursor-pointer">
-                    Conversemos sobre tu proyecto
-                </button>
-            </div>
-        </section>
+<!-- PORTAFOLIO DE PROYECTOS -->
+<section id="portafolio-proyectos" class="tab-content active">
 
-<!-- PORTAFOLIO -->
-<section id="portafolio" class="tab-content">
+    <!-- TÍTULO GENERAL -->
+    <h1 class="text-3xl md:text-5xl font-extrabold text-[var(--color-accent)] text-center mb-16">
+        Portafolio de proyectos
+    </h1>
+
+    <!-- HERO / PRESENTACIÓN -->
+    <div class="text-center rounded-2xl p-8 md:p-16 shadow-lg border border-gray-700 backdrop-blur-sm bg-gray-900/70 mb-20">
+        <img src="Perfil.jpg" 
+             alt="Foto de perfil de Juan David Jimenez"
+             class="w-32 h-32 object-cover rounded-full mx-auto mb-6 border-4 border-[var(--color-accent)] shadow-lg animate-fade-in-up animate-pulse-slow">
+
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-4 animate-fade-in-up delay-100">
+            Transformando datos en decisiones inteligentes para tu negocio
+        </h2>
+
+        <div class="text-base md:text-lg text-[var(--color-text-light)] max-w-3xl mx-auto mb-8 animate-fade-in-up delay-200">
+            <p class="mb-4">
+                Con un enfoque práctico y estratégico, ayudo a empresas a descubrir oportunidades ocultas en sus datos,
+                optimizar procesos y potenciar la rentabilidad.
+            </p>
+            <p class="text-lg font-semibold text-[var(--color-accent)]">
+                La meta es sencilla: que cada dato cuente una historia útil para tu crecimiento.
+            </p>
+        </div>
+
+        <button id="consulta-btn"
+            class="inline-block mt-8 bg-[var(--color-accent)] text-gray-900 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 transform hover:scale-105 animate-fade-in-up delay-300 animate-bounce-once cursor-pointer">
+            Conversemos sobre tu proyecto
+        </button>
+    </div>
+
+    <!-- PORTAFOLIO -->
     <div class="bg-slate-900 p-8 md:p-12 rounded-2xl shadow-xl">
         <h2 class="text-2xl md:text-4xl font-bold text-[var(--color-accent)] mb-6 border-b-2 border-gray-700 pb-2 text-center">
-            Mi Portafolio
+            Proyectos destacados
         </h2>
-        <p class="text-[var(--color-text-light)] text-base md:text-lg mb-8 max-w-3xl mx-auto text-center animate-fade-in-up">
-            Aquí encontrarás proyectos sólidos que demuestran mi capacidad para resolver problemas reales de negocio y mis habilidades técnicas.
+
+        <p class="text-[var(--color-text-light)] text-base md:text-lg mb-12 max-w-3xl mx-auto text-center animate-fade-in-up">
+            Proyectos reales que demuestran mi capacidad para resolver problemas de negocio con analítica,
+            visualización de datos y automatización.
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
             <!-- ITEM 1 -->
             <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-100">
                 <div class="aspect-video w-full mb-4">
-                    <iframe src="https://www.youtube.com/embed/QCczJC2U3WM" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen class="rounded-lg w-full h-full"></iframe>
+                    <iframe src="https://www.youtube.com/embed/QCczJC2U3WM"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                            class="rounded-lg w-full h-full"></iframe>
                 </div>
                 <h3 class="text-xl font-bold text-white mb-2">Resultados CRM 2025</h3>
-                <p class="text-[var(--color-text-light)]">Dashboard interactivo que visualiza los resultados y métricas principales del CRM durante el 2025, permitiendo un análisis detallado del desempeño comercial.</p>
+                <p class="text-[var(--color-text-light)]">
+                    Dashboard interactivo para analizar métricas comerciales y desempeño del CRM en 2025.
+                </p>
             </div>
 
-           
             <!-- ITEM 2 -->
             <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-200">
                 <div class="aspect-video w-full mb-4">
-                    <iframe src="https://www.youtube.com/embed/tGaeMojk4BY" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen class="rounded-lg w-full h-full"></iframe>
+                    <iframe src="https://www.youtube.com/embed/tGaeMojk4BY"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                            class="rounded-lg w-full h-full"></iframe>
                 </div>
                 <h3 class="text-xl font-bold text-white mb-2">Dashboard empresa de limpieza</h3>
-                <p class="text-[var(--color-text-light)]">Panel de control diseñado específicamente para empresas de limpieza, mostrando indicadores operativos, rendimiento de equipos y satisfacción del cliente.</p>
+                <p class="text-[var(--color-text-light)]">
+                    Panel operativo con indicadores clave, productividad de equipos y satisfacción del cliente.
+                </p>
             </div>
 
             <!-- ITEM 3 -->
             <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-fade-in-up delay-300">
                 <div class="aspect-video w-full mb-4">
-                    <iframe src="https://www.youtube.com/embed/mp_XN9_OAjk" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen class="rounded-lg w-full h-full"></iframe>
+                    <iframe src="https://www.youtube.com/embed/mp_XN9_OAjk"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                            class="rounded-lg w-full h-full"></iframe>
                 </div>
                 <h3 class="text-xl font-bold text-white mb-2">Portal de Datos en Zoho Analytics</h3>
-                <p class="text-[var(--color-text-light)]">Portal centralizado de datos que integra múltiples fuentes de información, facilitando el acceso y análisis de datos empresariales de manera eficiente.</p>
+                <p class="text-[var(--color-text-light)]">
+                    Portal centralizado que integra múltiples fuentes de datos para análisis empresarial.
+                </p>
             </div>
-        
+
         </div>
     </div>
+
 </section>
 
         <!-- SOBRE MI -->
